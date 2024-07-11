@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lepszy konwenter temperatury</title>
+
+    <style>
+        .pole-style {
+            border-radius: 15px;
+            border: 2px solid red;
+        }
+
+        .a:hover {
+            border: 2px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="module">
+        import { KonwenterTemperatury } from './lepszy_konwenter_temperatury.js';
+        import { CSS } from './lepszy_konwenter_temperatury_CSS.js';
+
+        // Utworzono niezależny obiekt KonwenterTemperatury
+        // Można utworzyć nieskończenie wiele takich niezależnych obiektów.
+        let converter1 = new KonwenterTemperatury(document.body);
+        converter1.initComponent();
+
+        // Stylownie może być wykonane za pomocą dedykowanej klasy, 
+        // która dynamicznie buduje styl dla danego komponentu.
+        let customStyle1 = new CSS(converter1.input);
+        customStyle1.appendClass('pole-style').appendClass('a').appendInlineStyle('padding', '10px').appendInlineStyle('margin', '10px');
+        customStyle1.build();
+
+        let customStyle2 = new CSS(converter1.output)
+        customStyle2.appendClass('pole-style').appendClass('a').appendInlineStyle('padding', '10px').appendInlineStyle('margin', '10px');
+        customStyle2.build();
+    </script>
+
+    <script type="module" src="./lepszy_konwenter_temperatury.js"></script>
+    <script type="module" src="./lepszy_konwenter_temperatury_CSS.js"></script>
+</body>
+
+</html>

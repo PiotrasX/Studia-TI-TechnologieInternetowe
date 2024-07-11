@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 1</title>
+</head>
+
+<body>
+    <script>
+        // JavaScript pozwala na elastyczne przypisywanie różnych typów danych do tych samych zmiennych w trakcie działania programu.
+        let zmienna = 10; // Zmienna 'zmienna' jest typu number (liczba)
+        console.log(typeof zmienna); // Wyświetli: number
+        zmienna = "Tekst"; // Teraz 'zmienna' jest typu string (tekst)
+        console.log(typeof zmienna); // Wyświetli: string
+        zmienna = true; // Teraz 'zmienna' jest typu boolean (wartość logiczna)
+        console.log(typeof zmienna); // Wyświetli: boolean
+
+        // Podstawowe operatory:
+        // Przypisania                     = += -= *= /= %= <<= >>=
+        // Logiczne "LUB"                  ||
+        // Logiczne "I"                    &&
+        // Bitowe "LUB"                    |
+        // Bitowe "I"                      &
+        // Bitowe "XOR"                    ^
+        // Porównanie wartości             == !=
+        // Porównanie wartości i typu      === !==
+        // Relacji                         < <= > >= in instanceof
+        // Dodawanie/odejmowanie           + -
+        // Mnożenie/dzielenie/modulo       * / %
+    </script>
+
+    <script>
+        // Utwórz zmienne.
+        let a = "3.45";
+        let b = 4;
+        let c = true;
+        let d;
+        let e = [];
+
+        // Wykonaj działania arytmetyczne +, -, *, / na parach zmiennych [a, b], [b, c], [a, c].
+        console.log(a + b); // Wynik: 3.454
+        console.log(a - b); // Wynik: -0.5499999999999998
+        console.log(a * b); // Wynik: 13.8
+        console.log(a / b); // Wynik: 0.8625
+        console.log(b + c); // Wynik: 5
+        console.log(b - c); // Wynik: 3
+        console.log(b * c); // Wynik: 4
+        console.log(b / c); // Wynik: 4
+        console.log(a + c); // Wynik: 3.45true
+        console.log(a - c); // Wynik: 2.45
+        console.log(a * c); // Wynik: 3.45
+        console.log(a / c); // Wynik: 3.45
+
+        // Które z operacji arytmetycznych wykonały się poprawnie?
+        // a + b -> dało stringa
+        // a - b -> dało prawidłową liczbę
+        // a * b -> dało prawidłową liczbę
+        // a / b -> dało prawidłową liczbę
+        // b + c -> dało liczbę (boolean traktowane jest jako 0/1)
+        // b - c -> dało liczbę (boolean traktowane jest jako 0/1)
+        // b * c -> dało liczbę (boolean traktowane jest jako 0/1)
+        // b / c -> dało liczbę (boolean traktowane jest jako 0/1)
+        // a + c -> dało stringa
+        // a - c -> dało liczbę (boolean traktowane jest jako 0/1)
+        // a * c -> dało liczbę (boolean traktowane jest jako 0/1)
+        // a / c -> dało liczbę (boolean traktowane jest jako 0/1)
+
+        // Czy kolejność zmiennych przy działaniach na zmiennych różnego typu ma znaczenie? - ma znaczenie
+        console.log(b + a); // Wynik: 43.45
+        console.log(b - a); // Wynik: 0.5499999999999998
+        console.log(b * a); // Wynik: 13.8
+        console.log(b / a); // Wynik: 1.1594202898550725
+        console.log(c + b); // Wynik: 5
+        console.log(c - b); // Wynik: -3
+        console.log(c * b); // Wynik: 4
+        console.log(c / b); // Wynik: 0.25
+        console.log(c + a); // Wynik: true3.45
+        console.log(c - a); // Wynik: -2.45
+        console.log(c * a); // Wynik: 3.45
+        console.log(c / a); // Wynik: 0.2898550724637681
+
+        // b + a -> dało stringa
+        // b - a -> dało prawidłową liczbę
+        // b * a -> dało prawidłową liczbę
+        // b / a -> dało prawidłową liczbę
+        // c + b -> dało liczbę (boolean traktowane jest jako 0/1)
+        // c - b -> dało liczbę (boolean traktowane jest jako 0/1)
+        // c * b -> dało liczbę (boolean traktowane jest jako 0/1)
+        // c / b -> dało liczbę (boolean traktowane jest jako 0/1)
+        // c + a -> dało stringa
+        // c - a -> dało liczbę (boolean traktowane jest jako 0/1)
+        // c * a -> dało liczbę (boolean traktowane jest jako 0/1)
+        // c / a -> dało liczbę (boolean traktowane jest jako 0/1)
+    </script>
+</body>
+
+</html>

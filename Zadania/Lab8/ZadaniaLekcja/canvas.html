@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+        body {
+            margin: 15px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="500" height="350" style="border:3px solid #000000;">
+        Twoja przeglądarka nie obsługuje tagu canvas HTML.
+    </canvas>
+
+    <script>
+        // Pobranie elementu Canvas
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // Prostokąt zamalowany
+        ctx.fillStyle = "blue";
+        ctx.fillRect(30, 30, 150, 50); // Położenie X, Położenie Y, Szerokość, Wysokość
+
+        // Prostokąt niezamalowany
+        ctx.strokeStyle = "blue";
+        ctx.strokeRect(320, 30, 150, 50);
+
+        // Trójkąt zamalowany
+        ctx.beginPath();
+        ctx.moveTo(30, 110); // Położenie X, Położenie Y
+        ctx.lineTo(130, 160);
+        ctx.lineTo(30, 160);
+        ctx.closePath();
+        ctx.fillStyle = "green";
+        ctx.fill();
+
+        // Trójkąt niezamalowany
+        ctx.beginPath();
+        ctx.moveTo(470, 110);
+        ctx.lineTo(370, 160);
+        ctx.lineTo(470, 160);
+        ctx.closePath();
+        ctx.strokeStyle = "green";
+        ctx.stroke();
+
+        // Okrąg zamalowany
+        ctx.beginPath();
+        ctx.arc(55, 215, 25, 0, 2 * Math.PI); // Położenie X, Położenie Y, Promień, Ile zamalowanego koła, Ile zamalowanego koła
+        ctx.fillStyle = "red";
+        ctx.fill();
+
+        // Okrąg niezamalowany
+        ctx.beginPath();
+        ctx.arc(445, 215, 25, 0, 2 * Math.PI);
+        ctx.strokeStyle = "red";
+        ctx.stroke();
+
+        // Trapez zamalowany
+        ctx.beginPath();
+        ctx.moveTo(80, 270); // Położenie X, Położenie Y
+        ctx.lineTo(30, 320);
+        ctx.lineTo(180, 320);
+        ctx.lineTo(130, 270);
+        ctx.closePath();
+        ctx.fillStyle = "cyan";
+        ctx.fill();
+
+        // Trapez niezamalowany
+        ctx.beginPath();
+        ctx.moveTo(420, 270);
+        ctx.lineTo(470, 320);
+        ctx.lineTo(320, 320);
+        ctx.lineTo(370, 270);
+        ctx.closePath();
+        ctx.strokeStyle = "cyan";
+        ctx.stroke();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+.div-image1 {
+    width: 500px;
+    height: 500px;
+    background-size: 100%;
+    animation-name: logo_UR_zmienianie_koloru;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@keyframes logo_UR_zmienianie_koloru {
+
+    0%,
+    100% {
+        background-image: url("logo_barwne.png");
+    }
+
+    50% {
+        background-image: url("logo_monochromatyczne.png");
+    }
+}
+
+.div-image2 {
+    width: 150px;
+    height: 150px;
+    background-size: 100%;
+    background-image: url("logo_barwne.png");
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.div-image2:hover {
+    animation-name: logo_UR_powiekszenie;
+    animation-duration: 2s;
+}
+
+@keyframes logo_UR_powiekszenie {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(2);
+    }
+}
+
+.div-image3 {
+    width: 150px;
+    height: 150px;
+    background-size: 100%;
+    animation-name: logo_UR_zmienianie_koloru;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.div-image3:hover {
+    animation-name: logo_UR_rotacja, logo_UR_zmienianie_koloru;
+    animation-duration: 2s, 6s;
+    animation-timing-function: linear, ease;
+    animation-iteration-count: infinite, infinite;
+    background-image: url("logo_barwne.png");
+}
+
+@keyframes logo_UR_rotacja {
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

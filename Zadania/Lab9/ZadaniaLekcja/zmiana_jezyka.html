@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zmiana języka</title>
+
+    <style>
+        a {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <select name="jezyk" id="jezyk">
+        <option value="pl">pl</option>
+        <option value="en">en</option>
+    </select>
+
+    <script src="zmiana_jezyka.js" type="module"></script>
+    <script type="module" src="zmiana_jezyka_deklaracje.js"></script>
+
+    <script type="module">
+        // Pokazano że odrębny moduł może korzystać z Promise'a generowanego gdzie indziej.
+        import { waitUntilLanguageChanged } from './zmiana_jezyka.js';
+        // Importujemy komponent zdefiniowany w innym module.
+        import { Aside } from './zmiana_jezyka_deklaracje.js';
+
+        function wait() {
+            waitUntilLanguageChanged().then((result) => {
+                console.log(result);
+                wait();
+            }, (error) => alert('Błąd!'));
+        }
+
+        // Alternatywana konstrukcja, która wykorzystuje async - 'await' zamiast 
+        // standardowego sposobu obsługi Promiseów.
+        async function waitAsync() {
+            await waitUntilLanguageChanged();
+            waitAsync();
+        }
+        waitAsync();
+
+        // Tworzymy instancję komponentu.
+        const aside = new Aside();
+        aside.setup();
+        aside.wait();
+    </script>
+</body>
+
+</html>

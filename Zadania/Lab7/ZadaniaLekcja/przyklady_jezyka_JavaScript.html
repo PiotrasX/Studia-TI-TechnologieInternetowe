@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <script>
+        /* Deklarowanie zmiennych */
+
+        var a = 1; // var - zmienna dowolnego typu
+        console.log(a); // Wypisanie zmiennej w konsoli przeglądarki
+
+        let b = 3; // Jest to zmienna mutowalna, jej wartość może ulec zmianie
+        const c = 3; // Jest to stała, która jest niemutowalna, nie można zmienić jej wartości
+        b += 2; // Zmienną 'b' można modyfikować
+        console.log(b);
+        c += 2; // Tutaj nastąpi błąd wykonania, nie można modyfikować stałej 'c'
+        console.log(c); // Nie nastąpi wypisanie, gdyż wcześniej wystąpił błąd i skrypt przerwał wykonywanie
+    </script>
+
+    <script>
+        /* Obiekty w JavaScript */
+
+        // Większość języków obiektowych jest oparta o klas, natomiast JS jest oparty o prototypy.
+        // W pewnym skrócie w JS tworzymy obiekty, z których możemy utworzyć kolejne obiekty (w tym rozszerzające pierwowzór), 
+        // bez potrzeby pisania klas. Każdy obiekt w JS posiada jakiś prototyp (może to być choćby null, ale raczej język stosuje 
+        // taką konstrukcję wewnętrznie, to znaczy samodzielnie pisane obiekty nie powinny mieć takiego prototypu).
+
+        const obj = {}; // Najprostszy sposób na utworzenie obiektu w JS -> object literal.
+        const person = { name: null, printIntroduction: function () { return `I am ${this.name}.` } } // Bardziej złożony object literal
+        // Tym razem poza prototypem Object obiekt posiada właściwość (property) name i metodę printIntroduction.
+
+        // Możliwe jest teraz zdefiniowanie nowego obiektu, którego prototypem będzie person (warto zwrócić uwagę, 
+        // że poniżej po prostu nadpisano wartość właściwości rodzica, ale jednocześnie w rodzicu pozostała ona nienaruszona):
+        const mark = Object.create(person);
+        mark.name = 'Mark';
+        console.log(mark.printIntroduction());
+        // Zatem obiekt mark posiada jako prototyp obiekt person, który posiada jako prototyp obiekt Object (który sam posiada prototyp null).
+
+        // Inna powszechnie wykorzystywana konstrukcją - constructor function.
+        function Person(name) {
+            this.name = name;
+            this.printIntroduction = function () { return `I am ${this.name}.` };
+        }
+        const susan = new Person('Susan');
+        console.log(susan.printIntroduction());
+
+        // Język JavaScript pozwala również "złożyć" sobie obiekt z innych obiektów.
+        const HoursEmployee =
+        {
+            computeHourlyPayment(hours) {
+                return hours * this.hourlyRate;
+            }
+        }
+
+        const FullTimeEmployee =
+        {
+            computeMonthlySalary() {
+                return this.salary;
+            }
+        }
+
+        function FullTimeEmployeeWithAdditionalHourlyPayment(salary, hourlyRate) {
+            return {
+                salary, hourlyRate, ...FullTimeEmployee, ...HoursEmployee, computeOverallPayment(additionalHours) {
+                    return this.computeHourlyPayment(additionalHours) + this.computeMonthlySalary();
+                }
+            }
+        }
+        const d = new FullTimeEmployeeWithAdditionalHourlyPayment(5000, 50);
+        console.log(d.computeOverallPayment(10));
+
+        // Obiektom w JS można w każdej chwili dynamicznie dodać nową właściwość.
+        susan.newProperty = 'Zupełnie nowa właściwość!';
+        // Podobnie można w każdej chwili dynamicznie dodać nową metodę.
+        susan.newMethod = function () { return 'Ta metoda została dodana po utworzeniu obiektu!' };
+    </script>
+
+    <script>
+        /* Document Object Model (DOM) */
+
+        // DOM jest wbudowanym w przeglądarkę internetową interfejsem programistycznym, przeznaczonym do programowego manipulowania dokumentem HTML.
+        // Skrypty wykonywane w przeglądarce mają zawsze automatycznie dostępny obiekt 'document', który jest odwołaniem do korzenia (ang. root element),
+        // zawierającym jednak liczne metody, które umożliwiają manipulowanie DOM. DOM można rozumieć jako programowe odwzorowanie dokumentu HTML
+        // w obiekt w JavaScript. Właściwie istnieje tutaj złożona hierarchia implementowanych interfejsów (interfejs ma w JS inne znaczenie niż
+        // w Java, obiekt implementuje dany interfejs, jeżeli posiada wymagane przez niego właściwości i metody).
+    </script>
+
+    <button id="btn1" onclick="handler(event)">Przycisk 1</button>
+    <button id="btn2" onclick="this.innerText = 'Zmieniony tekst'">Przycisk 2</button>
+    <button id="btn3" onclick="handler2()">Przycisk 3</button>
+    <button id="btn4">Przycisk 4</button>
+    <script>
+        /* Zdarzenia (eventy) w JS */
+
+        // Elementy HTML posiadają możliwość dodania im atrybutu(ów), któredowiązują wykonanie konkretnej funkcji w JS w przypadku wystąpienia 
+        // danego zdarzenia. Załóżmy, że mamy zdefiniowany przycisk 'Przycisk 1'.  Następnie załączono skrypt (argument musi nazywać się event):
+        function handler(event) {
+            console.log(event.target);
+            console.log('Został wciśnięty przycisk');
+            event.target.innerText = 'Zmieniono napis';
+        }
+
+        // Możliwe jest również napisane inline handlera. Przykład w 'Przycisk 2'.
+        // Kolejna opcja to napisane handlera bezargumentowego (wtedy jednak nie będzie dostępu do obiektu eventu i trzeba będzie w inny sposób 
+        // odwoływać się do przycisku, gdyby była taka potrzeba). Przykład w 'Przycisk 3'.
+        function handler2() {
+            document.getElementById('btn3').innerText = 'Kolejny zmieniony tekst';
+        }
+
+        // Innym sposobem na pracę ze zdarzeniami jest programowe dodawanie event listenerów (gdybyśmy zupełnie programowo tworzyli dokument,
+        // będzie to być może preferowany sposób). Przykład w 'Przycisk 4'.
+        document.getElementById('btn4').addEventListener('click', (event) => {
+            event.target.innerText = 'Zmieniono napis jeszcze kolejny raz';
+            alert(event.currentTarget === this);
+            alert(JSON.stringify(event));
+        });
+    </script>
+
+    <script src="przyklady_jezyka_JavaScript.js"></script>
+</body>
+
+</html>

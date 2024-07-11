@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ładowanie pliku</title>
+</head>
+
+<body>
+    <input type="file" id="fileReader">
+    <output name="fileReader" for="fileReader" id="output"></output>
+
+    <script>
+        // Przykład prostej operacji asynchronicznej - ładujemy zawartość pliku.
+        document.getElementById('fileReader').addEventListener('change', function () {
+            let fr = new FileReader();
+            // Nie wiemy dokładnie kiedy zostanie wywołany ten handler.
+            fr.onload = function () {
+                document.getElementById('output')
+                    .textContent = fr.result;
+            }
+            fr.readAsBinaryString(this.files[0]);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 2</title>
+    <style>
+        .zimno {
+            color: blue;
+        }
+
+        .srednio {
+            color: green;
+        }
+
+        .cieplo {
+            color: orange;
+        }
+
+        .goraco {
+            color: red;
+        }
+
+        .zachmurzenie-brak {
+            color: darkturquoise;
+        }
+
+        .zachmurzenie-male {
+            color: seagreen;
+        }
+
+        .zachmurzenie-srednie {
+            color: blue;
+        }
+
+        .zachmurzenie-duze {
+            color: darkblue;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        tr,
+        td,
+        th {
+            border: 2px solid black;
+            padding: 1px 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Prognoza Pogody na 7 Dni</h1>
+    <table id="prognozaPogody1">
+        <tr>
+            <th>Data</th>
+            <th>Temperatura</th>
+        </tr>
+        <!-- Dane zostaną dodane tutaj przez JavaScript -->
+    </table>
+
+    <h1>Prognoza Pogody na 7 Dni</h1>
+    <table id="prognozaPogody2">
+        <tr>
+            <th>Data</th>
+            <th>Temperatura</th>
+            <th>Opady</th>
+            <th>Zachmurzenie</th>
+        </tr>
+        <!-- Dane zostaną dodane tutaj przez JavaScript -->
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('https://api.open-meteo.com/v1/forecast?latitude=50.0413&longitude=21.999&daily=temperature_2m_max&timezone=Europe%2FWarsaw')
+                .then(response => response.json())
+                .then(data => {
+                    const tabela = document.getElementById('prognozaPogody1');
+                    const prognozy = data.daily.temperature_2m_max;
+                    const daty = data.daily.time;
+
+                    for (let i = 0; i < prognozy.length; i++) {
+                        const dataPrognozy = new Date(daty[i]).toLocaleDateString();
+                        const wiersz = document.createElement('tr');
+                        wiersz.innerHTML = `
+                            <td>${dataPrognozy}</td>
+                            <td class="${getTemperaturaClass(prognozy[i])}">${prognozy[i]} °C</td>`;
+                        tabela.appendChild(wiersz);
+                    }
+                })
+                .catch(error => console.error('Błąd:', error));
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('https://api.open-meteo.com/v1/forecast?latitude=50.0413&longitude=21.999&daily=temperature_2m_max,precipitation_sum,cloudcover_mean&timezone=Europe%2FWarsaw')
+                .then(response => response.json())
+                .then(data => {
+                    const tabela = document.getElementById('prognozaPogody2');
+                    const prognozy = data.daily.temperature_2m_max;
+                    const opady = data.daily.precipitation_sum;
+                    const zachmurzenie = data.daily.cloudcover_mean;
+                    const daty = data.daily.time;
+
+                    for (let i = 0; i < prognozy.length; i++) {
+                        const dataPrognozy = new Date(daty[i]).toLocaleDateString();
+                        const wiersz = document.createElement('tr');
+                        wiersz.innerHTML = `
+                            <td>${dataPrognozy}</td>
+                            <td class="${getTemperaturaClass(prognozy[i])}">${prognozy[i]} °C</td>
+                            <td>${opady[i]} mm</td>
+                            <td class="${getZachmurzenieClass(zachmurzenie[i])}">${zachmurzenie[i]} %</td>`;
+                        tabela.appendChild(wiersz);
+                    }
+                })
+                .catch(error => console.error('Błąd:', error));
+        });
+    </script>
+
+    <script>
+        function getTemperaturaClass(temperature) {
+            if (temperature < 5) return 'zimno';
+            if (temperature >= 5 && temperature < 15) return 'srednio';
+            if (temperature >= 15 && temperature < 25) return 'cieplo';
+            return 'goraco';
+        }
+    </script>
+
+    <script>
+        function getZachmurzenieClass(temperature) {
+            if (temperature < 5) return 'zachmurzenie-brak';
+            if (temperature >= 5 && temperature < 35) return 'zachmurzenie-male';
+            if (temperature >= 35 && temperature < 70) return 'zachmurzenie-srednie';
+            return 'zachmurzenie-duze';
+        }
+    </script>
+</body>
+
+</html>

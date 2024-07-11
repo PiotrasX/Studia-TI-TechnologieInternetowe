@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurs dolara</title>
+</head>
+
+<body>
+    <script>
+        // Adres URL z danymi do kursu dolara.
+        const weatherForecastURL = 'https://api.nbp.pl/api/exchangerates/rates/a/usd/?format=json';
+
+        // Wykorzystanie fetch do pobrania danych.
+        fetch(weatherForecastURL).then(response => {
+            // Sprawdzenie, czy odpowiedź ma status ok (kod 200).
+            if (!response.ok) { throw new Error('Network response was not ok.'); }
+            return response.json(); // Parsowanie odpowiedzi do formatu JSON.
+        }).then(data => {
+            // Obsługa danych z odpowiedzi
+            console.log('Odebrane dane:', data);
+            // Tutaj można wykonać operacje na danych najlepiej wywołując funkcję.
+            printCurrentRate(data);
+        }).catch(error => {
+            // Obsługa potencjalnych błędów.
+            console.error('Wystąpił błąd:', error);
+        });
+
+        function printCurrentRate(data) {
+            // Wypisujemy informację o każdym kursie dolara.
+            for (let r of data.rates) {
+                const span = document.createElement('span');
+                span.innerText = 'Kurs Dolara dnia: ' + r.effectiveDate + ' wyniósł ' + r.mid + ' zł.\n';
+                document.body.append(span);
+            }
+        }
+    </script>
+</body>
+
+</html>

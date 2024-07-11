@@ -1,0 +1,15 @@
+.my-table {
+    border-collapse: collapse;
+}
+
+.my-table * {
+    padding: 4px;
+    color: blue;
+    background-color: lightblue;
+    border: 3px solid purple;
+}
+
+.my-table th {
+    color: brown;
+    background-color: yellow;
+}

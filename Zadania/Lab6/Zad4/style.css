@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background: #f0f0f0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.box {
+    border-radius: 20px;
+    width: 60px;
+    height: 60px;
+    background: #f0f0f0;
+    box-shadow: 0 0 0 #cccccc,
+        0 0 0 #ffffff,
+        10px 10px 10px #cccccc inset,
+        -10px -10px 10px #ffffff inset;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: anime 3s cubic-bezier(0.16, 1, 0.3, 1) forwards paused;
+}
+
+.box:hover {
+    animation-play-state: running;
+}
+
+@keyframes anime {
+    0% {
+        width: 60px;
+        height: 60px;
+        background: #f0f0f0;
+        box-shadow: 0 0 0 #cccccc,
+            0 0 0 #ffffff,
+            10px 10px 10px #cccccc inset,
+            -10px -10px 10px #ffffff inset;
+    }
+
+    25% {
+        width: 60px;
+        height: 60px;
+        background: #f8f8f8;
+        box-shadow: 10px 10px 10px #cccccc,
+            10px 10px 10px #ffffff,
+            0 0 0 #cccccc inset,
+            0 0 0 #ffffff inset;
+    }
+
+    50% {
+        width: 60px;
+        height: 600px;
+        background: #f8f8f8;
+        box-shadow: 10px 10px 10px #cccccc,
+            10px 10px 10px #ffffff,
+            0 0 0 #cccccc inset,
+            0 0 0 #ffffff inset;
+    }
+
+    100% {
+        width: 800px;
+        height: 600px;
+        background: #fafafa;
+        box-shadow: 40px 40px 40px #cccccc,
+            0 0 0 #ffffff,
+            0 0 0 #cccccc inset,
+            2px 2px 2px #ffffff inset;
+    }
+}
+
+:root {
+    --form-control-color: green;
+    --form-control-background: rgb(203, 177, 177);
+}
+
+.label-checkbox {
+    font-family: system-ui;
+    font-size: 5rem;
+    font-weight: bold;
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 1em;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--form-control-background);
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.3em;
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.7em;
+    height: 0.7em;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    background-color: CanvasText;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(0.95);
+}
+
+input[type="checkbox"]:checked {
+    animation-name: chechbox-animation;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+}
+
+@keyframes chechbox-animation {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+}
+
+button {
+    font-family: system-ui;
+    font-size: 5rem;
+    font-weight: bold;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--form-control-background);
+    margin: 0;
+    color: currentColor;
+    border: 0.15em solid currentColor;
+    border-radius: 0.3em;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+button::after {
+    content: "Button";
+}
+
+button:active {
+    padding: 0.5rem;
+    border-radius: 50%;
+    border: 0.15em solid green;
+    transform: scale(1.2);
+    min-width: 170px;
+    min-height: 170px;
+    margin-top: -39px;
+}
+
+button:active::after {
+    content: "✔";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.3em;
+}
+
+.label-button,
+.checkbox {
+    display: grid;
+    place-items: center;
+    margin-top: 5em;
+}
+
+.div-label {
+    display: grid;
+    place-items: center;
+    margin-top: 5em;
+}
+
+.box {
+    overflow: hidden;
+}

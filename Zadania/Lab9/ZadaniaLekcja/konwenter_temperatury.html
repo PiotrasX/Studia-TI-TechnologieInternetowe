@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konwenter temperatury</title>
+</head>
+
+<body>
+    <label for="celcjusza">Temperatura Celcjusza:</label>
+    <input id="celcjusza" type="number" onchange="convertCelcjuszaToFahrenheit()"><br><br>
+
+    <label for="fahreheita">Temperatura Fahreheita:</label>
+    <output id="fahreheita" name="fahreheita"></output>
+
+    <script>
+        function convertCelcjuszaToFahrenheit() {
+            let celcjuszDegree = document.getElementById('celcjusza').value;
+            if (celcjuszDegree >= -273.15)
+                document.getElementById('fahreheita').innerText = ((celcjuszDegree - 0.1 * celcjuszDegree) * 2) + 32;
+            else {
+                document.getElementById('fahreheita').innerText = "Nie ma temperatury poniżej zera bezwględnego";
+                alert('Podano nieprawidłowe dane!');
+            }
+        }
+    </script>
+</body>
+
+</html>

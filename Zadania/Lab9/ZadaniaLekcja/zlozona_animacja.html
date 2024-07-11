@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Złożona animacja</title>
+
+    <style>
+        .bar {
+            min-width: 100px;
+            max-width: 100px;
+            min-height: 100px;
+            position: relative;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        // Animacja ta jest niemożliwa do uzyskania w CSS, bo posiada stan - 
+        // pamiętamy programowo w jakim stanie się znajduje.
+        class Bar {
+            state = 0;
+            elem;
+            position = 0;
+            frame;
+
+            constructor() {
+                this.elem = document.createElement('div');
+                this.elem.className = 'bar';
+                this.elem.addEventListener('click', (e) => {
+                    this.animation = this.animation.bind(this);
+                    window.requestAnimationFrame(this.animation);
+                });
+                document.body.append(this.elem);
+            }
+
+            moveRight(timestamp) {
+                // Tutaj animacja ma niestałe tempo odwtarzania w czasie, 
+                // coś co nie jest łatwe do uzyskania w CSS.
+                if (this.position < 20) {
+                    this.position++;
+                }
+                if (20 <= this.position <= 80) {
+                    this.position += 5;
+                    window.clearTimeout(this.timeout);
+                    this.timeout = window.setTimeout(this.moveRight, 500);
+                }
+                if (this.position > 80) {
+                    this.position++;
+                    window.clearTimeout(this.timeout);
+                    this.timeout = window.setTimeout(this.moveRight, 100);
+                }
+
+                this.elem.style.left = this.position + 'px';
+                this.animation = this.animation.bind(this);
+                this.frame = window.requestAnimationFrame(this.animation);
+                console.log(this.position);
+
+                if (this.position > 100) {
+                    window.clearTimeout(this.timeout);
+                    window.cancelAnimationFrame(this.frame);
+                    this.state === 0 ? this.state = 1 : this.state = 0;
+                }
+            }
+
+            moveLeft() {
+                if (this.position >= 80) {
+                    this.position--;
+                }
+                if (20 <= this.position < 80) {
+                    this.position -= 5;
+                }
+                if (20 < this.position) {
+                    this.position--;
+                }
+
+                this.elem.style.left = this.position + 'px';
+                this.animation = this.animation.bind(this);
+                this.frame = window.requestAnimationFrame(this.animation);
+                if (this.position < 0) {
+                    window.cancelAnimationFrame(this.frame);
+                    this.state === 0 ? this.state = 1 : this.state = 0;
+                }
+            }
+
+            animation(timestamp) {
+                const framesPerSecond = 60;
+                if (this.state === 0) {
+                    this.moveRight = this.moveRight.bind(this);
+                    this.timeout = window.setTimeout(this.moveRight, 1000);
+
+                }
+                else {
+                    this.moveLeft = this.moveLeft.bind(this);
+                    this.timeout = window.setTimeout(this.moveLeft, 1000);
+                }
+            }
+        }
+        const b = new Bar();
+    </script>
+</body>
+
+</html>

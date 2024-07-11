@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 4</title>
+    <style>
+        .oplacalna {
+            color: green;
+        }
+
+        .popraw-dane {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button>Click</button><br><br><br>
+
+    <script>
+        const button = document.querySelector("button");
+        button.addEventListener("click", (event) => {
+            button.textContent = `Click count: ${event.detail}`;
+        })
+    </script>
+
+    <h1>Kalkulator Opłacalności Pizzy</h1>
+    <form id="formularzKalkulatora">
+        <label for="cenaMalej">Cena małej pizzy:</label>
+        <input type="number" id="cenaMalej" min="0" required><br>
+
+        <label for="srednicaMalej">Średnica małej pizzy (cm):</label>
+        <input type="number" id="srednicaMalej" min="0" required><br>
+
+        <label for="cenaDuzej">Cena dużej pizzy:</label>
+        <input type="number" id="cenaDuzej" min="0" required><br>
+
+        <label for="srednicaDuzej">Średnica dużej pizzy (cm):</label>
+        <input type="number" id="srednicaDuzej" min="0" required><br>
+
+        <input type="button" value="Oblicz" onclick="obliczOplacalnosc()">
+    </form>
+    <p id="wynik"></p>
+
+    <script>
+        // Utwórz kalkulator opłacalności zakupu pizzy. Na podstawie 
+        // wprowadzonych przez użytkownika danych: cena, średnica dla
+        // małej i dużej pizzy, program zaznacza kolorem zielonym 
+        // który zakup w przeliczeniu cena/cm2 jest bardziej opłacalny.
+
+        function sprawdzPoprawnosc(wartosc) {
+            if (wartosc <= 0) wartosc = 0;
+            return wartosc;
+        }
+
+        function obliczCeneZaCm2(cena, srednica) {
+            let promien = srednica / 2;
+            let powierzchnia = Math.PI * promien * promien;
+            return cena / powierzchnia;
+        }
+
+        function obliczOplacalnosc() {
+            let cenaMalej = sprawdzPoprawnosc(document.getElementById('cenaMalej').value);
+            let srednicaMalej = sprawdzPoprawnosc(document.getElementById('srednicaMalej').value);
+            let cenaDuzej = sprawdzPoprawnosc(document.getElementById('cenaDuzej').value);
+            let srednicaDuzej = sprawdzPoprawnosc(document.getElementById('srednicaDuzej').value);
+
+            let wynik = document.getElementById('wynik');
+            if (cenaMalej == 0 || srednicaMalej == 0 || cenaDuzej == 0 || srednicaDuzej == 0) {
+                wynik.innerHTML = "Dane nie mogą być równe lub mniejsze od zera.";
+                wynik.classList.remove('oplacalna');
+                wynik.classList.add('popraw-dane');
+                return;
+            }
+
+            let cenaZaCm2Mala = obliczCeneZaCm2(cenaMalej, srednicaMalej);
+            let cenaZaCm2Duza = obliczCeneZaCm2(cenaDuzej, srednicaDuzej);
+
+            wynik.classList.remove('popraw-dane');
+            wynik.classList.add('oplacalna');
+
+            if (cenaZaCm2Mala < cenaZaCm2Duza) wynik.innerHTML = "Mała pizza jest bardziej opłacalna.";
+            else if (cenaZaCm2Mala > cenaZaCm2Duza) wynik.innerHTML = "Duża pizza jest bardziej opłacalna.";
+            else wynik.innerHTML = "Obie pizze są tak samo opłacalne.";
+        }
+    </script>
+</body>
+
+</html>

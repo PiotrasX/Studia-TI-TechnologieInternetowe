@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 3</title>
+    <style>
+        .zimno {
+            color: blue;
+        }
+
+        .srednio {
+            color: green;
+        }
+
+        .cieplo {
+            color: orange;
+        }
+
+        .goraco {
+            color: red;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        tr,
+        td,
+        th {
+            border: 2px solid black;
+            padding: 1px 4px;
+        }
+
+        canvas {
+            border: 5px solid black;
+            padding: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Prognoza Pogody na 7 Dni</h1>
+    <table id="prognozaPogody">
+        <tr>
+            <th>Data</th>
+            <th>Temperatura</th>
+        </tr>
+        <!-- Dane zostaną dodane tutaj przez JavaScript -->
+    </table>
+
+    <h1>Wykres Temperatury na Najbliższe 7 Dni</h1>
+    <canvas id="wykresTemperatury" width="800" height="400"></canvas>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('https://api.open-meteo.com/v1/forecast?latitude=50.0413&longitude=21.999&daily=temperature_2m_max&timezone=Europe%2FWarsaw')
+                .then(response => response.json())
+                .then(data => {
+                    const tabela = document.getElementById('prognozaPogody');
+                    const prognozy = data.daily.temperature_2m_max;
+                    const daty = data.daily.time;
+
+                    for (let i = 0; i < prognozy.length; i++) {
+                        const dataPrognozy = new Date(daty[i]).toLocaleDateString();
+                        const wiersz = document.createElement('tr');
+                        wiersz.innerHTML = `
+                            <td>${dataPrognozy}</td>
+                            <td class="${getTemperaturaClass(prognozy[i])}">${prognozy[i]} °C</td>`;
+                        tabela.appendChild(wiersz);
+                    }
+                })
+                .catch(error => console.error('Błąd:', error));
+        });
+
+        function getTemperaturaClass(temperature) {
+            if (temperature < 5) return 'zimno';
+            if (temperature >= 5 && temperature < 15) return 'srednio';
+            if (temperature >= 15 && temperature < 25) return 'cieplo';
+            return 'goraco';
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('https://api.open-meteo.com/v1/forecast?latitude=50.0413&longitude=21.999&daily=temperature_2m_max&timezone=Europe%2FWarsaw')
+                .then(response => response.json())
+                .then(data => { rysujWykres(data.daily.time, data.daily.temperature_2m_max); })
+                .catch(error => console.error('Błąd:', error));
+        });
+
+        function rysujWykres(daty, temperatury) {
+            // Pobranie canvas
+            const canvas = document.getElementById('wykresTemperatury');
+            const ctx = canvas.getContext('2d');
+
+            // Skala i marginesy
+            const margin = { top: 30, right: 30, bottom: 40, left: 60 };
+            const width = canvas.width - margin.left - margin.right;
+            const height = canvas.height - margin.top - margin.bottom;
+
+            // Skalowanie temperatur
+            const maxTemp = Math.max(...temperatury);
+            const minTemp = Math.min(...temperatury);
+
+            // Funkcja mapująca temperatury na wysokość na wykresie
+            const y = (temp) => height - ((temp - minTemp) / (maxTemp - minTemp) * height);
+
+            // Rysowanie osi X
+            ctx.strokeStyle = "Blue";
+            ctx.beginPath();
+            ctx.moveTo(margin.left, height + margin.top);
+            ctx.lineTo(width + margin.left, height + margin.top);
+            ctx.stroke();
+
+            // Rysowanie osi Y
+            ctx.beginPath();
+            ctx.moveTo(margin.left, margin.top);
+            ctx.lineTo(margin.left, height + margin.top);
+            ctx.stroke();
+
+            // Rysowanie wykresu temperatury
+            ctx.strokeStyle = "Red";
+            ctx.beginPath();
+            ctx.moveTo(margin.left, y(temperatury[0]));
+            daty.forEach((data, index) => {
+                ctx.lineTo(margin.left + (index * (width / (daty.length - 1))), y(temperatury[index]));
+            });
+            ctx.stroke();
+
+            // Oznaczenia na osi X
+            daty.forEach((data, index) => {
+                const x = margin.left + (index * (width / (daty.length - 1)));
+                ctx.fillText(data, x - 30, height + margin.top + 20);
+            });
+
+            // Podpis osi X
+            ctx.font = "bold 12px Arial";
+            ctx.fillText("Data", width / 2, height + margin.top + 40);
+            ctx.font = "10px sans-serif";
+
+            // Oznaczenia na osi Y
+            const liczbaPodziałek = 5;
+            for (let i = 0; i <= liczbaPodziałek; i++) {
+                const temp = minTemp + i * (maxTemp - minTemp) / liczbaPodziałek;
+                const y = height - ((temp - minTemp) / (maxTemp - minTemp) * height) + margin.top;
+                ctx.fillText(temp.toFixed(1) + '°C', 25, y);
+            }
+
+            // Podpis osi Y
+            ctx.font = "bold 12px Arial";
+            ctx.save();
+            ctx.rotate(-Math.PI / 2);
+            ctx.fillText("Temperatura", -height / 1.5, 15);
+            ctx.restore();
+            ctx.font = "10px sans-serif";
+
+            // Wyświetlanie wartości temperatur przy punktach
+            ctx.font = "bold 16px Arial";
+            ctx.fillStyle = "DarkRed";
+            temperatury.forEach((temp, index) => {
+                const x = margin.left + (index * (width / (daty.length - 1)));
+                const y = height - ((temp - minTemp) / (maxTemp - minTemp) * height) + margin.top;
+                ctx.fillText(temp.toFixed(1), x + 5, y - 10);
+            });
+        }
+    </script>
+</body>
+
+</html>

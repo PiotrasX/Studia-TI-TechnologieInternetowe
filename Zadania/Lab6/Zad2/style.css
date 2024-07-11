@@ -1,0 +1,22 @@
+.spinner {
+    width: 500px;
+    height: 500px;
+    background-size: 100%;
+    background-image: url("spiner.svg");
+    animation-name: spinner;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

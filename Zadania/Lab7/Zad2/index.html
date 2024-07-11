@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 2</title>
+</head>
+
+<body>
+    <script>
+        // Funkcje można zadeklarować na kilka sposobów.
+
+        // Sposób 1: Definicja funkcji.
+        function mojaFunkcja1() {
+            // kod funkcji
+        }
+
+        // Sposób 2: Wyrażenie funkcyjne.
+        // Tworzona jest tu funkcja anonimowa (funkcja która nie ma nazwy) i jest przypisywana do stałej mojaFunkcja.
+        const mojaFunkcja2 = function () {
+            // kod funkcji
+        };
+
+        // Sposób 3: Funkcja strzałkowa.
+        const mojaFunkcja3 = () => {
+            // kod funkcji
+        };
+
+        // Sposób 4: Konstruktor Function.
+        const mojaFunkcja4 = new Function('arg1', 'arg2', 'return arg1 + arg2;');
+
+        // W JavaScript funkcje są obiektami. To oznacza, że w JavaScript funkcje są instancjami obiektów typu Function który ma dodatkowe cechy, 
+        // takie jak zdolność do wywoływania i posiadania kontekstu (this). To sprawia, że są bardzo elastyczne i użyteczne zarówno jako bloki kodu, 
+        // jak i obiekty.
+
+
+
+        // Funkcje jako obiekty.
+        // Funkcje mogą być przypisywane do zmiennych i stałych.
+        let myFunc = function () { console.log("Funkcja została wywołana"); };
+        myFunc(); // Wywołanie funkcji.
+
+        // Funkcje mogą być przekazywane jako argumenty do innych funkcji
+        function execute(func_var) { func_var(); }
+        execute(function () { console.log("Wywołana funkcja"); });
+
+        // Funkcje mogą być zwracane przez inne funkcje.
+        function createFunction() {
+            return function () { console.log("Funkcja zwrócona przez inną funkcję"); };
+        }
+        const newFunction = createFunction(); // Przypisuje obiekt zwrócony przez funkcje do zmiennej
+        newFunction(); // Obiekt ten jest funkcją
+
+        // Funkcje mogą posiadać właściwości i metody.
+        function myFunction() {
+            // kod funkcji
+        }
+        myFunction.nazwa = "Funkcja testowa";
+        console.log(myFunction.nazwa); // Wyświetli "Funkcja testowa"
+
+        // Funkcje są instancjami obiektu typu Function.
+        console.log(typeof myFunction); // Wyświetli "function"
+        console.log(myFunction instanceof Function); // Zwróci 'true'
+
+        // Aby utworzyć funkcję, która przyjmuje nieskończenie wiele parametrów używamy operatora … (rest parameter).
+        function przyklad(...params) {
+            console.log(params);
+        }
+        przyklad(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        // Przekazane jako parametry funkcji liczby od 1 do 10 są przechowywane w tablicy co można zobaczyć w konsoli po uruchomieniu przykładu.
+    </script>
+
+    <script>
+        // W pliku napisz funkcję arithemticMean która przyjmuje dowolną liczbę parametrów (liczb całkowitych) 
+        // z których zwracana jest średnia arytmetyczna.
+        function arithemticMean(...params) {
+            let wynik = 0;
+            params.forEach(element => { wynik += element });
+            wynik /= params.length;
+            console.log("Średnia: " + wynik);
+        }
+        arithemticMean(1, 2, 3);
+    </script>
+</body>
+
+</html>

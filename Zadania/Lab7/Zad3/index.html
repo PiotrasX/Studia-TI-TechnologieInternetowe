@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 3</title>
+    <link rel="stylesheet" href="table_style.css">
+</head>
+
+<body>
+    <h1>Nagłówek</h1>
+    <p>Akapit</p>
+
+    <script>
+        const exchangeRate = [
+            { "currency": "dolar amerykański", "code": "USD", "mid": 3.9432 },
+            { "currency": "dolar australijski", "code": "AUD", "mid": 2.6897 },
+            { "currency": "dolar Hongkongu", "code": "HKD", "mid": 0.5046 },
+            { "currency": "dolar kanadyjski", "code": "CAD", "mid": 2.9752 },
+            { "currency": "dolar nowozelandzki", "code": "NZD", "mid": 2.4884 },
+            { "currency": "dolar singapurski", "code": "SGD", "mid": 2.9809 }
+        ];
+        const HTMLTable = document.createElement('table');
+        const header = document.createElement('tr');
+        const currency = document.createElement('th');
+        currency.innerText = 'Waluta';
+        const currencyCode = document.createElement('th');
+        currencyCode.innerText = 'Kod waluty';
+        const meanExchangeRate = document.createElement('th');
+        meanExchangeRate.innerText = 'Kurs średni';
+        header.appendChild(currency);
+        header.appendChild(currencyCode);
+        header.appendChild(meanExchangeRate);
+        HTMLTable.appendChild(header);
+        for (let curr of exchangeRate) {
+            const row = document.createElement('tr');
+            const currency = document.createElement('td');
+            currency.innerText = curr.currency;
+            const currencyCode = document.createElement('td');
+            currencyCode.innerText = curr.code;
+            const meanExchangeRate = document.createElement('td');
+            meanExchangeRate.innerText = curr.mid;
+            row.append(currency);
+            row.append(currencyCode);
+            row.append(meanExchangeRate);
+            HTMLTable.appendChild(row);
+        }
+        document.body.append(HTMLTable);
+        document.body.appendChild(document.createElement("br"));
+
+        const HTMLTable2 = HTMLTable.cloneNode(true); // Tworzymy kopię elementu zanim potem zmodyfikujemy mu style
+                                                      // 'true' oznacza, że kopiujemy element z potomkami
+        HTMLTable2.setAttribute('class', 'my-table');
+        document.body.append(HTMLTable2);
+        document.body.appendChild(document.createElement("br"));
+
+        HTMLTable.style.borderCollapse = 'collapse';
+        for (let child of HTMLTable.children) {
+            child.style.border = '1px solid black';
+            for (let grandchild of child.children) {
+                grandchild.style.border = '1px solid black';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'table_style.css';
+            document.head.appendChild(link);
+        });
+    </script>
+
+    <script>
+        // Napisz funkcję, która będzie w stanie wygenerować tabelę dla tablicy 
+        // o dowolnym rozmiarze. Funkcja powinna przyjmować jako parametr 
+        // informacje czy tablica ma nagłówki i założyć, że wtedy pierwszy 
+        // element tablicy jest nagłówkiem.
+        function generujTabele(dane, maNaglowki = false) {
+            const tabela = document.createElement('table');
+            const tbody = document.createElement('tbody');
+
+            if (maNaglowki) {
+                const thead = document.createElement('thead');
+                const tr = document.createElement('tr');
+                dane[0].forEach(naglowekTekst => {
+                    const th = document.createElement('th');
+                    th.textContent = naglowekTekst;
+                    tr.appendChild(th);
+                });
+                thead.appendChild(tr);
+                tabela.appendChild(thead);
+                dane.shift(); // Usunięcie pierwszego wiersza z danych, ponieważ już został użyty
+            }
+
+            dane.forEach(wiersz => {
+                const tr = document.createElement('tr');
+                wiersz.forEach(komorka => {
+                    const td = document.createElement('td');
+                    td.textContent = komorka;
+                    tr.appendChild(td);
+                });
+                tbody.appendChild(tr);
+            });
+            tabela.appendChild(tbody);
+            return tabela;
+        }
+
+        const data1 = [
+            ['Wartość 1', 'Wartość 2', 'Wartość 3', 'Wartość 4', 'Wartość 5'],
+            ['Wartość 6', 'Wartość 7', 'Wartość 8', 'Wartość 9', 'Wartość 10'],
+            ['Wartość 11', 'Wartość 12', 'Wartość 13', 'Wartość 14', 'Wartość 15'],
+            ['Wartość 16', 'Wartość 17', 'Wartość 18', 'Wartość 19', 'Wartość 20']
+        ];
+        let myTable = generujTabele(data1, false);
+        myTable.setAttribute('class', 'my-table');
+        document.body.appendChild(myTable);
+        document.body.appendChild(document.createElement("br"));
+
+        const data2 = [
+            ['Imię', 'Nazwisko', 'Wiek'],
+            ['John', 'Doe', 30],
+            ['Alice', 'Smith', 28],
+            ['Bob', 'Brown', 35]
+        ];
+        myTable = generujTabele(data2, true);
+        myTable.setAttribute('class', 'my-table');
+        document.body.appendChild(myTable);
+        document.body.appendChild(document.createElement("br"));
+    </script>
+</body>
+
+</html>

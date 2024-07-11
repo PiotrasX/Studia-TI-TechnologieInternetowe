@@ -1,0 +1,1944 @@
+/* Układ na telefony */
+@media screen and (max-width: 999px) {
+
+
+
+    /* Główny element HTML */
+    body,
+    html {
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+        font-family: 'Roboto', sans-serif; /* Ustawianie czcionki */
+    }
+
+
+
+    /* Główny kontenener, w którym znajduje się wszystko */
+    .main-div {
+        width: 100%; /* Szerokość głównego kontenera */
+        height: auto; /* Automatyczne dostosowywanie się wysokości kontenera do kontenerów w środku */
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+    }
+
+
+
+    /* Kontener paska menu */
+    .pasek-menu {
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: auto; /* Wysokość kontenera */
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+    }
+
+    .pasek-menu>.nav {
+        display: grid;
+        grid-template-columns: auto auto; /* Pierwsza kolumna auto dla logo, druga auto dla ikon */
+        justify-content: space-between; /* Spowoduje to rozłożenie logo i ikon na przeciwległych końcach */
+        align-items: center;
+        padding: 10px 50px;
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .pasek-menu>.nav>.logo {
+        font-weight: bold;
+        font-size: 24px;
+        padding-right: 30px;
+        justify-self: start; /* Wyrównuje logo do lewej strony */
+    }
+
+    .pasek-menu>.nav>.menu {
+        list-style: none;
+        text-align: center;
+        grid-column: 1 / -1; /* Rozciąga menu na całą dostępną przestrzeń */
+    }
+
+    .pasek-menu>.nav>.menu>.li-menu>#menu-item {
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .pasek-menu>.nav>.menu>.li-menu>.ul-menu {
+        list-style: none;
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pasek-menu>.nav>.menu>.li-menu:hover>.ul-menu {
+        display: grid;
+        grid-template-columns: repeat(3, calc(100% / 3));
+        margin: 15px;
+    }
+
+    .pasek-menu>.nav>.menu>.li-menu>.ul-menu>li>a {
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .pasek-menu>.nav>.menu-ikony {
+        justify-content: end;
+        justify-self: end; /* Wyrównuje ikony do prawej strony */
+        display: flex; /* Dodaje flex dla właściwego wyświetlania ikon */
+    }
+
+    .pasek-menu>.nav>.menu-ikony>a {
+        text-decoration: none;
+        margin-left: 25px;
+    }
+
+    .pasek-menu>.nav>.info {
+        display: flex;
+        justify-content: space-around;
+        gap: 50px; /* Dostosuj odstęp według potrzeb */
+        padding: 10px 0;
+        font-size: 12px;
+        grid-column: 1 / -1;
+    }
+
+    .pasek-menu>.nav>.info>.info-ikona {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .pasek-menu>.nav>.menu>.linia-gorna,
+    .pasek-menu>.nav>.menu>.linia-dolna {
+        border: none;
+        height: 1px;
+        background-color: black;
+        width: 100%; /* Dostosuj szerokość linii */
+        margin: 20px 0; /* Dostosuj odstęp wokół linii */
+    }
+
+
+
+    /* Kontener reklam */
+    .pasek-reklam {
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: 404px; /* Wysokość kontenera */
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+        background-color: rgb(226, 217, 214); /* Kolor tła */
+        box-sizing: border-box; /* Uwzględnia padding i border w szerokości i wysokości */
+        border: 1px solid black; /* Obramowanie */
+        box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.5); /* Cieniowanie na dole obramowania */
+        margin-bottom: 15px; /* Dodanie marginesu dolnego */
+        display: grid; /* Wyświetlanie grid */
+        grid-template-columns: 50% 50%; /* Definiowanie układu kolumn siatki */
+        border: 2px solid black;
+        box-sizing: border-box;
+    }
+
+    .pasek-reklam>.reklama-lewa,
+    .pasek-reklam>.reklama-prawa {
+        width: 100%; /* Kontenery będą rozciągać się na całą szerokość kontenera nadrzędnego */
+        height: 100%; /* Dostosowanie wysokości do zawartości */
+    }
+
+    .pasek-reklam>.reklama-lewa {
+        display: flex; /* Ustawienie flexboxa */
+        align-items: center; /* Centrowanie zawartości w pionie, jeśli potrzebne */
+        justify-content: center;
+    }
+
+    .pasek-reklam>.reklama-lewa>img {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        width: 100%;
+        max-width: 425px;
+    }
+
+    .pasek-reklam>.reklama-prawa {
+        display: flex; /* Użycie Flexboxa */
+        flex-direction: column; /* Ustawienie kierunku elementów na pionowy */
+        justify-content: center; /* środkowanie elementu */
+    }
+
+    .pasek-reklam>.reklama-prawa>.text-1 {
+        margin-bottom: 25px;
+        padding-right: 25px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .pasek-reklam>.reklama-prawa>.text-2,
+    .pasek-reklam>.reklama-prawa>.text-3 {
+        margin-bottom: 10px;
+        padding-right: 25px;
+        font-size: 32px; /* Ustawienie rozmiaru czcionki */
+        color: rgb(168, 106, 61); /* Ustawienie koloru czcionki */
+        font-weight: bold; /* Ustawienie grubości czcionki */
+    }
+
+    .pasek-reklam>.reklama-prawa>.button-1 {
+        margin-top: 15px;
+        font-size: 20px;
+        width: 150px;
+        height: 50px;
+        margin-left: 11px;
+        cursor: pointer;
+        border: 2px solid black;
+        background-color: transparent;
+    }
+
+
+
+    /* Slides produkty */
+    .slider-div {
+        position: relative;
+        width: 100%; /* Szerokość kontenera slidera */
+        margin: auto; /* Centrowanie slidera */
+        overflow: hidden; /* Ukrycie treści poza widocznym obszarem */
+        box-sizing: border-box;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 30px;
+    }
+
+    .produkty {
+        width: 100%;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .produkty>.reklama,
+    .produkty>.slides {
+        align-items: center; /* Wyśrodkowanie pionowo */
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+    }
+
+    .produkty>.reklama::-webkit-scrollbar,
+    .produkty>.slides::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;
+    }
+
+    .produkty>.reklama>.produkty-div,
+    .produkty>.slides>.produkty-div {
+        scroll-snap-align: start;
+        flex: 0 0 auto;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+    }
+
+    .produkty>a {
+        display: inline-flex;
+        width: 1.5rem;
+        height: 1.5rem;
+        background: white;
+        text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin: 2.5rem 0 0.5rem 0;
+        position: relative;
+    }
+
+    .produkty>a:active,
+    .produkty>a:focus {
+        top: 5px;
+        background: #000;
+        margin-top: -0.5rem;
+    }
+
+    .produkty>a::before {
+        content: "○";
+    }
+
+    .produkty>a:active::before,
+    .produkty>a:focus::before {
+        content: "•";
+        font-size: 1.5rem;
+        top: 100px;
+    }
+
+
+
+    /* Kontener produktów */
+    .produkty {
+        width: 100%;
+    }
+
+    .produkty>.slides {
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: auto; /* Wysokość kontenera */
+        margin: -5px 0px 50px 0px; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+        background-color: white; /* Kolor tła */
+        display: grid; /* Wyświetlanie grid */
+        grid-template-columns: repeat(8, 70%); /* 4 kolumny o szerokości 25vw każda w wierszu*/
+        box-sizing: border-box;
+        padding-top: 10px;
+        gap: 50px;
+    }
+
+    .produkty>.reklama {
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: auto; /* Wysokość kontenera */
+        margin: 0;
+        padding: 0; /* Usuwanie paddingu */
+        background-color: white; /* Kolor tła */
+        display: grid; /* Wyświetlanie grid */
+        grid-template-columns: repeat(2, 100%); /* 4 kolumny o szerokości 25vw każda w wierszu*/
+        box-sizing: border-box;
+        padding-top: 10px;
+        gap: 25px;
+        margin: -10px 0px 20px 0px;
+    }
+
+    .produkty>.reklama>.produkty-div {
+        height: 236px;
+        display: grid;
+        grid-template-columns: calc(30% + 70px) calc(70% - 70px); /* Definiowanie układu kolumn siatki */
+    }
+
+    .produkty>.reklama>.div-1 {
+        background-color: rgb(251, 251, 251);
+    }
+
+    .produkty>.reklama>.div-2 {
+        background-color: rgb(237, 236, 235);
+    }
+
+    .produkty>.reklama>.produkty-div>.produkt-lewy,
+    .produkty>.reklama>.produkty-div>.produkt-prawy {
+        width: 100%; /* Kontenery będą rozciągać się na całą szerokość kontenera nadrzędnego */
+        height: 100%; /* Kontenery będą rozciągać się na całą szerokość kontenera nadrzędnego */
+    }
+
+    .produkty>.reklama>.produkty-div>.produkt-lewy {
+        display: flex; /* Ustawienie flexboxa */
+        align-items: flex-end; /* Centrowanie zawartości w pionie, jeśli potrzebne */
+    }
+
+    .produkty>.reklama>.produkty-div>.produkt-lewy>img {
+        max-width: 100%;
+        max-height: 221px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .produkty>.reklama>.produkty-div>.produkt-prawy>.text-1 {
+        margin-bottom: 15px;
+        padding-left: 15px;
+        font-size: 24px;
+        font-weight: bold;
+        padding-right: 25px;
+    }
+
+    .produkty>.reklama>.produkty-div>.produkt-prawy>.button-1 {
+        margin-top: 10px;
+        font-size: 16px;
+        width: 150px;
+        height: 50px;
+        margin-left: 25px;
+        cursor: pointer;
+        border: 2px solid black;
+        background-color: transparent;
+    }
+
+    .produkty>.reklama>.produkty-div>.produkt-prawy {
+        display: flex; /* Użycie Flexboxa */
+        flex-direction: column; /* Ustawienie kierunku elementów na pionowy */
+        text-align: start;
+        justify-content: center; /* środkowanie elementu */
+    }
+
+    .produkty>.slides>.produkty-div {
+        width: 100%;
+        height: 384px;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-rows: 75% 25%; /* Definiowanie układu kolumn siatki */
+    }
+
+    .produkty>.slides>.produkty-div>.produkt-calosc {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border-radius: 20px;
+        grid-row: span 2; /* Rozciąganie pierwszych dwóch divów na dwia wiersze */
+    }
+
+    .produkty>.slides>.produkty-div>.produkt-gora,
+    .produkty>.slides>.produkty-div>.produkt-dol {
+        width: calc(70vw - 70px);
+        height: 100%;
+        box-sizing: border-box;
+        border-radius: 20px;
+    }
+
+    .produkty>.slides>.produkty-div>.produkt-gora {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .produkty>.slides>.produkty-div>.produkt-dol {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
+    .produkty>.slides>.produkty-div>.produkt-calosc>img,
+    .produkty>.slides>.produkty-div>.produkt-gora>img {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+    }
+
+    .produkty>.slides>.div-3>.produkt-calosc {
+        position: relative;
+        background-color: rgb(235, 234, 232);
+        background-image: url("images/p_wazon2.svg"); /* Ustawienie obrazu jako tła */
+        background-size: contain; /* Tło pokrywa cały div */
+        background-position: center; /* Centrowanie tła */
+        background-repeat: no-repeat; /* Zapobiega powtarzaniu się tła */
+        display: flex; /* Użycie Flexboxa */
+        flex-direction: column; /* Ustawienie kierunku elementów na pionowy */
+        justify-content: center; /* środkowanie elementu */
+    }
+
+    .produkty>.slides>.div-4>.produkt-gora {
+        background-color: rgb(230, 229, 228);
+    }
+
+    .produkty>.slides>.div-5>.produkt-gora {
+        background-color: rgb(236, 235, 233);
+    }
+
+    .produkty>.slides>.div-6>.produkt-gora {
+        background-color: rgb(234, 233, 231);
+    }
+
+    .produkty>.slides>.div-7>.produkt-gora {
+        background-color: rgb(243, 243, 243);
+    }
+
+    .produkty>.slides>.div-8>.produkt-gora {
+        background-color: rgb(230, 226, 223);
+    }
+
+    .produkty>.slides>.div-9>.produkt-gora {
+        background-color: rgb(235, 235, 235);
+    }
+
+    .produkty>.slides>.div-10>.produkt-calosc {
+        position: relative;
+        background-color: rgb(231, 230, 228);
+        background-image: url("images/p_torba.svg"); /* Ustawienie obrazu jako tła */
+        background-size: contain; /* Tło pokrywa cały div */
+        background-position: center; /* Centrowanie tła */
+        background-repeat: no-repeat; /* Zapobiega powtarzaniu się tła */
+        display: flex; /* Użycie Flexboxa */
+        flex-direction: column; /* Ustawienie kierunku elementów na pionowy */
+        justify-content: center; /* środkowanie elementu */
+    }
+
+    .produkty>.slides>.div-3>.produkt-calosc::before,
+    .produkty>.slides>.div-10>.produkt-calosc::before {
+        content: ""; /* Wymagane dla pseudo-elementów */
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 20px;
+        background: rgba(0, 0, 0, 0.5); /* Ciemna nakładka: czarny kolor z połową przeźroczystości */
+        z-index: 1; /* Nakładka będzie pod tekstem */
+    }
+
+    .produkty>.slides>.div-3>.produkt-calosc>.text-1,
+    .produkty>.slides>.div-10>.produkt-calosc>.text-1 {
+        z-index: 2; /* Tekst będzie nad nakładką */
+        position: relative; /* Zapewnia, że tekst jest wyżej w stosie niż pseudo-element */
+        color: white; /* Kolor tekstu */
+        font-size: 24px; /* Rozmiar czcionki */
+        margin-bottom: 15px;
+        font-weight: bold;
+        padding-left: 35px;
+        padding-right: 35px;
+        color: white;
+        text-align: left;
+    }
+
+    .produkty>.slides>.div-3>.produkt-calosc>.text-2,
+    .produkty>.slides>.div-10>.produkt-calosc>.text-2 {
+        z-index: 2; /* Tekst będzie nad nakładką */
+        position: relative; /* Zapewnia, że tekst jest wyżej w stosie niż pseudo-element */
+        color: white; /* Kolor tekstu */
+        font-size: 18px; /* Rozmiar czcionki */
+        margin-bottom: 15px;
+        padding-left: 35px;
+        padding-right: 35px;
+        color: white;
+        text-align: left;
+    }
+
+    .produkty>.slides>.div-3>.produkt-calosc>.button-1,
+    .produkty>.slides>.div-10>.produkt-calosc>.button-1 {
+        z-index: 2; /* Tekst będzie nad nakładką */
+        position: relative; /* Zapewnia, że tekst jest wyżej w stosie niż pseudo-element */
+        margin-top: 10px;
+        font-size: 16px;
+        width: 150px;
+        height: 50px;
+        margin-left: 46px;
+        margin-right: 9px;
+        cursor: pointer;
+        border: 2px solid white;
+        color: white;
+        background-color: transparent;
+    }
+
+    .produkty>.slides>.div-4>.produkt-dol,
+    .produkty>.slides>.div-5>.produkt-dol,
+    .produkty>.slides>.div-6>.produkt-dol,
+    .produkty>.slides>.div-7>.produkt-dol,
+    .produkty>.slides>.div-8>.produkt-dol,
+    .produkty>.slides>.div-9>.produkt-dol {
+        padding-top: 9px;
+        background-color: rgb(201, 200, 182, 1);
+        display: flex; /* Użycie Flexboxa */
+        flex-direction: column; /* Ustawienie kierunku elementów na pionowy */
+        justify-content: center; /* środkowanie elementu */
+        font-size: 18px; /* Rozmiar czcionki */
+        color: white;
+    }
+
+    .produkty>.slides>.div-4>.produkt-dol>.text-1,
+    .produkty>.slides>.div-5>.produkt-dol>.text-1,
+    .produkty>.slides>.div-6>.produkt-dol>.text-1,
+    .produkty>.slides>.div-7>.produkt-dol>.text-1,
+    .produkty>.slides>.div-8>.produkt-dol>.text-1,
+    .produkty>.slides>.div-9>.produkt-dol>.text-1 {
+        margin-bottom: 5px;
+    }
+
+    .produkty>.slides>.div-4>.produkt-dol>.text-2,
+    .produkty>.slides>.div-5>.produkt-dol>.text-2,
+    .produkty>.slides>.div-6>.produkt-dol>.text-2,
+    .produkty>.slides>.div-7>.produkt-dol>.text-2,
+    .produkty>.slides>.div-8>.produkt-dol>.text-2,
+    .produkty>.slides>.div-9>.produkt-dol>.text-2 {
+        color: black;
+    }
+
+    .produkty>.slides>.div-4>.produkt-dol>.text-3,
+    .produkty>.slides>.div-5>.produkt-dol>.text-3,
+    .produkty>.slides>.div-6>.produkt-dol>.text-3,
+    .produkty>.slides>.div-7>.produkt-dol>.text-3,
+    .produkty>.slides>.div-8>.produkt-dol>.text-3,
+    .produkty>.slides>.div-9>.produkt-dol>.text-3 {
+        margin-top: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        padding-bottom: 5px;
+    }
+
+
+
+    /* Kontener reklam 2 */
+    .pasek-reklam-2 {
+        position: relative;
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: 350px; /* Wysokość kontenera */
+        margin: 0; /* Usuwanie marginesu */
+        margin-top: 10px;
+        margin-bottom: 50px;
+        padding: 0; /* Usuwanie paddingu */
+        background-color: rgb(226, 217, 214); /* Kolor tła */
+        background-image: url("images/lozko.svg");
+        display: flex; /* Użycie Flexboxa */
+        flex-direction: column; /* Ustawienie kierunku elementów na pionowy */
+        justify-content: center; /* środkowanie elementu */
+    }
+
+    .pasek-reklam-2::before {
+        content: ""; /* Wymagane dla pseudo-elementów */
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 50px calc(75% - 250px) 50px 70px;
+        background: rgba(255, 255, 255, 0.75); /* Jasna nakładka: biały kolor z połową przeźroczystości */
+        z-index: 1; /* Nakładka będzie pod tekstem */
+    }
+
+    .pasek-reklam-2>.text-1,
+    .pasek-reklam-2>.text-2 {
+        z-index: 2; /* Tekst będzie nad nakładką */
+        position: relative; /* Zapewnia, że tekst jest wyżej w stosie niż pseudo-element */
+        font-size: 24px; /* Rozmiar czcionki */
+        font-weight: bold;
+        margin-bottom: 15px;
+        padding-left: 105px;
+    }
+
+    .pasek-reklam-2>.text-2 {
+        color: rgb(168, 106, 61); /* Ustawienie koloru czcionki */
+    }
+
+    .pasek-reklam-2>.text-3 {
+        z-index: 2; /* Tekst będzie nad nakładką */
+        position: relative; /* Zapewnia, że tekst jest wyżej w stosie niż pseudo-element */
+        font-size: 18px; /* Rozmiar czcionki */
+        padding-left: 105px;
+        padding-right: calc(75% - 215px)
+    }
+
+    .pasek-reklam-2>.button-1 {
+        z-index: 2; /* Tekst będzie nad nakładką */
+        position: relative; /* Zapewnia, że tekst jest wyżej w stosie niż pseudo-element */
+        margin-top: 10px;
+        font-size: 16px;
+        width: 150px;
+        height: 50px;
+        margin-left: 116px;
+        cursor: pointer;
+        border: 2px solid black;
+        background-color: transparent;
+    }
+
+
+
+    /* Slides produkty 2 */
+    .slider-div {
+        position: relative;
+        width: 100%; /* Szerokość kontenera slidera */
+        margin: auto; /* Centrowanie slidera */
+        overflow: hidden; /* Ukrycie treści poza widocznym obszarem */
+        box-sizing: border-box;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 30px;
+    }
+
+    .produkty-2 {
+        width: 100%;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .produkty-2>.slides {
+        align-items: center; /* Wyśrodkowanie pionowo */
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+    }
+
+    .produkty-2>.slides::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;
+    }
+
+    .produkty-2>.slides>.slides-div {
+        scroll-snap-align: start;
+        flex: 0 0 auto;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+    }
+
+    .produkty-2>a {
+        display: inline-flex;
+        width: 1.5rem;
+        height: 1.5rem;
+        background: white;
+        text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin: 0.5rem 0 0.5rem 0;
+        position: relative;
+    }
+
+    .produkty-2>a:active,
+    .produkty-2>a:focus {
+        top: 5px;
+        background: #000;
+        margin-top: -0.5rem;
+    }
+
+    .produkty-2>a::before {
+        content: "○";
+    }
+
+    .produkty-2>a:active::before,
+    .produkty-2>a:focus::before {
+        content: "•";
+        font-size: 1.5rem;
+        top: 100px;
+    }
+
+
+
+    /* Kontener produktów 2 */
+    .produkty-2>.slides {
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: auto + 30px; /* Wysokość kontenera */
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+        background-color: white; /* Kolor tła */
+        display: grid;
+        gap: 20px;
+        column-gap: 60px;
+        grid-template-columns: 100% 100% 100%; /* 3 kolumny o szerokości 25vw każda w wierszu*/
+        box-sizing: border-box;
+        padding: 10px 30px;
+    }
+
+    .produkty-2>.slides>.slides-div {
+        width: calc(100% + 60px);
+        height: 256px;
+        display: grid;
+        grid-template-columns: 50% 50%; /* Definiowanie układu kolumn siatki */
+    }
+
+    .produkty-2>.slides>.slides-div>.produkt-lewo>img {
+        max-width: 100%;
+        max-height: 256px;
+    }
+
+    .produkty-2>.slides>.slides-div>.produkt-lewo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .produkty-2>.slides>.slides-div>.produkt-prawo {
+        display: flex; /* Użycie Flexboxa */
+        flex-direction: column; /* Ustawienie kierunku elementów na pionowy */
+        justify-content: center; /* środkowanie elementu */
+        text-align: left;
+        font-size: 18px; /* Rozmiar czcionki */
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .produkty-2>.slides>.slides-div>.produkt-prawo>.text-1 {
+        margin-bottom: 5px;
+    }
+
+    .produkty-2>.slides>.slides-div>.produkt-prawo>.text-3 {
+        margin-top: 25px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .produkty-2>.slides>.div-1>.produkt-lewo {
+        background-color: rgb(235, 234, 232);
+    }
+
+    .produkty-2>.slides>.div-2>.produkt-lewo {
+        background-color: rgb(234, 233, 231);
+    }
+
+    .produkty-2>.slides>.div-3>.produkt-lewo {
+        background-color: rgb(238, 237, 235);
+    }
+
+    .produkty-2>.slides>.div-4>.produkt-lewo {
+        background-color: rgb(234, 234, 234);
+    }
+
+    .produkty-2>.slides>.div-5>.produkt-lewo {
+        background-color: rgb(240, 239, 237);
+    }
+
+    .produkty-2>.slides>.div-6>.produkt-lewo {
+        background-color: rgb(233, 232, 230);
+    }
+
+    .produkty-2>.slides>.div-7>.produkt-lewo {
+        background-color: rgb(236, 235, 233);
+    }
+
+    .produkty-2>.slides>.div-8>.produkt-lewo {
+        background-color: rgb(236, 235, 233);
+    }
+
+    .produkty-2>.slides>.div-9>.produkt-lewo {
+        background-color: rgb(237, 237, 237);
+    }
+
+
+
+    .main-div>.produkty-2-text-1 {
+        font-size: 24px; /* Rozmiar czcionki */
+        font-weight: bold;
+        margin-bottom: 15px;
+        padding-left: 40px;
+    }
+
+    .main-div>.produkty-2-text-5 {
+        display: flex; /* Włączenie Flexbox */
+        justify-content: center; /* Wyśrodkowanie elementów poziomo */
+        align-items: center; /* Wyśrodkowanie elementów pionowo */
+    }
+
+    .main-div>.produkty-2-text-5>.button-1 {
+        margin: 50px 0px;
+        font-size: 16px;
+        width: 350px;
+        height: 50px;
+        cursor: pointer;
+        border: 2px solid rgb(50, 51, 52);
+        color: white;
+        background-color: rgb(50, 51, 52);
+    }
+
+
+
+    /* Kontener z kontaktem */
+    .kontakt {
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: auto; /* Wysokość kontenera */
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+        background-color: white; /* Kolor tła */
+        display: grid;
+        grid-template-rows: repeat(2, 50%); /* 4 kolumny o szerokości 25vw każda w wierszu*/
+        box-sizing: border-box;
+        padding: 10px 30px;
+        margin-bottom: 50px;
+    }
+
+    .kontakt>.info-1,
+    .kontakt>.info-2 {
+        width: calc(100% - 20px);
+        height: auto;
+        text-align: center;
+        margin: 10px;
+        background-color: white;
+        display: flex; /* Włączenie Flexbox */
+        flex-direction: column;
+        justify-content: center; /* Wyśrodkowanie elementów poziomo */
+    }
+
+    .kontakt>.info-1>.text-1,
+    .kontakt>.info-1>.text-2 {
+        font-size: 24px; /* Rozmiar czcionki */
+        font-weight: bold;
+        margin-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .kontakt>.info-1>.text-2 {
+        font-size: 18px; /* Rozmiar czcionki */
+        font-weight: normal;
+    }
+
+    .kontakt>.info-2 {
+        display: grid; /* Włączenie Flexbox, co spowoduje umieszczenie dzieci w linii */
+        grid-template-columns: 300px 100px;
+        justify-content: center;
+    }
+
+    .kontakt>.info-2>.form>.email {
+        width: 110%;
+        height: 44px;
+        font-size: 18px;
+        padding-left: 15px;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .kontakt>.info-2>.button-1 {
+        font-size: 16px;
+        margin-left: 51px;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        border: 2px solid rgb(50, 51, 52);
+        color: white;
+        background-color: rgb(50, 51, 52);
+    }
+
+    .kontakt>.info-2>.button-1::before {
+        content: url(images/list.svg);
+    }
+
+
+
+    /* Kontener z stopką strony */
+    .stopka {
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: auto; /* Wysokość kontenera */
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+        background-color: rgb(50, 51, 52); /* Kolor tła */
+        display: grid;
+        grid-template-rows: repeat(3, calc(100% / 3)); /* 4 kolumny o szerokości 25vw każda w wierszu*/
+        box-sizing: border-box;
+        padding: 50px 30px 0px 30px;
+    }
+
+    .stopka>.div-1 {
+        padding-left: 10px;
+        padding-right: 10px;
+        display: flex; /* Włączenie Flexbox */
+        flex-direction: column;
+        justify-content: center; /* Wyśrodkowanie elementów poziomo */
+        text-align: center;
+    }
+
+    .stopka>.div-1,
+    .stopka>.div-2,
+    .stopka>.div-3 {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .stopka>.div-1>.text-1 {
+        padding-top: 55px;
+        font-size: 24px; /* Rozmiar czcionki */
+        font-weight: bold;
+        color: white;
+    }
+
+    .stopka>.div-1>.text-2 {
+        font-size: 12px; /* Rozmiar czcionki */
+        padding-top: 30px;
+        padding-bottom: 30px;
+        color: gray;
+        ;
+    }
+
+    .stopka>.div-1>.text-3,
+    .stopka>.div-1>.text-4,
+    .stopka>.div-1>.text-5 {
+        font-size: 12px; /* Rozmiar czcionki */
+        padding-bottom: 5px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .stopka>.div-1>.div-1-button {
+        padding: 30px;
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .stopka>.div-1>.div-1-button>.button-1,
+    .stopka>.div-1>.div-1-button>.button-2,
+    .stopka>.div-1>.div-1-button>.button-3,
+    .stopka>.div-1>.div-1-button>.button-4 {
+        font-size: 16px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border: 2px solid rgb(50, 51, 52);
+        color: white;
+        background-color: rgb(50, 51, 52);
+    }
+
+    .stopka>.div-1>.div-1-button>.button-1::before {
+        content: url(images/facebook.svg);
+    }
+
+    .stopka>.div-1>.div-1-button>.button-2::before {
+        content: url(images/twitter.svg);
+    }
+
+    .stopka>.div-1>.div-1-button>.button-3::before {
+        content: url(images/instagram.svg);
+    }
+
+    .stopka>.div-1>.div-1-button>.button-4::before {
+        content: url(images/youtube.svg);
+    }
+
+    .stopka>.div-2 {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 25px;
+        text-align: center;
+        display: flex; /* Włączenie Flexbox */
+        flex-direction: column;
+        justify-content: top; /* Wyśrodkowanie elementów poziomo */
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+    .stopka>.div-2>.div-1-text>.text-1,
+    .stopka>.div-2>.div-2-text>.text-1 {
+        font-size: 14px; /* Rozmiar czcionki */
+        font-weight: bold;
+        color: white;
+    }
+
+    .stopka>.div-2>.div-1-text,
+    .stopka>.div-2>.div-2-text {
+        font-size: 12px; /* Rozmiar czcionki */
+        color: gray;
+    }
+
+    .stopka>.div-2>.div-1-text>.ul-1,
+    .stopka>.div-2>.div-2-text>.ul-2 {
+        list-style-type: none;
+        padding: 0; /* Usuwa wewnętrzny odstęp */
+        margin: 0; /* Usuwa zewnętrzny odstęp */
+        padding-top: 13px;
+    }
+
+    .stopka>.div-2>.div-1-text>ul>li>a,
+    .stopka>.div-2>.div-2-text>ul>li>a {
+        text-decoration: none;
+        color: gray;
+    }
+
+    .stopka>.div-2>.div-1-text>ul>li,
+    .stopka>.div-2>.div-2-text>ul>li {
+        padding-top: 7px;
+    }
+
+    .stopka>.div-3 {
+        margin-top: -15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+        display: flex; /* Włączenie Flexbox */
+        flex-direction: column;
+        justify-content: top; /* Wyśrodkowanie elementów poziomo */
+        display: grid;
+        grid-template-rows: 30px calc(50% - 15px) calc(50% - 25px);
+    }
+
+    .stopka>.div-3>.text-1 {
+        font-size: 14px; /* Rozmiar czcionki */
+        font-weight: bold;
+        color: white;
+    }
+
+    .stopka>.div-3>.div-1-text,
+    .stopka>.div-3>.div-2-text {
+        display: flex; /* Włączenie Flexbox */
+        flex-direction: column;
+        justify-content: top; /* Wyśrodkowanie elementów poziomo */
+    }
+
+    .stopka>.div-3>.div-1-text>.text-1,
+    .stopka>.div-3>.div-2-text>.text-1 {
+        font-size: 16px; /* Rozmiar czcionki */
+        padding-bottom: 9px;
+        font-weight: bold;
+        color: gray;
+    }
+
+    .stopka>.div-3>.div-1-text>.text-2,
+    .stopka>.div-3>.div-2-text>.text-2 {
+        font-size: 12px; /* Rozmiar czcionki */
+        color: gray;
+    }
+
+    .stopka>.div-3>.div-1-text>.text-3,
+    .stopka>.div-3>.div-2-text>.text-3 {
+        padding-top: 3px;
+        font-size: 10px; /* Rozmiar czcionki */
+        color: gray;
+    }
+
+    .stopka>.div-3>.div-2-text>.text-4 {
+        margin-top: -25px;
+        padding-bottom: 15px;
+        color: gray;
+    }
+
+    .prawa-zastrzezone {
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: auto; /* Wysokość kontenera */
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+        background-color: rgb(31, 31, 31); /* Kolor tła */
+        font-size: 12px; /* Rozmiar czcionki */
+        color: gray;
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+
+
+/* Układ na komputer */
+@media screen and (min-width: 1000px) {
+
+
+
+    /* Główny element HTML */
+    body,
+    html {
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+        font-family: 'Roboto', sans-serif; /* Ustawianie czcionki */
+    }
+
+
+
+    /* Główny kontenener, w którym znajduje się wszystko */
+    .main-div {
+        width: 100%; /* Szerokość głównego kontenera */
+        height: auto; /* Automatyczne dostosowywanie się wysokości kontenera do kontenerów w środku */
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+    }
+
+
+
+    /* Kontener paska menu */
+    .pasek-menu {
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: auto; /* Wysokość kontenera */
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+    }
+
+    .pasek-menu>.nav {
+        display: grid;
+        grid-template-columns: auto auto;
+        ; /* Pierwsza kolumna auto dla logo, druga auto dla ikon */
+        justify-content: space-between; /* Spowoduje to rozłożenie logo i ikon na przeciwległych końcach */
+        align-items: center;
+        padding: 10px 50px;
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .pasek-menu>.nav>.logo {
+        font-weight: bold;
+        font-size: 24px;
+        justify-self: start; /* Wyrównuje logo do lewej strony */
+    }
+
+    .pasek-menu>.nav>.menu {
+        list-style: none;
+        grid-column: 1 / -1; /* Rozciąga menu na całą dostępną przestrzeń */
+    }
+
+    .pasek-menu>.nav>.menu>.li-menu>#menu-item {
+        list-style: none;
+        text-decoration: none;
+        display: none;
+    }
+
+    .pasek-menu>.nav>.menu>.li-menu>.ul-menu {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pasek-menu>.nav>.menu>.li-menu>.ul-menu>li>a {
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .pasek-menu>.nav>.menu-ikony {
+        justify-content: end;
+        justify-self: end; /* Wyrównuje ikony do prawej strony */
+        display: flex; /* Dodaje flex dla właściwego wyświetlania ikon */
+    }
+
+    .pasek-menu>.nav>.menu-ikony>a>img {
+        margin-left: 25px;
+    }
+
+    .pasek-menu>.nav>.menu-ikony>a {
+        text-decoration: none;
+    }
+
+    .pasek-menu>.nav>.info {
+        display: flex;
+        justify-content: space-around;
+        gap: 50px; /* Dostosuj odstęp według potrzeb */
+        padding: 10px 0;
+        font-size: 12px;
+        grid-column: 1 / -1;
+    }
+
+    .pasek-menu>.nav>.info>.info-ikona {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .pasek-menu>.nav>.menu>.linia-gorna,
+    .pasek-menu>.nav>.menu>.linia-dolna {
+        border: none;
+        height: 1px;
+        background-color: black;
+        width: 100%; /* Dostosuj szerokość linii */
+        margin: 20px 0; /* Dostosuj odstęp wokół linii */
+    }
+
+
+
+    /* Kontener reklam */
+    .pasek-reklam {
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: auto; /* Wysokość kontenera */
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+        background-color: rgb(226, 217, 214); /* Kolor tła */
+        box-sizing: border-box; /* Uwzględnia padding i border w szerokości i wysokości */
+        border: 1px solid black; /* Obramowanie */
+        box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.5); /* Cieniowanie na dole obramowania */
+        margin-bottom: 15px; /* Dodanie marginesu dolnego */
+        display: grid; /* Wyświetlanie grid */
+        grid-template-columns: 50% 50%; /* Definiowanie układu kolumn siatki */
+        border: 2px solid black;
+        box-sizing: border-box;
+    }
+
+    .pasek-reklam>.reklama-lewa,
+    .pasek-reklam>.reklama-prawa {
+        width: 100%; /* Kontenery będą rozciągać się na całą szerokość kontenera nadrzędnego */
+        height: 400px; /* Dostosowanie wysokości do zawartości */
+    }
+
+    .pasek-reklam>.reklama-lewa {
+        display: flex; /* Ustawienie flexboxa */
+        align-items: center; /* Centrowanie zawartości w pionie, jeśli potrzebne */
+        justify-content: center;
+    }
+
+    .pasek-reklam>.reklama-lewa>img {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        width: 425px;
+    }
+
+    .pasek-reklam>.reklama-prawa {
+        display: flex; /* Użycie Flexboxa */
+        flex-direction: column; /* Ustawienie kierunku elementów na pionowy */
+        justify-content: center; /* środkowanie elementu */
+    }
+
+    .pasek-reklam>.reklama-prawa>.text-1 {
+        margin-bottom: 25px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .pasek-reklam>.reklama-prawa>.text-2,
+    .pasek-reklam>.reklama-prawa>.text-3 {
+        margin-bottom: 10px;
+        font-size: 32px; /* Ustawienie rozmiaru czcionki */
+        color: rgb(168, 106, 61); /* Ustawienie koloru czcionki */
+        font-weight: bold; /* Ustawienie grubości czcionki */
+    }
+
+    .pasek-reklam>.reklama-prawa>.button-1 {
+        margin-top: 15px;
+        font-size: 20px;
+        width: 150px;
+        height: 50px;
+        margin-left: 11px;
+        cursor: pointer;
+        border: 2px solid black;
+        background-color: transparent;
+    }
+
+
+
+    /* Kontener produktów */
+    .produkty>.slides,
+    .produkty>.reklama {
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: auto; /* Wysokość kontenera */
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+        background-color: white; /* Kolor tła */
+        display: grid; /* Wyświetlanie grid */
+        grid-template-columns: repeat(4, 25%); /* 4 kolumny o szerokości 25vw każda w wierszu*/
+        box-sizing: border-box;
+        padding: 10px 30px;
+    }
+
+    .produkty>.slides>.produkty-div,
+    .produkty>.reklama>.produkty-div {
+        margin: 10px;
+    }
+
+    .produkty>.reklama>.produkty-div {
+        margin-bottom: -10px;
+    }
+
+    .produkty>.reklama>.produkty-div {
+        grid-column: span 2; /* Rozciąganie pierwszych dwóch divów na dwie kolumny */
+        height: 256px;
+        display: grid;
+        grid-template-columns: 50% 50%; /* Definiowanie układu kolumn siatki */
+    }
+
+    .produkty>.reklama>.div-1 {
+        background-color: rgb(251, 251, 251);
+    }
+
+    .produkty>.reklama>.div-2 {
+        background-color: rgb(237, 236, 235);
+    }
+
+    .produkty>.reklama>.produkty-div>.produkt-lewy,
+    .produkty>.reklama>.produkty-div>.produkt-prawy {
+        width: 100%; /* Kontenery będą rozciągać się na całą szerokość kontenera nadrzędnego */
+        height: 100%; /* Kontenery będą rozciągać się na całą szerokość kontenera nadrzędnego */
+    }
+
+    .produkty>.reklama>.produkty-div>.produkt-lewy {
+        display: flex; /* Ustawienie flexboxa */
+        align-items: flex-end; /* Centrowanie zawartości w pionie, jeśli potrzebne */
+    }
+
+    .produkty>.reklama>.produkty-div>.produkt-lewy>img {
+        max-width: 100%;
+        max-height: 256px;
+    }
+
+    .produkty>.reklama>.produkty-div>.produkt-prawy>.text-1 {
+        margin-bottom: 15px;
+        font-size: 24px;
+        font-weight: bold;
+        padding-right: 25px;
+    }
+
+    .produkty>.reklama>.produkty-div>.produkt-prawy>.button-1 {
+        margin-top: 10px;
+        font-size: 16px;
+        width: 150px;
+        height: 50px;
+        margin-left: 11px;
+        cursor: pointer;
+        border: 2px solid black;
+        background-color: transparent;
+    }
+
+    .produkty>.reklama>.produkty-div>.produkt-prawy {
+        display: flex; /* Użycie Flexboxa */
+        flex-direction: column; /* Ustawienie kierunku elementów na pionowy */
+        justify-content: center; /* środkowanie elementu */
+    }
+
+    .produkty>.slides>.produkty-div {
+        height: 512px;
+        display: grid;
+        grid-template-rows: 75% 25%; /* Definiowanie układu kolumn siatki */
+    }
+
+    .produkty>.slides>.div-3>.produkt-calosc,
+    .produkty>.slides>.div-10>.produkt-calosc {
+        grid-row: span 2; /* Rozciąganie pierwszych dwóch divów na dwia wiersze */
+    }
+
+    .produkty>.slides>.produkty-div>.produkt-gora>img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .produkty>.slides>.div-3>.produkt-calosc {
+        position: relative;
+        background-color: rgb(235, 234, 232);
+        background-image: url("images/p_wazon2.svg"); /* Ustawienie obrazu jako tła */
+        background-size: contain; /* Tło pokrywa cały div */
+        background-position: center; /* Centrowanie tła */
+        background-repeat: no-repeat; /* Zapobiega powtarzaniu się tła */
+        display: flex; /* Użycie Flexboxa */
+        flex-direction: column; /* Ustawienie kierunku elementów na pionowy */
+        justify-content: center; /* środkowanie elementu */
+    }
+
+    .produkty>.slides>.div-4>.produkt-gora {
+        background-color: rgb(230, 229, 228);
+    }
+
+    .produkty>.slides>.div-5>.produkt-gora {
+        background-color: rgb(236, 235, 233);
+    }
+
+    .produkty>.slides>.div-6>.produkt-gora {
+        background-color: rgb(234, 233, 231);
+    }
+
+    .produkty>.slides>.div-7>.produkt-gora {
+        background-color: rgb(243, 243, 243);
+    }
+
+    .produkty>.slides>.div-8>.produkt-gora {
+        background-color: rgb(230, 226, 223);
+    }
+
+    .produkty>.slides>.div-9>.produkt-gora {
+        background-color: rgb(235, 235, 235);
+    }
+
+    .produkty>.slides>.div-10>.produkt-calosc {
+        position: relative;
+        background-color: rgb(231, 230, 228);
+        background-image: url("images/p_torba.svg"); /* Ustawienie obrazu jako tła */
+        background-size: contain; /* Tło pokrywa cały div */
+        background-position: center; /* Centrowanie tła */
+        background-repeat: no-repeat; /* Zapobiega powtarzaniu się tła */
+        display: flex; /* Użycie Flexboxa */
+        flex-direction: column; /* Ustawienie kierunku elementów na pionowy */
+        justify-content: center; /* środkowanie elementu */
+    }
+
+    .produkty>.slides>.div-3>.produkt-calosc::before,
+    .produkty>.slides>.div-10>.produkt-calosc::before {
+        content: ""; /* Wymagane dla pseudo-elementów */
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); /* Ciemna nakładka: czarny kolor z połową przeźroczystości */
+        z-index: 1; /* Nakładka będzie pod tekstem */
+    }
+
+    .produkty>.slides>.div-3>.produkt-calosc>.text-1,
+    .produkty>.slides>.div-10>.produkt-calosc>.text-1 {
+        z-index: 2; /* Tekst będzie nad nakładką */
+        position: relative; /* Zapewnia, że tekst jest wyżej w stosie niż pseudo-element */
+        color: white; /* Kolor tekstu */
+        font-size: 24px; /* Rozmiar czcionki */
+        margin-bottom: 15px;
+        font-weight: bold;
+        padding-left: 35px;
+        color: white;
+    }
+
+    .produkty>.slides>.div-3>.produkt-calosc>.text-2,
+    .produkty>.slides>.div-10>.produkt-calosc>.text-2 {
+        z-index: 2; /* Tekst będzie nad nakładką */
+        position: relative; /* Zapewnia, że tekst jest wyżej w stosie niż pseudo-element */
+        color: white; /* Kolor tekstu */
+        font-size: 18px; /* Rozmiar czcionki */
+        margin-bottom: 15px;
+        padding-left: 35px;
+        padding-right: 25px;
+        color: white;
+    }
+
+    .produkty>.slides>.div-3>.produkt-calosc>.button-1,
+    .produkty>.slides>.div-10>.produkt-calosc>.button-1 {
+        z-index: 2; /* Tekst będzie nad nakładką */
+        position: relative; /* Zapewnia, że tekst jest wyżej w stosie niż pseudo-element */
+        margin-top: 10px;
+        font-size: 16px;
+        width: 150px;
+        height: 50px;
+        margin-left: 46px;
+        margin-right: 9px;
+        cursor: pointer;
+        border: 2px solid white;
+        color: white;
+        background-color: transparent;
+    }
+
+    .produkty>.slides>.div-4>.produkt-dol,
+    .produkty>.slides>.div-5>.produkt-dol,
+    .produkty>.slides>.div-6>.produkt-dol,
+    .produkty>.slides>.div-7>.produkt-dol,
+    .produkty>.slides>.div-8>.produkt-dol,
+    .produkty>.slides>.div-9>.produkt-dol {
+        background-color: white;
+        display: flex; /* Użycie Flexboxa */
+        flex-direction: column; /* Ustawienie kierunku elementów na pionowy */
+        justify-content: center; /* środkowanie elementu */
+        font-size: 18px; /* Rozmiar czcionki */
+    }
+
+    .produkty>.slides>.div-4>.produkt-dol>.text-1,
+    .produkty>.slides>.div-5>.produkt-dol>.text-1,
+    .produkty>.slides>.div-6>.produkt-dol>.text-1,
+    .produkty>.slides>.div-7>.produkt-dol>.text-1,
+    .produkty>.slides>.div-8>.produkt-dol>.text-1,
+    .produkty>.slides>.div-9>.produkt-dol>.text-1 {
+        margin-bottom: 5px;
+    }
+
+    .produkty>.slides>.div-4>.produkt-dol>.text-3,
+    .produkty>.slides>.div-5>.produkt-dol>.text-3,
+    .produkty>.slides>.div-6>.produkt-dol>.text-3,
+    .produkty>.slides>.div-7>.produkt-dol>.text-3,
+    .produkty>.slides>.div-8>.produkt-dol>.text-3,
+    .produkty>.slides>.div-9>.produkt-dol>.text-3 {
+        margin-top: 25px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+
+
+    /* Kontener reklam 2 */
+    .pasek-reklam-2 {
+        position: relative;
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: 350px; /* Wysokość kontenera */
+        margin: 0; /* Usuwanie marginesu */
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding: 0; /* Usuwanie paddingu */
+        background-color: rgb(226, 217, 214); /* Kolor tła */
+        background-image: url("images/lozko.svg");
+        display: flex; /* Użycie Flexboxa */
+        flex-direction: column; /* Ustawienie kierunku elementów na pionowy */
+        justify-content: center; /* środkowanie elementu */
+    }
+
+    .pasek-reklam-2::before {
+        content: ""; /* Wymagane dla pseudo-elementów */
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 50px calc(75% - 350px) 50px 70px;
+        background: rgba(255, 255, 255, 0.75); /* Jasna nakładka: biały kolor z połową przeźroczystości */
+        z-index: 1; /* Nakładka będzie pod tekstem */
+    }
+
+    .pasek-reklam-2>.text-1,
+    .pasek-reklam-2>.text-2 {
+        z-index: 2; /* Tekst będzie nad nakładką */
+        position: relative; /* Zapewnia, że tekst jest wyżej w stosie niż pseudo-element */
+        font-size: 24px; /* Rozmiar czcionki */
+        font-weight: bold;
+        margin-bottom: 15px;
+        padding-left: 105px;
+    }
+
+    .pasek-reklam-2>.text-2 {
+        color: rgb(168, 106, 61); /* Ustawienie koloru czcionki */
+    }
+
+    .pasek-reklam-2>.text-3 {
+        z-index: 2; /* Tekst będzie nad nakładką */
+        position: relative; /* Zapewnia, że tekst jest wyżej w stosie niż pseudo-element */
+        font-size: 18px; /* Rozmiar czcionki */
+        padding-left: 105px;
+        padding-right: calc(75% - 300px)
+    }
+
+    .pasek-reklam-2>.button-1 {
+        z-index: 2; /* Tekst będzie nad nakładką */
+        position: relative; /* Zapewnia, że tekst jest wyżej w stosie niż pseudo-element */
+        margin-top: 10px;
+        font-size: 16px;
+        width: 150px;
+        height: 50px;
+        margin-left: 116px;
+        cursor: pointer;
+        border: 2px solid black;
+        background-color: transparent;
+    }
+
+
+
+    /* Kontener produktów 2 */
+    .produkty-2>.slides {
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: auto; /* Wysokość kontenera */
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+        background-color: white; /* Kolor tła */
+        display: grid;
+        grid-template-columns: repeat(3, calc(100% / 3)); /* 4 kolumny o szerokości 25vw każda w wierszu*/
+        box-sizing: border-box;
+        padding: 10px 30px;
+    }
+
+    .produkty-2>.slides>.slides-div {
+        width: 100%;
+        height: 100%;
+        height: 256px;
+        display: grid;
+        margin: 10px;
+        grid-template-columns: 50% 50%; /* Definiowanie układu kolumn siatki */
+    }
+
+    .produkty-2>.slides>.slides-div>.produkt-lewo>img {
+        max-width: 100%;
+        max-height: 256px;
+    }
+
+    .produkty-2>.slides>.slides-div>.produkt-lewo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .produkty-2>.slides>.slides-div>.produkt-prawo {
+        display: flex; /* Użycie Flexboxa */
+        flex-direction: column; /* Ustawienie kierunku elementów na pionowy */
+        justify-content: center; /* środkowanie elementu */
+        font-size: 18px; /* Rozmiar czcionki */
+        background-color: white;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .produkty-2>.slides>.dslides-div>.produkt-prawo>.text-1 {
+        margin-bottom: 5px;
+    }
+
+    .produkty-2>.slides>.slides-div>.produkt-prawo>.text-3 {
+        margin-top: 25px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .produkty-2>.slides>.div-1>.produkt-lewo {
+        background-color: rgb(235, 234, 232);
+    }
+
+    .produkty-2>.slides>.div-2>.produkt-lewo {
+        background-color: rgb(234, 233, 231);
+    }
+
+    .produkty-2>.slides>.div-3>.produkt-lewo {
+        background-color: rgb(238, 237, 235);
+    }
+
+    .produkty-2>.slides>.div-4>.produkt-lewo {
+        background-color: rgb(234, 234, 234);
+    }
+
+    .produkty-2>.slides>.div-5>.produkt-lewo {
+        background-color: rgb(240, 239, 237);
+    }
+
+    .produkty-2>.slides>.div-6>.produkt-lewo {
+        background-color: rgb(233, 232, 230);
+    }
+
+    .produkty-2>.slides>.div-7>.produkt-lewo {
+        background-color: rgb(236, 235, 233);
+    }
+
+    .produkty-2>.slides>.div-8>.produkt-lewo {
+        background-color: rgb(236, 235, 233);
+    }
+
+    .produkty-2>.slides>.div-9>.produkt-lewo {
+        background-color: rgb(237, 237, 237);
+    }
+
+    .main-div>.produkty-2-text-1 {
+        font-size: 24px; /* Rozmiar czcionki */
+        font-weight: bold;
+        margin-bottom: 35px;
+        padding-left: 40px;
+    }
+
+    .main-div>.produkty-2-text-5 {
+        display: flex; /* Włączenie Flexbox */
+        justify-content: center; /* Wyśrodkowanie elementów poziomo */
+        align-items: center; /* Wyśrodkowanie elementów pionowo */
+    }
+
+    .main-div>.produkty-2-text-5>.button-1 {
+        margin: 50px 0px;
+        font-size: 16px;
+        width: 350px;
+        height: 50px;
+        cursor: pointer;
+        border: 2px solid rgb(50, 51, 52);
+        color: white;
+        background-color: rgb(50, 51, 52);
+    }
+
+
+
+    /* Kontener z kontaktem */
+    .kontakt {
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: auto; /* Wysokość kontenera */
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+        background-color: white; /* Kolor tła */
+        display: grid;
+        grid-template-columns: repeat(2, 50%); /* 4 kolumny o szerokości 25vw każda w wierszu*/
+        box-sizing: border-box;
+        padding: 10px 30px;
+        margin-bottom: 70px;
+    }
+
+    .kontakt>.info-1,
+    .kontakt>.info-2 {
+        width: calc(100% - 20px);
+        height: auto;
+        margin: 10px;
+        background-color: white;
+        display: flex; /* Włączenie Flexbox */
+        flex-direction: column;
+        justify-content: center; /* Wyśrodkowanie elementów poziomo */
+    }
+
+    .kontakt>.info-1>.text-1 {
+        font-size: 24px; /* Rozmiar czcionki */
+        font-weight: bold;
+        margin-bottom: 10px;
+        padding-left: 10px;
+    }
+
+    .kontakt>.info-1>.text-2 {
+        font-size: 18px; /* Rozmiar czcionki */
+        padding-left: 10px;
+        padding-right: calc(75% - 500px)
+    }
+
+    .kontakt>.info-2 {
+        display: grid; /* Włączenie Flexbox, co spowoduje umieszczenie dzieci w linii */
+        grid-template-columns: 350px 50px 35px;
+        justify-content: end;
+    }
+
+    .kontakt>.info-2>.form>.email {
+        width: 100%;
+        height: 44px;
+        font-size: 18px;
+        padding-left: 15px;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .kontakt>.info-2>.button-1 {
+        font-size: 16px;
+        width: 50px;
+        height: 50px;
+        margin-left: 21px;
+        cursor: pointer;
+        border: 2px solid rgb(50, 51, 52);
+        color: white;
+        background-color: rgb(50, 51, 52);
+    }
+
+    .kontakt>.info-2>.button-1::before {
+        content: url(images/list.svg);
+    }
+
+
+
+    /* Kontener z stopką strony */
+    .stopka {
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: auto; /* Wysokość kontenera */
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+        background-color: rgb(50, 51, 52); /* Kolor tła */
+        display: grid;
+        grid-template-columns: repeat(3, calc(100% / 3)); /* 4 kolumny o szerokości 25vw każda w wierszu*/
+        box-sizing: border-box;
+        padding: 50px 30px;
+    }
+
+    .stopka>.div-1 {
+        padding-left: 10px;
+        padding-right: 50px;
+        display: flex; /* Włączenie Flexbox */
+        flex-direction: column;
+        justify-content: center; /* Wyśrodkowanie elementów poziomo */
+    }
+
+    .stopka>.div-1,
+    .stopka>.div-2,
+    .stopka>.div-3 {
+        width: 100%;
+        height: 100%;
+        border: 10px solid rgb(50, 51, 52);
+        border-left: 30px solid rgb(50, 51, 52);
+        border-right: 30px solid rgb(50, 51, 52);
+        box-sizing: border-box;
+    }
+
+    .stopka>.div-1>.text-1 {
+        font-size: 24px; /* Rozmiar czcionki */
+        font-weight: bold;
+        color: white;
+    }
+
+    .stopka>.div-1>.text-2 {
+        font-size: 12px; /* Rozmiar czcionki */
+        padding-top: 30px;
+        padding-bottom: 30px;
+        color: gray;
+        ;
+    }
+
+    .stopka>.div-1>.text-3,
+    .stopka>.div-1>.text-4,
+    .stopka>.div-1>.text-5 {
+        font-size: 12px; /* Rozmiar czcionki */
+        padding-bottom: 5px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .stopka>.div-1>.div-1-button {
+        padding-top: 30px;
+        padding-right: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .stopka>.div-1>.div-1-button>.button-1,
+    .stopka>.div-1>.div-1-button>.button-2,
+    .stopka>.div-1>.div-1-button>.button-3,
+    .stopka>.div-1>.div-1-button>.button-4 {
+        font-size: 16px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border: 2px solid rgb(50, 51, 52);
+        color: white;
+        background-color: rgb(50, 51, 52);
+    }
+
+    .stopka>.div-1>.div-1-button>.button-1::before {
+        content: url(images/facebook.svg);
+    }
+
+    .stopka>.div-1>.div-1-button>.button-2::before {
+        content: url(images/twitter.svg);
+    }
+
+    .stopka>.div-1>.div-1-button>.button-3::before {
+        content: url(images/instagram.svg);
+    }
+
+    .stopka>.div-1>.div-1-button>.button-4::before {
+        content: url(images/youtube.svg);
+    }
+
+    .stopka>.div-2 {
+        padding-left: 5px;
+        padding-right: 5px;
+        display: flex; /* Włączenie Flexbox */
+        flex-direction: column;
+        justify-content: top; /* Wyśrodkowanie elementów poziomo */
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+    .stopka>.div-2>.div-1-text>.text-1,
+    .stopka>.div-2>.div-2-text>.text-1 {
+        font-size: 14px; /* Rozmiar czcionki */
+        font-weight: bold;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        color: white;
+    }
+
+    .stopka>.div-2>.div-1-text,
+    .stopka>.div-2>.div-2-text {
+        font-size: 12px; /* Rozmiar czcionki */
+        color: gray;
+    }
+
+    .stopka>.div-2>.div-1-text>.ul-1,
+    .stopka>.div-2>.div-2-text>.ul-2 {
+        list-style-type: none;
+        padding: 0; /* Usuwa wewnętrzny odstęp */
+        margin: 0; /* Usuwa zewnętrzny odstęp */
+        padding-top: 25px;
+    }
+
+    .stopka>.div-2>.div-1-text>ul>li>a,
+    .stopka>.div-2>.div-2-text>ul>li>a {
+        text-decoration: none;
+        color: gray;
+    }
+
+    .stopka>.div-2>.div-1-text>ul>li,
+    .stopka>.div-2>.div-2-text>ul>li {
+        padding-top: 10px;
+    }
+
+    .stopka>.div-3 {
+        padding-left: 5px;
+        padding-right: 5px;
+        display: flex; /* Włączenie Flexbox */
+        flex-direction: column;
+        justify-content: top; /* Wyśrodkowanie elementów poziomo */
+        display: grid;
+        grid-template-rows: 50px calc(50% - 25px) calc(50% - 25px);
+    }
+
+    .stopka>.div-3>.text-1 {
+        font-size: 14px; /* Rozmiar czcionki */
+        font-weight: bold;
+        color: white;
+    }
+
+    .stopka>.div-3>.div-1-text,
+    .stopka>.div-3>.div-2-text {
+        display: flex; /* Włączenie Flexbox */
+        flex-direction: column;
+        justify-content: top; /* Wyśrodkowanie elementów poziomo */
+    }
+
+    .stopka>.div-3>.div-1-text>.text-1,
+    .stopka>.div-3>.div-2-text>.text-1 {
+        font-size: 16px; /* Rozmiar czcionki */
+        padding-bottom: 15px;
+        font-weight: bold;
+        color: gray;
+    }
+
+    .stopka>.div-3>.div-1-text>.text-2,
+    .stopka>.div-3>.div-2-text>.text-2 {
+        font-size: 12px; /* Rozmiar czcionki */
+        color: gray;
+    }
+
+    .stopka>.div-3>.div-1-text>.text-3,
+    .stopka>.div-3>.div-2-text>.text-3 {
+        padding-top: 9px;
+        font-size: 10px; /* Rozmiar czcionki */
+        color: gray;
+    }
+
+    .stopka>.div-3>.div-2-text>.text-4 {
+        padding-bottom: 15px;
+        color: gray;
+    }
+
+    .prawa-zastrzezone {
+        width: 100%; /* Szerokość na całą szerokość kontenera nadrzędnego */
+        height: auto; /* Wysokość kontenera */
+        margin: 0; /* Usuwanie marginesu */
+        padding: 0; /* Usuwanie paddingu */
+        background-color: rgb(31, 31, 31); /* Kolor tła */
+        font-size: 12px; /* Rozmiar czcionki */
+        color: gray;
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 5</title>
+</head>
+
+<body>
+    <h1>Stoper</h1>
+    <div id="stoper">00:00:00</div>
+    <button onclick="startStoper()">Start</button>
+    <button onclick="stopStoper()">Stop</button>
+    <button onclick="resetStoper()">Reset</button>
+
+    <script>
+        let czas = 0;
+        let interval;
+        const stoperElement = document.getElementById('stoper');
+
+        function aktualizujStoper() {
+            czas++;
+            localStorage.setItem('czasStoper', czas);
+            stoperElement.textContent = formatujCzas(czas);
+        }
+
+        function startStoper() {
+            clearInterval(interval);
+            interval = setInterval(aktualizujStoper, 1000);
+        }
+
+        function stopStoper() {
+            clearInterval(interval);
+        }
+
+        function resetStoper() {
+            clearInterval(interval);
+            czas = 0;
+            localStorage.setItem('czasStoper', czas);
+            stoperElement.textContent = formatujCzas(czas);
+        }
+
+        function formatujCzas(czas) {
+            let godziny = Math.floor(czas / 3600);
+            let minuty = Math.floor((czas % 3600) / 60);
+            let sekundy = czas % 60;
+            return `${godziny.toString().padStart(2, '0')}:${minuty.toString().padStart(2, '0')}:${sekundy.toString().padStart(2, '0')}`;
+        }
+
+        window.addEventListener('load', () => {
+            czas = parseInt(localStorage.getItem('czasStoper')) || 0;
+            stoperElement.textContent = formatujCzas(czas);
+        });
+    </script>
+</body>
+
+</html>

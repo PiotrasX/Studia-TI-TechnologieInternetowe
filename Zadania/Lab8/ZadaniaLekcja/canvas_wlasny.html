@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas własny obraz</title>
+    <style>
+        body {
+            margin: 15px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="mojCanvas" width="1000" height="500" style="border:3px solid #000000;">
+        Twoja przeglądarka nie obsługuje tagu canvas HTML.
+    </canvas>
+
+    <script>
+        var canvas = document.getElementById("mojCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // Tło
+        ctx.fillStyle = "Aqua";
+        ctx.fillRect(0, 0, 1000, 500);
+
+        // Dom
+        ctx.fillStyle = "Coral";
+        ctx.fillRect(370, 300, 200, 150);
+
+        // Dach
+        ctx.beginPath();
+        ctx.moveTo(340, 300);
+        ctx.lineTo(470, 220);
+        ctx.lineTo(600, 300);
+        ctx.closePath();
+        ctx.fillStyle = "DarkRed";
+        ctx.fill();
+
+        // Okno
+        ctx.fillStyle = "LightBlue";
+        ctx.fillRect(490, 330, 50, 50);
+
+        ctx.strokeStyle = "Blue";
+        ctx.strokeRect(490, 330, 25, 25);
+        ctx.strokeRect(490, 355, 25, 25);
+        ctx.strokeRect(515, 330, 25, 25);
+        ctx.strokeRect(515, 355, 25, 25);
+
+        ctx.strokeRect(490, 330, 25, 25);
+        ctx.strokeRect(490, 355, 25, 25);
+        ctx.strokeRect(515, 330, 25, 25);
+        ctx.strokeRect(515, 355, 25, 25);
+
+        ctx.strokeRect(490, 330, 25, 25);
+        ctx.strokeRect(490, 355, 25, 25);
+        ctx.strokeRect(515, 330, 25, 25);
+        ctx.strokeRect(515, 355, 25, 25);
+
+        // Drzwi
+        ctx.fillStyle = "LightSlateGray";
+        ctx.fillRect(400, 350, 50, 100);
+
+        ctx.strokeStyle = "Brown";
+        ctx.strokeRect(400, 350, 50, 99);
+        ctx.strokeRect(400, 350, 50, 99);
+        ctx.strokeRect(400, 350, 50, 99);
+
+        // Trawa
+        ctx.fillStyle = "LimeGreen";
+        ctx.fillRect(0, 450, 1000, 50);
+
+        ctx.beginPath();
+        ctx.moveTo(30, 450);
+        ctx.lineTo(130, 420);
+        ctx.lineTo(270, 430);
+        ctx.lineTo(350, 450);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(500, 450);
+        ctx.lineTo(600, 420);
+        ctx.lineTo(750, 405);
+        ctx.lineTo(825, 415);
+        ctx.lineTo(865, 430);
+        ctx.lineTo(890, 440);
+        ctx.lineTo(950, 450);
+        ctx.closePath();
+        ctx.fill();
+
+        // Słońce
+        ctx.beginPath();
+        ctx.arc(150, 90, 50, 0, 2 * Math.PI);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+    </script>
+</body>
+
+</html>

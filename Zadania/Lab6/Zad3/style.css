@@ -1,0 +1,132 @@
+/* Definicja zmiennych CSS na najwyższym poziomie dokumentu */
+:root {
+    --form-control-color: green; /* Kolor główny kontrolek formularza */
+    --form-control-background: rgb(203, 177, 177); /* Kolor dla wyłączonych kontrolek */
+}
+
+/* Styl dla całego formularza */
+form {
+    display: grid; /* Używa siatki do układania elementów w formularzu */
+    place-content: center; /* Centruje zawartość formularza */
+    min-height: 100vh; /* Ustawia minimalną wysokość formularza na 100% wysokości widoku */
+}
+
+/* Styl dla etykiety checkboxa */
+.label-checkbox {
+    font-family: system-ui; /* Ustawia rodzaj czcionki */
+    font-size: 5rem; /* Ustawia wielkość czcionki */
+    font-weight: bold; /* Pogrubia czcionkę */
+    line-height: 1.1; /* Ustawia wysokość linii dla tekstu */
+    display: grid; /* Używa siatki do układania tekstu i checkboxa */
+    grid-template-columns: 1em auto; /* Definiuje dwie kolumny: jedna o stałej szerokości, druga elastyczna */
+    gap: 1em; /* Ustawia odstęp między kolumnami */
+}
+
+/* Styl dla inputu typu checkbox */
+input[type="checkbox"] {
+    -webkit-appearance: none; /* Usuwa domyślny wygląd w przeglądarkach opartych na WebKit */
+    appearance: none; /* Usuwa domyślny wygląd */
+    background-color: var(--form-control-background); /* Ustawia tło */
+    margin: 0; /* Usuwa marginesy */
+    font: inherit; /* Dziedziczy czcionkę z elementu nadrzędnego */
+    color: currentColor; /* Ustawia kolor tekstu na aktualny kolor */
+    width: 1.15em; /* Szerokość checkboxa */
+    height: 1.15em; /* Wysokość checkboxa */
+    border: 0.15em solid currentColor; /* Ramka wokół checkboxa */
+    border-radius: 0.3em; /* Zaokrąglenie rogów ramki */
+    display: grid; /* Używa siatki do wyśrodkowania zawartości */
+    place-content: center; /* Wyśrodkowuje zawartość wewnątrz */
+}
+
+/* Styl dla pseudoelementu ::before, używanego do stworzenia znacznika wewnątrz checkboxa */
+input[type="checkbox"]::before {
+    content: ""; /* Pusty treść, ponieważ jest to tylko graficzne */
+    width: 0.7em; /* Szerokość grafiki znacznika */
+    height: 0.7em; /* Wysokość grafiki znacznika */
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%); /* Kształt znacznika */
+    transform: scale(0); /* Początkowo znacznik jest niewidoczny */
+    transform-origin: bottom left; /* Punkt transformacji */
+    transition: 120ms transform ease-in-out; /* Animacja pojawienia się znacznika */
+    box-shadow: inset 1em 1em var(--form-control-color); /* Cień wewnątrz, tworzący kolor znacznika */
+    background-color: CanvasText; /* Kolor tła znacznika */
+}
+
+/* Styl dla checkboxa, gdy jest zaznaczony */
+input[type="checkbox"]:checked::before {
+    transform: scale(0.95); /* Powiększa znacznik, czyniąc go widocznym */
+}
+
+/* Animacja dla checkboxa, gdy jest zaznaczony */
+input[type="checkbox"]:checked {
+    animation-name: chechbox-animation; /* Nazwa animacji */
+    animation-duration: 2s; /* Czas trwania animacji */
+    animation-timing-function: ease; /* Funkcja czasu animacji */
+}
+
+/* Definicja animacji dla checkboxa */
+/* Definicja animacji dla checkboxa */
+@keyframes chechbox-animation {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+/* Styl dla checkboxa, gdy jest w fokusie */
+input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid currentColor; /* Zewnętrzna obwódka wokół checkboxa */
+    outline-offset: max(2px, 0.15em); /* Odstęp obwódki od checkboxa */
+}
+
+/* Styl dla przycisku */
+button {
+    font-family: system-ui; /* Ustawia rodzaj czcionki */
+    font-size: 5rem; /* Ustawia wielkość czcionki */
+    font-weight: bold; /* Pogrubia czcionkę */
+    -webkit-appearance: none; /* Usuwa domyślny wygląd w przeglądarkach opartych na WebKit */
+    appearance: none; /* Usuwa domyślny wygląd */
+    background-color: var(--form-control-background); /* Ustawia tło */
+    margin: 0; /* Usuwa marginesy */
+    color: currentColor; /* Ustawia kolor tekstu na aktualny kolor */
+    border: 0.15em solid currentColor; /* Ramka wokół przycisku */
+    border-radius: 0.3em; /* Zaokrąglenie rogów ramki */
+    cursor: pointer; /* Zmienia kursor na wskaźnik, kiedy najedziemy na przycisk */
+    transition: transform 0.5s ease; /* Animacja transformacji */
+}
+
+/* Zdefiniowanie tekstu na przycisku */
+button::after {
+    content: "Button"; /* Ustawienie tekstu */
+}
+
+/* Styl dla przycisku podczas aktywacji */
+button:active {
+    padding: 0.5rem; /* Zmniejszenie paddingu, aby zachować kształt */
+    border-radius: 50%; /* Zmiana kształtu na okrągły */
+    border: 0.15em solid green; /* Ustawienie koloru na zielony */
+    transform: scale(1.2); /* Powiększenie przycisku */
+    min-width: 170px; /* Rozmiar przycisku */
+    min-height: 170px; /* Rozmiar przycisku */
+    margin-top: -39px; /* Ustawienie przycisku aby checkbox nie przesuwał się */
+}
+
+/* Styl dla pseudoelementu ::after używanego do wyświetlania symbolu */
+button:active::after {
+    content: "✔"; /* Zmiana treści na symbol zaznaczenia (haczyk) */
+    position: absolute; /* Pozycjonowanie elementu absolutnie względem najbliższego pozycjonowanego przodka */
+    top: 50%; /* Ustawienie elementu na 50% od górnej krawędzi przodka */
+    left: 50%; /* Ustawienie elementu na 50% od lewej krawędzi przodka */
+    transform: translate(-50%, -50%); /* Przesunięcie elementu o -50% jego własnej wysokości i szerokości, aby wyśrodkować go w przycisku */
+    font-size: 1.3em; /* Zwiększenie rozmiaru czcionki symbolu, aby był wyraźniejszy */
+}
+
+/* Dodatkowe style dla etykiety przycisku */
+.label-button {
+    display: grid; /* Używa siatki do wyśrodkowania przycisku */
+    place-items: center; /* Wyśrodkowuje przycisk */
+    margin-top: 5em; /* Odstęp nad przyciskiem */
+}
