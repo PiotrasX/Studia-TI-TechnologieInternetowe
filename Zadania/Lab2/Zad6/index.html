@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formularz</title>
+</head>
+
+<body>
+    <form action="" method="get">
+        <fieldset>
+            <legend>Powód zgłoszenia</legend>
+            <label><input type="radio" name="zgloszenie" value="przemoc">Przemoc</label><br>
+            <label><input type="radio" name="zgloszenie" value="nagosc">Nagość</label><br>
+            <label><input type="radio" name="zgloszenie" value="wulgaryzmy">Wulgaryzmy</label><br>
+            <label><input type="radio" name="zgloszenie" value="inne">Inne</label>
+        </fieldset>
+        <fieldset>
+            <legend>Zgody</legend>
+            <label><input type="checkbox" name="zgoda1" value="regulamin">Zapoznałem się i akceptuje
+                regulamin</label><br>
+            <label><input type="checkbox" name="zgoda2" value="rodo">Wyrażam zgodę na przetwarzanie danych
+                (RODO)</label><br>
+            <label><input type="checkbox" name="zgoda3" value="newsletter">Zapisz mnie do newslettera</label><br>
+        </fieldset>
+        <fieldset>
+            <legend>Informacje o użytkowniku</legend>
+            <label for="imie-i-nazwisko">Podaj imię i nazwisko: </label>
+            <input name="imie-i-nazwisko" id="imie-i-nazwisko" placeholder="Imię i nazwisko"><br><br>
+            <label for="numer-telefonu">Podaj numer telefonu: </label>
+            <input name="numer-telefonu" id="numer-telefonu" placeholder="Numer telefonu" type="number"><br><br>
+            <label for="email">Podaj adres email: </label>
+            <input name="email" id="email" placeholder="Adres email" type="email"><br><br>
+            <label for="wiek-wybor">Podaj wiek</label>
+            <select id="wiek-wybor" name="wiek-wybor" size="1">
+                <optgroup label="Nastolatek">
+                    <option value="15-16">15-16</option>
+                    <option value="17-18">17-18</option>
+                    <option value="19">19</option>
+                </optgroup>
+                <optgroup label="Dorosły">
+                    <option value="20-29">20-29</option>
+                    <option value="30-39">30-39</option>
+                    <option value="40-49">40-49</option>
+                    <option value="50-59">50-59</option>
+                    <option value="60+">60+</option>
+                </optgroup>
+            </select>
+        </fieldset>
+    </form>
+</body>
+
+</html>

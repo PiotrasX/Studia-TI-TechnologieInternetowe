@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Przelicznik centymetrów na cale</title>
+</head>
+
+<body>
+    <form>
+        <label for="length">Podaj długość w cm: </label>
+        <input name="length" type="number" min="0" value="1" id="length"><br>
+        <!-- Atrybut 'type' pozwala określić jaki rodzaj wejścia ma przyjmować
+        element input, w tym przypadku ustawiono number, zatem niemożliwe
+        będzie wpisanie znaków innych niż numeryczne (uwzględniając separatory
+        dziesiętne, jak i znak -, +). 
+        Atrybut 'min' pozwala ustawić minimalną wartość pola. 
+        Element 'output' nigdy nie jest wysyłany na serwer, jego rolą jest jedynie 
+        prezentowanie jakiejś już przetworzonej wartości.
+        Atrybut 'value' pozwala ustawić początkową wartość elementu (bez jego
+        użycia widzimy elementy jako puste, nieuzupełnione).
+
+        Ważniejsze atrybuty input:
+        - autofocus – pozwala nam wybrać które pole formularza powinno być
+        aktywne po załadowaniu strony. Tylko jeden element formularza
+        może posiadać ten atrybut.
+        - placeholder - podpowiedź jaka treść powinna zostać wpisana w dane
+        pole formularza, znika kiedy zaczynamy edytować dany element.
+        - autocomplete – informacja dla przeglądarki, aby spróbować uzupełnić
+        automatycznie dane pole, dotyczy to takich informacji jak adres, 
+        nr telefonu, email itd.
+        - required – uzupełnienie wartości w formularzu jest obligatoryjne.
+        - disabled – brak możliwości interakcji z elementem, jednak może on
+        mieć wartość ustawioną domyślnie.
+        - name – definiuje klucz pod jakim będzie przesyłana wartość pola
+        formularza. Definiując wartości tego atrybutu nie zaleca się
+        wykorzystywania polskich znaków! -->
+        <label>Dlugość w calach: </label><output for="length">2,54</output>
+        <button>Przelicz</button>
+        <!-- Z uwagi na fakt, że na tym etapie laboratorium nie wystąpił jeszcze
+        język JavaScript, poniższy formularz nie będzie przeliczał w praktyce 
+        długości z centymetrówm na cale. Pokazano jednak jak zdefiniować tego 
+        typu formularz w HTML. -->
+    </form>
+</body>
+
+</html>

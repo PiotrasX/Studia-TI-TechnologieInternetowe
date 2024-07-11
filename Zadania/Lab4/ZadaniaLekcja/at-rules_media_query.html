@@ -1,0 +1,75 @@
+<!-- Poza selektorami, CSS udostępnia tzw. at-rules, które rozpoczynają 
+się od znaku @ (ang. czytane jako at). Reguły te raczej zawierają pewne
+metadane dla samych arkuszy styli, niż wprost stosowane są do stylowania
+elementów HTML, pozwalają też uzyskać pewną namiastkę instrukcji
+warunkowych. 
+Przykłady prostych at-rules:
+@charset "UTF-8"; /* ustalamy kodowanie znaków w arkuszu */
+@import "custom.css"; /* importujemy zewnętrzny arkusz styli */ -->
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>At-rules -> Media query</title>
+    <!-- Media query - pozwala na dostosowanie stylu w CSS na podstawie 
+    charakterystyki urządzenia końcowego. 
+    Składnia media query wygląda następująco:
+    @media media-type and (media-feature-rule) 
+    {
+        /* CSS rules go here */
+    } 
+    gdzie media-type może mieć wartości: all, print, screen; 
+    natomiast media-feature-rule obsługują więcej przypadków. 
+    Pisząc media query możliwe jest stosowanie spójników: and, or, not. -->
+    <style>
+        @media print {
+
+            /* reguły stylowania poniżej będą aktywne jedynie 
+             podczas drukowania */
+            * {
+                padding: 10px;
+            }
+        }
+
+        @media screen {
+
+            /* reguły stylowania poniżej będą aktywne jedynie 
+             podczas wyświetlania na ekranie */
+            * {
+                padding: 20px;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            button {
+                margin-left: 20px;
+                padding: 10px;
+                max-width: 100px;
+            }
+        }
+
+        @media screen and (min-width: 701px) and (max-width: 1200px) {
+            button {
+                margin-left: 20px;
+                padding: 20px;
+                max-width: 150px;
+            }
+        }
+
+        button {
+            background-color: rgb(57, 3, 3);
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Nagłówek</h1>
+    <p>Paragraf</p>
+    <pre>Sekcja preformatowana</pre>
+    <button>Przycisk</button>
+</body>
+
+</html>

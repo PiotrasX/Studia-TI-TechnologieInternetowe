@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jednostki w CSS</title>
+    <link rel="stylesheet" href="units.css">
+</head>
+
+<body>
+    px<div class="px"></div><br>
+    <!-- Piksel - przy odpowiednim skalowaniu i właściwościach urządzenia
+    1px będzie odpowiadać fizycznemu pikselowi ekranu. Na ekranach 
+    z bardzo dużą rozdzielczością (2k, 4k) stosowane jest skalowanie,
+    wtedy 1px będzie większy od piksela fizycznego i wyświetlany przez 
+    2, 4 lub więcej pikseli fizycznych (czyli pewną ich wielokrotność). -->
+    em<div class="em"></div><br>
+    <!-- Em - reprezentuje obecny rozmiar czcionki elementu nadrzędnego. 
+    Domyślnie rozmiar czcionki to 16 pikseli, 1 em będzie równoważne 
+    16 pikselom CSS w większości przypadków. Zaleca się stosowanie tej 
+    miary przy definiowaniu rozmiaru czcionki z uwagi na różne 
+    preferencje użytkowników. Osoby słabowidzące używają skalowania czy
+    większego rozmiaru czcionki a jednostka em zapewnia im optymalny 
+    rozmiar tekstu pod ich preferencje kompatybilnie z innymi witrynami. 
+    Jednak zmiana rozmiaru czcionki w danym elemencie zmieni oczywiście 
+    rozmiar 1 em. -->
+    rem<div class="rem"></div><br>
+    <!-- Rem - oznacza rozmiar czcionki elementu głównego, (ang. root 
+    element), czyli elementu html. Od em różni się tym, że nie bierzemy 
+    pod uwagę rodzica danego elementu, tylko bezpośrednio element główny. -->
+    %<div class="procent">.</div><br>
+    <!-- Jednostka procentowa (%) - w CSS jest relatywną jednostką
+    miary, która pozwala określić wartość na podstawie procentowej 
+    części pewnej wartości bazowej. Jest powszechnie wykorzystywana 
+    do określania wielkości elementów w stosunku do wielkości 
+    ich kontenerów lub wartości bazowych. -->
+    ex<div class="ex"></div><br>
+    <!-- Ex - w CSS jest relatywną jednostką miary, która bazuje na
+    wysokości litery "x" w bieżącym systemie czcionek. Jednostka "ex" 
+    jest używana do określania długości na podstawie wysokości małego 
+    "x" w danym systemie czcionek. Przyjmuje się, że "ex" jest około 
+    połowy wysokości liter w danym systemie czcionek (domyślnie 8px,
+    czyli 16px/2). -->
+    pt<div class="pt"></div><br>
+    <!-- Punkty typograficzne („pointy”) – jednostka absolutna
+    mająca wielkość 1/72 cala. -->
+    cm<div class="cm"></div><br>
+    <!-- Centymetry -->
+    mm<div class="mm"></div><br>
+    <!-- Milimetry -->
+    in<div class="in"></div><br>
+    <!-- Cale -->
+    pc<div class="pc"></div><br>
+    <!-- Pica - 12 punktów typograficznych (pt) lub 1/6 cala. -->
+
+    <!-- W praktyce najczęściej wykorzystywane jednostki przy tworzeniu 
+    stron to px, em, rem, % oraz ex. Stosowanie pozostałych nie jest 
+    zalecane przy tworzeniu stron internetowych. -->
+
+    <br><br><br><br><br>
+    <div class="rozmiar-px">96 px/pikseli</div>
+    <div class="rozmiar-em">6 em</div>
+    <div class="rozmiar-rem">6 rem</div>
+    <div class="rozmiar-procent">9 %</div>
+    <div class="rozmiar-ex">13.4 ex</div>
+    <div class="rozmiar-pt">72 pt/pointy</div>
+    <div class="rozmiar-cm">2.54 cm</div>
+    <div class="rozmiar-mm">25.4 mm</div>
+    <div class="rozmiar-in">1 in/cal</div>
+    <div class="rozmiar-pc">6 pc/pica</div>
+</body>
+
+</html>

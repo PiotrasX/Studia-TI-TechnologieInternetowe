@@ -1,0 +1,43 @@
+<!-- Selektor klasy (oznaczone kolorem żółtym) jest oznaczony prefiksem
+    '.' przed nazwą klasy, której dotyczy. Przy definiowaniu nazw klasy
+    należy:
+    - Unikać słów kluczowych i nazw znaczników html np.: .div lub .span,
+    bo to są zarezerowane nazwy dla konkretnych elementów.
+    - Nazwa klasy powinna być krótka i opisowa np.: .header .btnlight.
+    - Nazwa nie powinna zawierać polskich znaków.
+    - Nazwy wieloczłonowe należy zapisywać stosując camelCase lub
+    oddzielać poszczególne człony znakiem '-' np.: .btnPressed lub
+    .btn-pressed.
+    - Przyjmując pewną konwencję należy stosować ją sumiennie w całym 
+    dokumencie/dokumentach tworzących witrynę.
+    - Ta sama klasa może być stosowana do dowolnego elementu HTML. -->
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selektor klasy</title>
+    <style>
+        /* Kolor tekstu klasy1 będzie miał kolor czerwony */
+        .klasa1 {
+            color: crimson;
+        }
+
+        /* Tekst wyświetlany w klasie2 będzie bardzo mały */
+        .klasa2 {
+            font-size: xx-small;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Do paragrafu 1 zastosowano jedną klasę. Tekst będzie czerwony -->
+    <p class="klasa1">Paragraf 1</p>
+    <!-- Do paragrafu 2 zastosowano jedną klasę. Tekst będzie mały -->
+    <p class="klasa2">Paragraf 2</p>
+    <!-- Do paragrafu 3 zastosowano dwie klasy. Tekst będzie czerwony i mały -->
+    <p class="klasa1 klasa2">Paragraf 3</p>
+</body>
+
+</html>

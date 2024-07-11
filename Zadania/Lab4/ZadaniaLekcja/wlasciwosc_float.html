@@ -1,0 +1,48 @@
+<!-- Właściwość float w CSS jest używana do określania sposobu, 
+w jaki elementy HTML mają "opływać" inne elementy wokół nich. Głównym
+zastosowaniem float jest tworzenie układów opartych na tekście oraz
+tworzenie wielokolumnowych układów strony (przy czym nigdy nie było do
+tego pierwotnie projektowane i nie powinno się już obecnie stosować tego
+rozwiązania w tym kontekście na rzecz grida i flexboxa).
+Warto odnotować, że w przeszłości wykorzystywano tę właściwość do
+tworzenia układu (ang. layout) całej strony. Zasadniczo ta praktyka 
+obecnie jest przestarzała i nie powinna być stosowana. Jednakże do 
+tworzenia układów tekstu, zwłaszcza przemieszanego z ilustracjami 
+użycie float jest jak najbardziej wciąż poprawne. 
+
+Główne wartości dla właściwości float to:
+• left: Powoduje, że element "opływa" od lewej, przy tym tekst 
+i kolejne elementy układane są po prawej stronie elementu.
+• right: Powoduje, że element "opływa" od prawej, przy tym tekst 
+i kolejne elementy układane są po lewej stronie elementu.
+
+Właściwość clear w CSS służy do kontroli zachowania elementów, które
+występują obok elementów "opływających" (elementów do których zastosowano 
+właściwości float); clear mówi, na którym boku element ma przestać się 
+opierać na innych elementach opływających, poprzedzających go w drzewie 
+dokumentu.
+Dostępne wartości dla clear to:
+• none: Element nie będzie oczekiwać, że żaden element nie opływa go
+od lewej ani od prawej. Będzie pozwalać elementowi na położenie się
+zarówno po lewej, jak i po prawej stronie, pod warunkiem, że jego
+zawartość nie będzie nałożona na żadne elementy uniesione.
+• left: Oznacza, że element ma zostać przesunięty w dół, aby "wyczyścić" 
+flow po lewych elementach opływających.
+• right: Sygnalizuje, że element ma zostać przesunięty w dół, aby 
+"wyczyścić" flow po prawych elementach opływających.
+• both: Element będzie czekać, aż żaden element nie opływa go ani po lewej, 
+ani po prawej stronie, a dopiero wtedy zostanie ułożony poniżej nich. -->
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Właściwość - float</title>
+</head>
+
+<body>
+
+</body>
+
+</html>

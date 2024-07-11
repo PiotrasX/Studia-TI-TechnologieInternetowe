@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PKP cardio</title>
+</head>
+
+<body>
+    <form action="" method="get">
+        <fieldset>
+            <legend>Informacje o użytkowniku</legend><br>
+            <label for="imie-i-nazwisko">Imię i nazwisko: </label>
+            <input name="imie-i-nazwisko" id="imie-i-nazwisko" placeholder="Imię i nazwisko" type="text" required
+                title="Duże lub małe litery" pattern="[a-zA-Z ]+" minlength="4"><br><br>
+            <label for="numer-telefonu">Numer telefonu: </label>
+            <input name="numer-telefonu" id="numer-telefonu" placeholder="Numer telefonu" type="tel" required
+                title="Cyfry w formacie +XX-XXX-XXX-XXX" pattern="\+[0-9]{2}-[0-9]{3}-[0-9]{3}-[0-9]{3}" minlength="15"
+                maxlength="15"><br><br>
+            <label for="email">Adres email: </label>
+            <input name="email" id="email" placeholder="Adres email" type="email" required><br><br>
+            <label for="data-urodzenia">Data urodzenia: </label>
+            <input name="data-urodzenia" id="data-urodzenia" placeholder="Data urodzenia" type="date" required><br><br>
+            <label for="awatar">Awatar: </label>
+            <input name="awatar" id="awatar" type="file" accept="image/png,image/jpeg"><br><br>
+            <label for="dokument">Dokument tożsamości: </label>
+            <input name="dokument" id="dokument" type="file" accept=".pdf"><br><br>
+            <label for="kolor">Kolor motywu: </label>
+            <input name="kolor" id="kolor" type="color"><br><br>
+            Płeć:<br>
+            <label><input type="radio" name="plec" value="mezczyzna" required>Mężczyzna</label><br>
+            <label><input type="radio" name="plec" value="kobieta" required>Kobieta</label><br><br>
+            Zainteresowania:<br>
+            <label><input type="checkbox" name="zainteresowanie1" value="sport">Sport</label><br>
+            <label><input type="checkbox" name="zainteresowanie2" value="muzyka">Muzyka</label><br>
+            <label><input type="checkbox" name="zainteresowanie3" value="grafika">Grafika</label><br>
+            <label><input type="checkbox" name="zainteresowanie4" value="malarstwo">Malarstwo</label><br>
+            <label><input type="checkbox" name="zainteresowanie5" value="gotowanie">Gotowanie</label><br>
+            <label><input type="checkbox" name="zainteresowanie6" value="taniec">Taniec</label><br>
+            <label><input type="checkbox" name="zainteresowanie7" value="spiewanie">Śpiewanie</label><br><br>
+            <label for="o-mnie">Dodatkowe informacje o użytkowniku: </label><br>
+            <textarea name="o-mnie" id="o-mnie" placeholder="Dodatkowe informacje o użytkowniku" rows="3" cols="30"
+                minlength="20"></textarea><br><br>
+        </fieldset><br>
+        <fieldset>
+            <legend>Profil</legend><br>
+            <label for="login">Login: </label>
+            <input name="login" id="login" placeholder="Login"><br><br>
+            <label for="haslo">Hasło: </label>
+            <input name="haslo" id="haslo" placeholder="Hasło" type="password"><br><br>
+            <label for="haslo">Powtórz hasło: </label>
+            <input name="haslo" id="haslo" placeholder="Powtórz hasło" type="password"><br><br>
+        </fieldset><br>
+        <fieldset>
+            <legend>Zakup biletu</legend><br>
+            <label for="data-odjazdu">Data odjazdu: </label>
+            <input name="data-odjazdu" id="data-odjazdu" placeholder="Data odjazdu" type="date" min="2023-10-30"
+                max="2024-01-30"><br><br>
+            <label for="godzina-odjazdu">Godzina odjazdu: </label>
+            <input name="godzina-odjazdu" id="godzina-odjazdu" placeholder="Godzina odjazdu" type="time"><br><br>
+            <label for="miasto-odjazdu">Miasto odjazdu: </label>
+            <input name="miasto-odjazdu" id="miasto-odjazdu" placeholder="Miasto odjazdu" type="search"><br><br>
+            <label for="liczba-biletow">Liczba biletów: </label>
+            <input name="liczba-biletow" id="liczba-biletow" placeholder="Liczba biletów" type="range" min="1" max="10"
+                step="1"><br><br>
+            <label for="wagon-wybor">Wybór wagonu:</label>
+            <select id="wagon-wybor" name="wagon-wybor" size="1">
+                <optgroup label="Przód pociągu">
+                    <option value="pierwszy-wagon">Pierwszy wagon</option>
+                    <option value="drugi-wagon">Drugi wagon</option>
+                    <option value="trzeci-wagon">Trzeci wagon</option>
+                </optgroup>
+                <optgroup label="Tył pociągu">
+                    <option value="czwarty-wagon">Czwarty wagon</option>
+                    <option value="piaty-wagon">Piąty wagon</option>
+                    <option value="szosty-wagon">Szósty wagon</option>
+                    <option value="siodmy-wagon">Siódmy wagon</option>
+                </optgroup>
+            </select><br><br>
+        </fieldset><br>
+        <button type="submit">Zapisz i utwórz konto</button>
+    </form>
+</body>
+
+</html>

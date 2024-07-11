@@ -1,0 +1,132 @@
+<!DOCTYPE html> <!-- DOCTYPE, wymagany ze względu na kompatybilność wstecz -->
+<html lang="pl"> <!-- Dokument html, 'lang' wskazuje w jakim języku jest napisana strona -->
+
+<head> <!-- Umiesza się tu metadane strony -->
+    <title>Pierwsza strona</title> <!-- Tytuł dokumentu wyświetlany na karcie przeglądarki -->
+    <meta charset="UTF-8" /> <!-- W jakim formacie są kodowane znaki -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Tutaj definiujemy stawienia dotyczące skalowania strony, aby sie dopasowywała do okna -->
+</head>
+
+<body> <!-- Mieści się tu widoczna zawartość dokumentu -->
+
+    <nav> <!-- Jest to głowny pasek nawigacyjny, tutaj umieszczamy linki do wszystich podstron -->
+        <ul>
+            <li><a href="http://www.ur.edu.pl">Link do uniwersytetu rzeszowskiego</a></li>
+        </ul>
+    </nav>
+
+    <!-- Nagłowki służyły pierwotnie do podziału dokumentu na spis treści -->
+    <h1>Nagłowek 1</h1> <!-- Nagłówek -->
+    <h2>Nagłowek 2</h2> <!-- Nagłówek -->
+    <h3>Nagłowek 3</h3> <!-- Nagłówek -->
+    <h4>Nagłowek 4</h4> <!-- Nagłówek -->
+    <h5>Nagłowek 5</h5> <!-- Nagłówek -->
+    <h6>Nagłowek 6</h6> <!-- Nagłówek -->
+    <!-- Nagłówki istnieją tylko do 6 stopnia, kolejne stopnie to już zwykły tekst -->
+
+    <ul> <!-- unordered list, lista nieuporządkowana -->
+        <li> a </li> <!-- Znacznik 'li' definiuje elementy listy -->
+        <li> b </li>
+        <li> c </li>
+    </ul>
+    <ol> <!-- ordered list, lista uporządkowana -->
+        <li> a </li>
+        <li> b </li>
+        <li> c </li>
+    </ol>
+
+    <!-- Atrybuty znaczników -->
+    <znacznik atr1="war1" atr2="war2">zawartość znacznika</znacznik><br> <!-- 'br' oznacza przejście do nowej lini -->
+    <znacznik atr1="war1" atr2="war2" atr3="war3">
+
+        <!-- Znacznik może posiadać wiele wartości atrybutu, które oddziela się spacją -->
+        <znacznik atr1="war1 wart2 wart3" atr2="war2">zawartość znacznika</znacznik><br>
+
+        <!-- Istnieją też atrybuty, które nie posiadają w ogóle wartości -->
+        <znacznik atr1>zawartość znacznika</znacznik><br>
+
+        <!-- Wartości true/false w atrybutach (obecność atrybutu oznacza true, jego brak ustawienie tego atrybutu na false) -->
+        <znacznik atr1="">zawartość znacznika</znacznik><br> <!-- poprawnie -->
+        <znacznik atr1="atr1">zawartość znacznika</znacznik><br> <!-- poprawnie -->
+        <znacznik atr1="false">zawartość znacznika</znacznik><br> <!-- niepoprawnie -->
+        <znacznik atr1="true">zawartość znacznika</znacznik><br> <!-- niepoprawnie -->
+
+        <!-- Wyróżnia się dwie grupy atrybutów: lokalne i globalne -->
+        <!-- Atrybuty globalne to te, których można użyć z dowolnym znacznikiem np.: class, id, style -->
+        <znacznik id="wstep" class="">zawartość znacznika</znacznik><br>
+        <!-- Atrybuty lokalne to te których można używać z konkretnymi znacznikami np.: znacznik 'img' posiada lokalny atrybut 'alt' -->
+        <img src="red_panda.png" alt="Panda czerwona" width="256px" height="256px"><br>
+        <!-- Atrybut 'alt' określa alternatywny tekst obrazu, jeśli obraz nie może zostać wyświetlony -->
+
+        <table border="1"> <!-- Główny znacznik, wewnątrz którego definiuje się strukturę tabeli -->
+            <!-- Atrybut 'border' jest dodany wyłącznie w celach demonstracyjnych aby uwidocznić wygląd tabeli
+        TEGO ATRYBUTU NIE NALEŻY STOSOWAĆ WEDŁUG OBECNEJ SPECYFIKACJI HTML! -->
+            <thead> <!-- Znacznik grupujący nagłówek tabeli -->
+                <tr> <!-- Znacznik definiujący wiersz tabeli, wewnątrz niego zdefiniowane są komórki -->
+                    <th>Nagłówek 1 kolumny</th> <!-- Znacznik definiujący komórkę nagłówkową -->
+                    <th>Nagłówek 2 kolumny</th>
+                    <th>Nagłówek 3 kolumny</th>
+                    <th>Nagłówek 4 kolumny</th>
+                    <th>Nagłówek 5 kolumny</th>
+                </tr>
+            </thead>
+            <tbody> <!-- Znacznik grupujący elementy ciała tabeli -->
+                <tr>
+                    <td>Komórka 1</td> <!-- Znacznik definiujący komórkę -->
+                    <td>Komórka 2</td>
+                    <td>Komórka 3</td>
+                </tr>
+                <tr>
+                    <td>Komórka 4</td>
+                    <td>Komórka 5</td>
+                    <td>Komórka 6</td>
+                    <td>Komórka 7</td>
+                    <td rowspan="2">Scalona komórka 1</td>
+                    <!-- Łączenie wierszy i kolumn odbywa się za pomocą atrybutów rowspan i colspan dodawanych do znaczników komórek -->
+                </tr>
+                <tr>
+                    <td colspan="3">Scalona komórka 2</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+
+        <footer>
+            <!-- Wydzielony fragment dokumentu, w którym definiujemy informacje dodatkowe takie jak dane kontaktowe, informacje o prawach autorskich, linki do innych stron, inne informacje -->
+            <li><a href="https://www.facebook.com/piotrasx/">facebook <img src="facebook_logo.png" width="20px"
+                        height="20px" alt=""></a></li>
+            <!-- Tutaj ustawiono rozmiar obrazka za pomocą atrybutów width i height, lepszy jest CSS -->
+            <li><a href="https://www.instagram.com/piotrasx_/">instagram <img src="instagram_logo.png" width="20px"
+                        height="20px" alt=""></a></li>
+        </footer>
+
+        <p>
+            Tutaj pokazano akapit (ang. paragraph)
+            <br>Akapit daje podwójne przejście do nowej lini tekstu
+        </p>
+        <p>
+            Tutaj pokazano kolejny akapit
+            <br>Tekst w akapicie
+            <br>Tekst w akapicie
+            <br>Tekst w akapicie
+        </p>
+        Tekst już bez akapitu<br><br><br>
+
+        <!-- Dawne znaczniki prezentacyjne
+        TYCH ZNACZNIKÓW NIE NALEŻY STOSOWAĆ WEDŁUG OBECNEJ SPECYFIKACJI HTML! -->
+        <big>Powiększony tekst</big>
+        <center>Wyśrodkowany tekst</center>
+        <marquee>Pływający tekst</marquee>
+        <!-- Nie świeci na czerwono, jednak zawiera kosz na obecnej specyfikacji HTML -->
+
+        <!-- Nowa interpretacja dawnych znaczników -->
+        <b>Bring attention</b> <!-- Obecnie "bring attention", kiedyś "bold" -->
+        <i>The idiomatic text element</i> <!-- Obecnie "idiomatic text", kiedyś "italic" -->
+        <q>Cytat</q> <!-- Znacznik 'q' reprezentuje cytat -->
+        <strong>Ważna informacja</strong>
+        <!-- Znacznik 'strong' wskazuje, że jest to tekst ważny i znaczący, nie jest to zwykłe pogrubienie -->
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kontenery</title>
+    <style>
+        html {
+            font-size: 24px;
+        }
+
+        .parent {
+            font-size: 20px;
+        }
+
+        .child-one {
+            font-size: 1.5rem;
+        }
+
+        .child-two {
+            font-size: 1.5rem;
+        }
+
+        .child-three {
+            font-size: 2rem;
+        }
+
+        .kolejny-div {
+            width: 5rem;
+            /* Jednostka 'em' robi wskazaną szerokość/wysokość, ale jeżeli 
+            coś ze środka ma wystawać do em dostosowuje się do danego
+            elementu. Jednostka 'rem' bezwzględnie ustawia rozmiar danego
+            elementu, nie patrząc czy inne elementy nie wystają poza obszar
+            danego elementu */
+            border: 3px solid salmon;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">parent
+        <div class="kolejny-div child-three">Kolejny div</div>
+        <div class="child-one">1</div>
+        <div class="child-two">2</div>
+        <div class="child-three">3</div>
+    </div>
+</body>
+
+</html>

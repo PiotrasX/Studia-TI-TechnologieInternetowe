@@ -1,0 +1,63 @@
+article {
+    font-weight: bold;
+}
+
+article>#lista2 {
+    font-weight: normal;
+}
+
+@media screen and (max-width: 768px) {
+    article {
+        padding-top: 25px;
+    }
+
+    #lista2>li {
+        padding-bottom: 15px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+
+    #lista1 li,
+    #lista3 li {
+        float: left;
+        margin: 0 13vw 0 13vw;
+    }
+
+    #lista1 li:first-child,
+    #lista3 li:first-child {
+        float: left;
+        margin: 0 13vw 0 0;
+    }
+
+    #lista1 li:last-child,
+    #lista3 li:last-child {
+        float: left;
+        margin: 0 -1vw 0 13vw;
+    }
+
+    #kontener0,
+    #kontener3 {
+        width: 100vw;
+    }
+
+    #kontener1 {
+        float: left;
+        width: 20vw;
+        min-height: 200px;
+    }
+
+    #kontener2 {
+        float: left;
+        width: 75vw;
+        min-height: 220px;
+    }
+
+    article {
+        padding-top: 25px;
+    }
+
+    #lista2>li {
+        padding-bottom: 15px;
+    }
+}

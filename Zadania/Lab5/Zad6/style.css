@@ -1,0 +1,53 @@
+img {
+    max-width: 250px; /* Ogranicza maksymalną szerokość obrazu */
+    max-height: 250px; /* Ogranicza maksymalną wysokość obrazu */
+}
+
+.container {
+    display: grid; /* Ustawienie widoczności elementu na układ siadki */
+    grid-template-columns: 1fr 2fr 1fr; /* Szerokości poszczególnych kolumn */
+    grid-template-rows: auto; /* Automatycznie dostosowanie wierszy pod elementy wewnątrz siadki */
+    row-gap: 10px; /* Odstęp między wierszami */
+    column-gap: 50px;; /* Odstęp między kolumnami */
+}
+
+.card {
+    display: flex; /* Ustawia kartę na flexbox */
+    flex-direction: column; /* Elementy wewnętrzne ułożone są w kolumnie */
+    align-items: center; /* Wyśrodkowuje elementy wewnętrzne w osi poprzecznej */
+    background-color: gainsboro; /* Kolor tła karty */
+    margin-left: 15px; /* Lewy margines karty */
+    margin-right: 15px; /* Prawy margines karty */
+    margin-bottom: 15px; /* Dolny margines karty */
+    border-radius: 15px; /* Zaokrąglenie rogów karty */
+}
+
+.main-text {
+    padding-top: 15px; /* Górny wewnętrzny odstęp tekstu */
+    padding-left: 50px; /* Lewy wewnętrzny odstęp tekstu */
+    padding-right: 50px; /* Prawy wewnętrzny odstęp tekstu */
+    padding-bottom: 15px; /* Dolny wewnętrzny odstęp tekstu */
+    text-align: justify; /* Wyrównanie tekstu do lewej i prawej */
+}
+
+.bottom {
+    background-color: gray; /* Kolor tła dla elementu bottom */
+    margin-top: auto; /* Automatyczny margines górny, wypycha element do dołu */
+    width: calc(100% - 30px); /* Szerokość elementu bottom minus marginesy */
+    display: flex; /* Ustawia element bottom na flexbox */
+    justify-content: space-between; /* Rozkłada dzieci równomiernie z przestrzenią między nimi */
+    align-items: center; /* Wyśrodkowuje dzieci w osi pionowej */
+    padding: 3px 15px; /* Wewnętrzne odstępy dla elementu bottom */
+    border-radius: 0px 0px 15px 15px; /* Zaokrąglenie dolnych rogów elementu bottom */
+}
+
+button {
+    border: none; /* Usuwa obramowanie przycisku */
+    background: none; /* Usuwa tło przycisku */
+    font-size: 1.5em; /* Zwiększa rozmiar czcionki w przycisku */
+    cursor: pointer; /* Kursor zmienia się na wskaźnik przy najechaniu */
+}
+
+button:hover {
+    color: red; /* Zmienia kolor ikony na czerwony, gdy użytkownik najedzie myszką */
+}

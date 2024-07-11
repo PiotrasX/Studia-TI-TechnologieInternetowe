@@ -1,0 +1,53 @@
+<!-- Poza selektorami, CSS udostępnia tzw. at-rules, które rozpoczynają 
+się od znaku @ (ang. czytane jako at). Reguły te raczej zawierają pewne
+metadane dla samych arkuszy styli, niż wprost stosowane są do stylowania
+elementów HTML, pozwalają też uzyskać pewną namiastkę instrukcji
+warunkowych. 
+Przykłady prostych at-rules:
+@charset "UTF-8"; /* ustalamy kodowanie znaków w arkuszu */
+@import "custom.css"; /* importujemy zewnętrzny arkusz styli */ -->
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>At-rules -> Layer</title>
+    <!-- Layer - pozwala dodać własne warstwy w kaskadzie CSS.
+    Składnia layer wygląda następująco:
+    @layer layer-type
+    {
+        /* CSS rules go here */
+    } 
+    gdzie layer-type może mieć wartości: first, second, itd.; 
+    Jednym z jej zastosowań jest możliwość łatwiejszego zapanowania 
+    nad specyficznością. W złożonych arkuszach styli czasami istniała 
+    potrzeba dodawania niepotrzebnych id, względnie klas, aby tylko 
+    specyficzność okazała się odpowiednio duża i przesłoniła inny styl. -->
+    <style>
+        @layer first, second;
+
+        @layer first {
+            p {
+                color: red;
+            }
+        }
+
+        @layer second {
+            p {
+                color: blue;
+                border: 1px solid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <p>Ten akapit będzie miał niebieską czcionkę i obramowanie,
+        gdyż warstwa second jest wyżej niż warstwa first. </p>
+    <p>Akapit 1</p>
+    <p>Akapit 2</p>
+    <p>Akapit 3</p>
+</body>
+
+</html>

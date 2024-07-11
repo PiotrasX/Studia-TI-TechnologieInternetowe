@@ -1,0 +1,31 @@
+article {
+    display: flex;
+}
+
+section {
+    min-height: 150px;
+    position: relative;
+    border: solid 5px;
+    background-color: whitesmoke;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+}
+
+#obraz2 {
+    float: right;
+}
+
+#obraz3 {
+    float: left;
+}
+
+#obraz4 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

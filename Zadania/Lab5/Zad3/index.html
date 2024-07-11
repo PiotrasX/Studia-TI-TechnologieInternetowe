@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ustawianie flex</title>
+    <style>
+        img {
+            max-width: 250px; /* Ogranicza maksymalną szerokość obrazu */
+            max-height: 250px; /* Ogranicza maksymalną wysokość obrazu */
+        }
+
+        .container {
+            display: flex; /* Ustawia kontener na flexbox */
+            flex-direction: row; /* Elementy wewnętrzne ułożone są w rzędzie */
+            flex-wrap: wrap; /* Pozwala elementom przechodzić do nowej linii */
+            max-width: 1200px; /* Maksymalna szerokość kontenera, można dostosować lub usunąć */
+            margin: 0 auto; /* Centruje kontener w poziomie */
+            gap: 15px; /* Ustawia odstęp między elementami wewnątrz kontenera */
+            justify-content: center; /* Wyśrodkowuje zawartość kontenera w osi poziomej */
+        }
+
+        .container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .card {
+            min-width: 350px; /* Minimalna szerokość karty, można dostosować */
+            width: 20%; /* Szerokość karty to 20% szerokości kontenera, dostosuj jeśli potrzebne */
+            display: flex; /* Ustawia kartę na flexbox */
+            flex-direction: column; /* Elementy wewnętrzne ułożone są w kolumnie */
+            align-items: center; /* Wyśrodkowuje elementy wewnętrzne w osi poprzecznej */
+            background-color: gainsboro; /* Kolor tła karty */
+            margin-left: 15px; /* Lewy margines karty */
+            margin-right: 15px; /* Prawy margines karty */
+            margin-bottom: 15px; /* Dolny margines karty */
+            border-radius: 15px; /* Zaokrąglenie rogów karty */
+        }
+
+        .main-text {
+            padding-top: 15px; /* Górny wewnętrzny odstęp tekstu */
+            padding-left: 50px; /* Lewy wewnętrzny odstęp tekstu */
+            padding-right: 50px; /* Prawy wewnętrzny odstęp tekstu */
+            padding-bottom: 15px;  /* Dolny wewnętrzny odstęp tekstu */
+            text-align: justify; /* Wyrównanie tekstu do lewej i prawej */
+        }
+
+        .bottom {
+            background-color: gray; /* Kolor tła dla elementu bottom */
+            margin-top: auto; /* Automatyczny margines górny, wypycha element do dołu */
+            width: calc(100% - 30px); /* Szerokość elementu bottom minus marginesy */
+            display: flex; /* Ustawia element bottom na flexbox */
+            justify-content: space-between; /* Rozkłada dzieci równomiernie z przestrzenią między nimi */
+            align-items: center; /* Wyśrodkowuje dzieci w osi pionowej */
+            padding: 3px 15px; /* Wewnętrzne odstępy dla elementu bottom */
+            border-radius: 0px 0px 15px 15px; /* Zaokrąglenie dolnych rogów elementu bottom */
+        }
+
+        button {
+            border: none; /* Usuwa obramowanie przycisku */
+            background: none; /* Usuwa tło przycisku */
+            font-size: 1.5em; /* Zwiększa rozmiar czcionki w przycisku */
+            cursor: pointer; /* Kursor zmienia się na wskaźnik przy najechaniu */
+        }
+
+        button:hover {
+            color: red; /* Zmienia kolor ikony na czerwony, gdy użytkownik najedzie myszką */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h3>Nazwa</h3>
+            <img src="logo_UR.jpg">
+            <div class="main-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique sapien
+                ac erat tincidunt, sit amet dignissim lectus vulputate. Donec id iaculis velit.
+                Aliquam vel malesuada erat. Praesent non magna ac massa aliquet tincidunt vel in
+                massa. Phasellus feugiat est vel leo finibus congue.
+            </div>
+            <div class="bottom">
+                <span><ion-icon name="time-outline"></ion-icon>🕑 50 min</span>
+                <button><ion-icon name="heart-outline"></ion-icon>♡</button>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Nazwa</h3>
+            <img src="logo_UR.jpg">
+            <div class="main-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique sapien
+                ac erat tincidunt, sit amet dignissim lectus vulputate. Donec id iaculis velit.
+                Aliquam vel malesuada erat. Praesent non magna ac massa aliquet tincidunt vel in
+                massa. Phasellus feugiat est vel leo finibus congue.
+            </div>
+            <div class="bottom">
+                <span><ion-icon name="time-outline"></ion-icon>🕑 120 min</span>
+                <button><ion-icon name="heart-outline"></ion-icon>♡</button>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Nazwa</h3>
+            <img src="logo_UR.jpg">
+            <div class="main-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+                tristique sapien ac erat tincidunt, sit amet dignissim lectus vulputate.
+            </div>
+            <div class="bottom">
+                <span><ion-icon name="time-outline"></ion-icon>🕑 30 min</span>
+                <button><ion-icon name="heart-outline"></ion-icon>♡</button>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Nazwa</h3>
+            <img src="logo_UR.jpg">
+            <div class="main-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+                tristique sapien ac erat tincidunt, sit amet dignissim lectus vulputate.
+            </div>
+            <div class="bottom">
+                <span><ion-icon name="time-outline"></ion-icon>🕑 20 min</span>
+                <button><ion-icon name="heart-outline"></ion-icon>♡</button>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Nazwa</h3>
+            <img src="logo_UR.jpg">
+            <div class="main-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+                tristique sapien ac erat tincidunt, sit amet dignissim lectus vulputate.
+            </div>
+            <div class="bottom">
+                <span><ion-icon name="time-outline"></ion-icon>🕑 10 min</span>
+                <button><ion-icon name="heart-outline"></ion-icon>♡</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

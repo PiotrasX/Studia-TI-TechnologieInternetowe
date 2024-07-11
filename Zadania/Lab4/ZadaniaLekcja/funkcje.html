@@ -1,0 +1,39 @@
+<!-- CSS pozwala stosować funkcje, które obliczą dynamicznie (bądź w pewien
+sposób ustawią) wartość danej właściwości. Zasadniczo nie można tworzyć
+własnych funkcji, a jedynie używać takich, które są dostarczane przez
+standard CSS.
+Podstawowa składnia: 
+selector 
+{
+    property: function(argument1, argument2, …);
+} -->
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funkcje</title>
+    <style>
+        p {
+            background: rgb(31 120 50);
+            transform: translate(42px, 18px);
+            transform: rotate(90deg);
+            transform: scale(1.3, 0.4);
+            width: calc(2em * 5);
+            filter: blur(0.5px);
+            background-image: url("star.gif");
+            list-style-image: url('../images/bullet.jpg');
+            width: min(50vw, 200px);
+        }
+    </style>
+</head>
+
+<body>
+    <p>Ten akapit zawiera jakiś tekst, który nie może być odczytany</p>
+    <p>Akapit 1</p>
+    <p>Akapit 2</p>
+    <p>Akapit 3</p>
+</body>
+
+</html>

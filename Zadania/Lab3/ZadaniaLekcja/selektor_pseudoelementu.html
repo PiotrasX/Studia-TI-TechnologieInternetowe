@@ -1,0 +1,40 @@
+<!-- Selektor pseudoelementu (oznaczone kolorem żółtym) pozwala na
+    dodawanie zawartości lub stylizację konkretnych części elementów,
+    takich jak pierwszy znak tekstu, pierwszy wiersz tekstu, czy
+    zawartość przed lub za elementem. Zazwyczaj elementy te fizycznie
+    nie istnieją w dokumencie (tzn. są częścią innego elementu, 
+    której nie wyodrębnia się jako znacznik HTML), aby możliwe było 
+    zastosowanie styli w inny sposób. Selektor powstaje przez dodanie 
+    do nazwy elementu przyrostka '::' z nazwą selektora pseudoelementu. -->
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selektor pseudoelementu</title>
+    <style>
+        p::before {
+            content: "Przed paragrafem: ";
+            font-weight: bold;
+            color: blue;
+        }
+
+        p::after {
+            content: "- za paragrafem ";
+            font-weight: bold;
+            color: red;
+        }
+
+        p::first-letter {
+            font-weight: bold;
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <p>To jest zwykły paragraf </p>
+</body>
+
+</html>

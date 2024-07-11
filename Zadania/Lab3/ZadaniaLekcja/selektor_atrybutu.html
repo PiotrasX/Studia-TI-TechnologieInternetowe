@@ -1,0 +1,28 @@
+<!-- Selektor atrybutu (oznaczone kolorem żółtym) do nazwy elementu
+    dodajemy wyrażenie, gdzie pomiędzy znaki "[]" należy zdefiniować
+    atrybut lub parę atrybut-wartość, które powinien posiadać dany
+    znacznik lub element z danym id lub klasą. -->
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selektor atrybutu</title>
+    <style>
+        input[type="text"] {
+            border: 1px solid #ccc;
+            padding: 5px;
+            color: crimson;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Ten input zostanie stylizowany ze względu na typ "text". -->
+    <input type="text" placeholder="Text" />
+    <!-- Ten input nie zostanie stylizowany, ponieważ nie ma typu "text". -->
+    <input type="password" placeholder="Hasło" />
+</body>
+
+</html>

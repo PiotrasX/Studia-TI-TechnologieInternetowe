@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Podstawy CSS - dodatkowe informacje</title>
+    <style>
+        #nav>.nav-item:hover {
+            color: pink;
+        }
+
+        #nav>li:hover {
+            color: brown;
+        }
+
+        li.nav-item:hover {
+            color: orange;
+        }
+
+
+
+        h1 {
+            font-size: 60pt;
+        }
+
+        #tytul1,
+        #przycisk3 {
+            color: chocolate;
+        }
+
+        section p {
+            font-family: Corbel;
+        }
+
+        #akapit1 {
+            font-size: 10pt;
+        }
+
+        #akapit2 {
+            font-weight: bold;
+        }
+
+        #sekcja2 {
+            border: #000 solid 2px;
+        }
+
+        button {
+            background-color: chocolate;
+            color: beige;
+            border: 0px;
+            border-radius: 10px;
+        }
+
+        #przycisk3 {
+            background-color: beige;
+        }
+
+
+
+        table,
+        th,
+        td {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            width: 1000px;
+            border: 3px solid rebeccapurple;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #666652;
+        }
+
+        td:nth-child(even)
+
+        /* Parzyste kolumny */
+            {
+            background: #73BBE6;
+        }
+
+        /* td:nth-child(odd) { background: #E673BB; } /* Nieparzyste kolumny */
+        tr:nth-child(odd)
+
+        /* Parzyste wiersze */
+            {
+            background: #73BBE6;
+        }
+
+        /* tr:nth-child(even) { background: #E673BB; } /* Nieparzyste wiersze */
+    </style>
+</head>
+
+<body>
+    <ul id="nav">Item:
+        <li class="nav-item">Home</li>
+        <li class="nav-item">About</li>
+        <li class="nav-item">Contact</li>
+    </ul>
+
+
+
+    <section id="sekcja1">
+        <h1 id="tytul1">Tytuł</h1>
+        <button id="przycisk1">Przycisk</button>
+        <p id="akapit1">To jest akapit.</p>
+    </section>
+    <section id=sekcja2>
+        <h1 id="tytul2">Inny tytuł</h1>
+        <button id="przycisk2">Inny przycisk</button>
+    </section>
+    <p id="akapit2">To jest drugi akapit.</p>
+    <section id="sekcja3">
+        <button class="przycisk" id="przycisk3">Jeszcze inny przycisk</button>
+        <p id="akapit3">To jest trzeci akapit.</p>
+    </section>
+
+
+
+    <br><br><br><br><br><br><br>
+    <table>
+        <tr>
+            <th>Nagłowek 1</th>
+            <th>Nagłowek 2</th>
+            <th>Nagłowek 3</th>
+            <th>Nagłowek 4</th>
+            <th>Nagłowek 5</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>wartość 1</td>
+            <td>technologie</td>
+            <td>wartość 1-1</td>
+            <td>wartość 1-2</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>wartość 2</td>
+            <td>internetowe</td>
+            <td>wartość 2-1</td>
+            <td>wartość 2-2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>wartość 3</td>
+            <td>TI</td>
+            <td>wartość 3-1</td>
+            <td>wartość 3-2</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>wartość 4</td>
+            <td>wartość 4-1</td>
+            <td>wartość 4-2</td>
+            <td>wartość 4-3</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>wartość 5</td>
+            <td>wartość 5-1</td>
+            <td>wartość 5-2</td>
+            <td>wartość 5-3</td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wyszukaj produkt</title>
+</head>
+
+<body>
+    <form action="" method="get">
+        <h1>Wyszukaj produkt</h1>
+        <input id="wyszukaj" name="wyszukaj" type="search" placeholder="🔍 Nazwa produktu"><br><br>
+        <fieldset>
+            <legend>Cena</legend><br>
+            <label for="od-cena">od&emsp;</label>
+            <input id="od-cena" name="od-cena" type="number" placeholder="Minimalna cena" min="0" max="100000000"
+                value="0">
+            <label for="do-cena">&emsp;do&emsp;</label>
+            <input id="do-cena" name="do-cena" type="number" placeholder="Maksymalna cena" min="0" max="100000000"
+                value="100000000">&emsp;
+            <select id="waluta" name="waluta" size="1">
+                <option value="pln">PLN</option>
+                <option value="eur">EUR</option>
+                <option value="usd">USD</option>
+            </select><br><br>
+        </fieldset><br>
+        <fieldset>
+            <legend>Ocena produktu</legend><br>
+            <label><input type="radio" name="ocena" value="5"> 5 ⭐⭐⭐⭐⭐</label><br><br>
+            <label><input type="radio" name="ocena" value="4"> 4 ⭐⭐⭐⭐</label><br><br>
+            <label><input type="radio" name="ocena" value="3"> 3 ⭐⭐⭐</label><br><br>
+            <label><input type="radio" name="ocena" value="2"> 2 ⭐⭐</label><br><br>
+            <label><input type="radio" name="ocena" value="1"> 1 ⭐</label><br><br>
+        </fieldset>
+        <hr><br>
+        <label for="kolor">Kolor produktu:&emsp;</label>
+        <input name="kolor" id="kolor" type="color" value="#FFAA00"><br><br><br>
+        <label for="data-produkcji">Data produkcji:&emsp;</label>
+        <input id="data-produkcji" name="data-produkcji" type="datetime-local"><br><br><br>
+        <label for="szybkie-ladowanie">Szybkie ładowanie:&emsp;</label>
+        1W <input id="szybkie-ladowanie" name="szybkie-ladowanie" type="range" list="wartosc-ladowania" min="1"
+            max="150" step="1"> 150W<br><br><br>
+        <datalist id="wartosc-ladowania">
+            <option value="1"></option>
+            <option value="12"></option>
+            <option value="24"></option>
+            <option value="36"></option>
+            <option value="72"></option>
+            <option value="120"></option>
+            <option value="150"></option>
+        </datalist>
+        <fieldset>
+            <legend>Inne</legend><br>
+            <label><input type="checkbox" name="dual-sim" value="dual-sim"> Dual SIM</label>&emsp;&emsp;
+            <label><input type="checkbox" name="5g" value="5g"> 5G</label>&emsp;&emsp;
+            <label><input type="checkbox" name="gorilla-glass" value="gorilla-glass"> Gorilla glass</label>
+            <br><br>
+        </fieldset><br>
+        <button type="submit">Filtruj</button>&emsp;
+        <button type="reset">Usuń filtry</button>
+    </form>
+</body>
+
+</html>

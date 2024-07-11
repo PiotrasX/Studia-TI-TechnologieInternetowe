@@ -1,0 +1,143 @@
+@media print {
+    * {
+        print-color-adjust: exact;
+    }
+}
+
+.px,
+.procent,
+.cm,
+.pc {
+    background-color: cadetblue;
+}
+
+.em,
+.ex,
+.mm {
+    background-color: burlywood;
+}
+
+.rem,
+.pt,
+.in {
+    background-color: crimson;
+}
+
+.rozmiar-px,
+.rozmiar-procent,
+.rozmiar-cm,
+.rozmiar-pc {
+    background-color: darkorange;
+}
+
+.rozmiar-em,
+.rozmiar-ex,
+.rozmiar-mm {
+    background-color: aquamarine;
+}
+
+.rozmiar-rem,
+.rozmiar-pt,
+.rozmiar-in {
+    background-color: deepskyblue;
+}
+
+.px {
+    width: 1px;
+    height: 1px;
+}
+
+.em {
+    width: 1em;
+    height: 1em;
+}
+
+.rem {
+    width: 1rem;
+    height: 1rem;
+}
+
+.procent {
+    width: 1%;
+    height: 1%;
+}
+
+.ex {
+    width: 1ex;
+    height: 1ex;
+}
+
+.pt {
+    width: 1pt;
+    height: 1pt;
+}
+
+.cm {
+    width: 1cm;
+    height: 1cm;
+}
+
+.mm {
+    width: 1mm;
+    height: 1mm;
+}
+
+.in {
+    width: 1in;
+    height: 1in;
+}
+
+.pc {
+    width: 1pc;
+    height: 1pc;
+}
+
+.rozmiar-px {
+    width: 96px;
+    height: 96px;
+}
+
+.rozmiar-em {
+    width: 6em;
+    height: 6em;
+}
+
+.rozmiar-rem {
+    width: 6rem;
+    height: 6rem;
+}
+
+.rozmiar-procent {
+    width: 9%;
+    height: 9%;
+}
+
+.rozmiar-ex {
+    width: 13.4ex;
+    height: 13.4ex;
+}
+
+.rozmiar-pt {
+    width: 72pt;
+    height: 72pt;
+}
+
+.rozmiar-cm {
+    width: 2.54cm;
+    height: 2.54cm;
+}
+
+.rozmiar-mm {
+    width: 25.4mm;
+    height: 25.4mm;
+}
+
+.rozmiar-in {
+    width: 1in;
+    height: 1in;
+}
+
+.rozmiar-pc {
+    width: 6pc;
+    height: 6pc;
+}

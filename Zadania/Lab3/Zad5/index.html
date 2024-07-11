@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Podstawy CSS - kaskada</title>
+    <link rel="stylesheet" href="cascade_example.css">
+    <style>
+        section {
+            border: 5px dashed rgb(11, 98, 228);
+            margin: 15px;
+            color: red;
+            font-style: italic;
+        }
+
+        #paragraf1 {
+            border: inherit;
+        }
+
+        #paragraf2 {
+            all: initial;
+        }
+
+        #paragraf3 {
+            all: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <section style="color: #b3fcb2;">
+        Ten element będzie obramowany i będzie posiadał czerwoną czcionkę.
+        <p>Ten element nie będzie obramowany, ale będzie posiadał czerwoną czcionkę.</p>
+        <p id="paragraf1">Paragraf 1</p>
+        <p id="paragraf2">Paragraf 2</p>
+        <p id="paragraf3">Paragraf 3</p>
+    </section>
+</body>
+
+</html>

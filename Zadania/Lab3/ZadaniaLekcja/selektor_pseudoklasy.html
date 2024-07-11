@@ -1,0 +1,42 @@
+<!-- Selektor pseudoklasy (oznaczone kolorem żółtym) oznaczony jest 
+    prefiksem ':'. Selektory pseudoklasy pozwalają tworzyć dynamiczne
+    i interaktywne efekty na stronie internetowej. Selektory te 
+    definiują jego zachowanie w danym stanie (np.: po najechaniu
+    myszką, po naciśnięciu myszką itd.) a niekoniecznie odnoszą się
+    do jego pozycji w dokumencie. -->
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selektor pseudoklasy</title>
+    <style>
+        a:hover {
+            color: crimson;
+        }
+
+        .klasa1:hover {
+            color: blueviolet;
+        }
+
+        #paragraph1:hover {
+            color: aquamarine;
+        }
+
+        input[type="text"]:hover {
+            border: 1px solid #ccc;
+            padding: 5px;
+            color: crimson;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="https://www.example.com">Najedź kursorem, aby zmienić kolor linku</a>
+    <p class="klasa1">Paragraf 1 - najedź kursorem, aby zmienić kolor</p>
+    <p id="paragraph1">Paragraf 2 - najedź kursorem, aby zmienić kolor</p>
+    <input type="text" placeholder="Napisz tutaj tekst" />
+</body>
+
+</html>

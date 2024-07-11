@@ -1,0 +1,68 @@
+body {
+    background-color: #0033A0;
+    color: #fefefe;
+    font-family: "Open Sans";
+    font-size: 18px;
+    text-align: center;
+}
+
+h1 {
+    font-style: normal;
+}
+
+fieldset {
+    border-radius: 50px;
+    border-right: 2px solid #fefefe;
+    border-bottom: 3px solid #fefefe;
+    border-left: 7px solid #fefefe;
+    border-top: 15px solid #fefefe;
+}
+
+legend {
+    text-align: left;
+    margin-left: 15px;
+}
+
+input,
+select {
+    border-radius: 15px;
+    border: 1px solid #262626;
+    background-color: #fbfbfb;
+    font-family: "Open Sans";
+    font-size: 14px;
+}
+
+#kolor {
+    border-radius: 5px;
+    padding: 0px 1px 0px 1px;
+    width: 30px;
+    height: 30px;
+}
+
+#wyszukaj {
+    padding: 5px 105px 5px 135px;
+}
+
+#od-cena,
+#do-cena,
+#data-produkcji {
+    padding: 5px 15px 5px 15px;
+    width: 150px;
+}
+
+#waluta {
+    padding: 5px 15px 5px 15px;
+}
+
+button {
+    border-radius: 15px;
+    border: 1px solid #262626;
+    background-color: #fbfbfb;
+    font-family: "Open Sans";
+    font-size: 14px;
+    color: #0033A0;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 5px 35px 5px 35px;
+    width: 150px;
+}

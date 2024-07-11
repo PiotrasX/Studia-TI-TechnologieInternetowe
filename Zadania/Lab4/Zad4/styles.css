@@ -1,0 +1,106 @@
+.nawigacja-menu {
+    width: 90vw; /* Pasek menu zajmuje zawsze 90% szerokości okna*/
+    min-width: 1000px; /* Minimalna długość paska menu */
+    margin: auto;
+}
+
+.nawigacja-menu ul {
+    font: normal 16px "Helvetica Neue", Helvetica, Arial, sans-serif; /* Czcionka paska menu */
+    margin: 0;
+    padding: 25px 0px 0px 0px; /* Dodanie odstępu na górze ekranu okna przeglądarki*/
+    text-transform: uppercase; /* Duże litery */
+    text-align: center; /* Środkowanie tekstu */
+    display: flex;
+    list-style: none;
+    position: relative; /* Dodano dla pozycjonowania ::before */
+}
+
+.nawigacja-menu li {
+    display: flex;
+    flex: 1; /* Każdy element li będzie miał równą długość */
+    justify-content: center; /* Wyśrodkowanie tekstu wewnątrz elementów li */
+    margin: 0;
+    position: relative; /* Dodano dla pozycjonowania ::before */
+}
+
+.nawigacja-menu a {
+    background: linear-gradient(rgba(0, 0, 224, 0.75), rgb(0, 0, 128));
+    color: white; /* Kolor tekstu */
+    padding: 15px 25px 15px 25px; /* Odstępy między końcem linku a początkiem napisu w linku */
+    text-decoration: none;
+    flex-grow: 1;
+}
+
+.nawigacja-menu a:hover {
+    background: rgb(0, 0, 128);
+    box-shadow: inset 0 0 10px 3px rgba(0, 0, 64, 0.3);
+}
+
+.nawigacja-menu a::before {
+    content: '▶'; /* Strzałka obok napisu */
+    display: inline-block; /* Wyświetlanie w jednej lini */
+    position: relative;
+    margin-right: 9px;
+    left: auto;
+}
+
+.nawigacja-menu a:hover::before {
+    content: '▼'; /* Strzałka obok napisu */
+    margin-right: 6px;
+}
+
+.nawigacja-menu li:first-child a {
+    border-radius: 15px 0 0 15px;
+}
+
+.nawigacja-menu li:last-child a {
+    border-radius: 0 15px 15px 0;
+}
+
+/* Style dla rozwijanego podmenu */
+.nawigacja-menu ul ul {
+    display: none; /* Ukrycie podmenu */
+    position: absolute; /* Absolutne pozycjonowanie podmenu */
+    list-style-type: none; /* Usunięcie stylów listy */
+    padding: 0;
+    margin: 50px; /* Zmiana marginesu */
+    left: 0; /* Wyświetlanie podmenu bezpośrednio pod elementem nadrzędnym */
+}
+
+.nawigacja-menu ul li:hover>ul {
+    display: flex; /* Flexbox do wyświetlania elementów w jednej linii */
+}
+
+.nawigacja-menu ul ul a::before {
+    content: '';
+}
+
+.nawigacja-menu ul ul a:hover::before {
+    content: '';
+    margin-right: 9px;
+}
+
+.nawigacja-menu ul ul li {
+    display: inline-block; /* Wyświetlanie elementów podmenu w linii */
+    padding: 5px; /* Odstęp w podmenu */
+    background: rgb(0, 0, 128); /* Tło dla podmenu */
+    box-shadow: inset 0 0 10px 3px rgba(0, 0, 64, 0.3); /* Podświata podmenu */
+}
+
+.nawigacja-menu ul ul a {
+    background: none;
+    color: white; /* Kolor tekstu */
+    padding: 15px 25px 15px 25px; /* Odstępy między końcem linku a początkiem napisu w linku */
+    text-decoration: none;
+    flex-grow: 1;
+}
+
+.nawigacja-menu ul ul li a {
+    color: white; /* Kolor tekstu w podmenu */
+    padding: 2px; /* Odstęp tekstu w podmenu */
+}
+
+/* Dodatkowe style, aby poprawić wygląd */
+.nawigacja-menu>ul>li {
+    position: relative; /* Pozycjonowanie dla absolutnego podmenu */
+}

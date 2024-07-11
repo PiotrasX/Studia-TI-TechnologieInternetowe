@@ -1,0 +1,92 @@
+<!-- Prefiksy dostawców:
+    -webkit- -> Chromium, Chrome, Safari, nowsze wersje Edge i Opera, 
+        IOS (tzn. wbudowana przeglądarka), 
+        Android (tzn. wbudowana przeglądarka);
+    -moz- -> (Mozilla) Firefox; 
+
+Właściwość (position):
+Position w CSS jest używana do określania sposobu pozycjonowania 
+elementów HTML na stronie. Zmienia sposób, w jaki dany element jest 
+rozmieszczany względem innych elementów.
+Właściwość position posiada kilka wartości:
+• static: Wartość domyślna. Elementy ustawione w trybie static są
+rozmieszczane w zależności od standardowego przepływu dokumentu, 
+a ich pozycja nie jest zmieniana przez inne właściwości pozycjonowania. 
+Użycia top, bottom, left, right oraz z-index nie mają efektu.
+• relative: Pozycjonuje element względem swojego pierwotnego położenia 
+w przepływie dokumentu. Można używać top, bottom, left i right, 
+aby przesunąć element względem jego początkowej pozycji.
+• absolute: Element jest pozycjonowany względem najbliższego elementu 
+przodków z pozycją nie będącą static, lub względem całej strony, jeśli 
+brak innych elementów z taką pozycją.
+• fixed: Podobne do absolute, ale element jest zamrożony w określonej
+pozycji względem przeglądarki. Nie zmienia swojego położenia podczas 
+przewijania strony.
+• sticky: Element zachowuje się jak relative do pewnego momentu, 
+a następnie przechodzi do trybu fixed, kiedy przewijamy stronę.
+
+Po zdefiniowaniu właściwości position za pomocą właściwosci top, left, 
+right, bottom, z-index możliwe jest określenie dokładnej pozycji danego 
+elementu html.
+• top: Określa odległość od góry elementu nadrzędnego, gdy position
+jest ustawione na absolute, fixed lub sticky. W przypadku użycia
+position: relative, top przesuwa element względem jego pierwotnej
+pozycji w przepływie dokumentu.
+• bottom: Określa odległość od dolnej krawędzi elementu nadrzędnego,
+gdy position jest ustawione na absolute, fixed lub sticky. W przypadku
+użycia position: relative, bottom przesuwa element względem jego
+pierwotnej pozycji w przepływie dokumentu.
+• left: Określa odległość od lewej krawędzi elementu nadrzędnego, gdy
+position jest ustawione na absolute, fixed lub sticky. W przypadku
+użycia position: relative, left przesuwa element względem jego pierwotnej 
+pozycji w przepływie dokumentu.
+• right: Określa odległość od prawej krawędzi elementu nadrzędnego,
+gdy position jest ustawione na absolute, fixed lub sticky. W przypadku
+użycia position: relative, right przesuwa element względem jego pierwotnej 
+pozycji w przepływie dokumentu. -->
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Właściwość - position</title>
+    <style>
+        div {
+            margin: 15px;
+            top: 100px;
+            left: 100px;
+            background-color: aquamarine;
+        }
+
+        .div1 {
+            position: static;
+        }
+
+        .div2 {
+            position: relative;
+        }
+
+        .div3 {
+            position: absolute;
+        }
+
+        .div4 {
+            position: fixed;
+        }
+
+        .div5 {
+            position: sticky;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">Kontener 1</div>
+    <div class="div2">Kontener 2</div>
+    <div class="div3">Kontener 3</div>
+    <div class="div4">Kontener 4</div>
+    <div class="div5">Kontener 5</div>
+</body>
+
+</html>
