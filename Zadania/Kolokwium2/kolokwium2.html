@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kolokwium 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="canvas" width="500px" height="500px"></canvas>
+    <script>
+        // Pobieramy referencję do canvas
+        const canvas = document.getElementById('canvas');
+        let position = { x: 200, y: 250 };
+
+        function rysujOkragWPozycji(ctx, position) {
+            ctx.beginPath();
+            // Rysujemy okrąg o średnicy 50 pikseli, 
+            // o środku w position.x, position.y. 
+            // Okrąg jest pełny, to znaczy rysowany 
+            // od 0 do 2*PI radianów.
+            ctx.arc(position.x, position.y, 50, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+
+        function rysujTrojkat(ctx, position) {
+            // Chcemy narysować dwa trójkąty, 
+            // które są złączone jednym bokiem.
+
+            ctx.fillStyle = 'black';
+            ctx.beginPath();
+            // Rozpoczynamy rysowanie w pozycji wyjściowej
+            ctx.moveTo(position.x, position.y);
+            // Kolejny wierzchołek znajduje się 50 pikseli na prawo od pozycji wyjściowej
+            ctx.lineTo(position.x + 50, position.y);
+            // Kolejny wierzchołek znajduje się 50 pikseli na prawo i 100 w górę od pozycji wyjściowej
+            ctx.lineTo(position.x + 50, position.y - 100);
+            ctx.fill();
+
+            ctx.beginPath();
+            // Tutaj rozpoczynamy rysowanie 50 pikseli na prawo od pozycji wyjściowej
+            ctx.moveTo(position.x, position.y);
+            ctx.lineTo(position.x + 100, position.y);
+            ctx.lineTo(position.x + 50, position.y - 99);
+            ctx.stroke();
+        }
+
+        function drawAllCanvas() {
+            // Kiedy canvas jest już "gotowe", to znaczy
+            // załadowe w pełni
+            if (canvas.getContext) {
+                // Pobieramy contekst do rysowania w 2D
+                const ctx = canvas.getContext("2d");
+
+                // Usuwa dotychczasową zawartość płótna
+                ctx.reset();
+
+                // Rysujemy wypełniony prostokąt
+                ctx.fillStyle = "red";
+                ctx.beginPath();
+                // 0 - lewy górny róg prostokąta na osi x
+                // 0 - lewy górny róg prostokąta na osi y
+                // 500 - szerokość prostokąta w px
+                // 30 - wysokość prostokątaw w px
+                ctx.rect(0, 0, 500, 30);
+                ctx.fill();
+
+                // Możemy wywoływać rysowanie okręgów tak
+                rysujOkragWPozycji(ctx, { x: 125, y: 130 });
+                rysujOkragWPozycji(ctx, { x: 100, y: 130 });
+
+                // Możemy również tak:
+                // Wtedy pozycja drugiego jest zależna od pierwszego
+                const first = { x: 375, y: 130 };
+                rysujOkragWPozycji(ctx, first);
+                rysujOkragWPozycji(ctx, { x: first.x + 25, y: first.y });
+
+                rysujTrojkat(ctx, position);
+            }
+        }
+
+        // Sterowanie strzałkami dla trójkąta
+        document.body.addEventListener('keydown', (e) => {
+            switch (e.key) {
+                case "ArrowUp":
+                    // Przesunięcie w górę
+                    position.y -= 5;
+                    break;
+                case "ArrowDown":
+                    // Przesunięcie w dół
+                    position.y += 5;
+                    break;
+                case "ArrowLeft":
+                    // Przesunięcie w lewo
+                    position.x -= 5;
+                    break;
+                case "ArrowRight":
+                    // Przesunięcie w prawo
+                    position.x += 5;
+                    break;
+            }
+
+            // Przerysowanie canvas po każdej zmianie pozycji
+            drawAllCanvas();
+        });
+
+        // Narysowanie canvas po raz pierwszy
+        drawAllCanvas();
+    </script>
+
+    <form action="#" onsubmit="submitForm(event)">
+        <input type="text" name="pole">
+        <!-- Domyślnie przycisk będzie submitował formularz -->
+        <button>wyślij</button>
+    </form>
+
+    <script>
+        const elems = document.forms[0].elements;
+        const input = document.forms[0].elements[0];
+
+        function submitForm(event) {
+            // Załóżmy że chcemy wymusić, 
+            // aby pole tekstowe zawierało znak '@'
+            if (!input.value.includes('@')) {
+                // Przerywamy domyślne zachowanie zdarzenia
+                event.preventDefault();
+                // Dajemy komunikat
+                alert('Brak znaku \'@\' w polu tekstowym');
+                // Rzucamy wyjątek
+                throw new Error('The value of this input must contains @.');
+            }
+            // Jeżeli wszystko jest w porządku zasadniczo formularz 
+            // zostanie wysłany wtedy zaobserwujemy w domyślnym 
+            // ustawieniu że do adresy URL dopisano wartość pola tekstowego
+        }
+    </script>
+</body>
+
+</html>

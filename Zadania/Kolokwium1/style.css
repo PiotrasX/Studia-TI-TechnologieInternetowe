@@ -1,0 +1,61 @@
+.ul-menu,
+.ul-linki {
+    list-style-type: none;
+    background-color: purple;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+
+.ul-menu>li>a,
+.ul-linki>li>a {
+    text-decoration: none;
+    color: white;
+}
+
+.ul-menu>li,
+.ul-linki>li {
+    flex-grow: 1;
+    text-align: center;
+}
+
+#rozwin-linki>.ul-linki {
+    display: none;
+}
+
+#rozwin-linki:hover>.ul-linki {
+    display: flex;
+    position: absolute;
+    width: calc(100% - 16px);
+    left: 8px;
+}
+
+main {
+    margin-top: 50px;
+}
+
+table,
+table>thead>tr>th,
+table>tbody>tr>td {
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+.lista-section>ol>li>ul {
+    list-style-type: disc;
+}
+
+.lista-section>ol>li>ul>li>ol {
+    list-style-type: upper-roman;
+}
+
+.formularz-section>form>input {
+    border-radius: 10px;
+    border: 3px solid red;
+}
+
+.formularz-section>form {
+    display: grid;
+    width: 300px;
+}
