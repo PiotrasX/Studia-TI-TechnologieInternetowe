@@ -1,0 +1,37 @@
+@import url(przykladowy-arkusz-styli.css);
+
+/*
+Klasa .justified-text
+
+Ta klasa ustawia tekst na wyjustowany.
+
+Markup: <div class="przykladowa-klasa">
+<h3>Nazwa</h3>
+<p class="justified-text">Jakis akapit. Jakiś akapit. Jakiś dłuższy tekst.</p>
+</div>
+<div class="przykladowa-klasa">
+<h3>Nazwa</h3>
+<p class="justified-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in auctor elit, non condimentum odio. Curabitur consectetur bibendum lacinia. Proin elementum cursus consequat. Maecenas posuere id nunc at semper. Sed pellentesque nibh in metus cursus rhoncus. Sed ac diam eu dui suscipit semper. Etiam ut molestie mi, non vulputate nunc. Sed lobortis erat sed ante interdum vehicula. Nullam tincidunt quam ac orci commodo, et posuere dui volutpat. Nam sit amet accumsan enim, eget tincidunt libero. Etiam semper tincidunt turpis, ultrices pretium leo cursus ut. Duis euismod sodales felis. Ut fringilla lectus eu ultricies auctor. Vestibulum ut sagittis diam. Donec id porttitor nulla, ut egestas odio.</p>
+</div>
+
+Style guide: 3.0
+*/
+.justified-text {
+    text-align: justify;
+}
+
+/*
+Klasa .klasa-z-zewnetrznym-przykladem-html
+
+Ta klasa posiada przykład w HTML w zewnętrznym pliku.
+Ponadto ma ustawiony pomocniczy kolor czcionki i ażurowy
+kolor tła.
+
+Markup: example.html
+
+Style guide: 4.0
+*/
+.klasa-z-zewnetrznym-przykladem-html {
+    color: var(--second-foreground-color);
+    background-color: azure;
+}

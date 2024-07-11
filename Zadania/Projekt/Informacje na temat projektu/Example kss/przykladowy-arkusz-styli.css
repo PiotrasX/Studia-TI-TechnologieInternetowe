@@ -1,0 +1,116 @@
+/*
+Własne właściwości
+
+--foreground-color jest to główny kolor czcionki.
+
+--second-foreground-color jest to pomocniczy kolor główny czcionki.
+
+--radius domyślnie wykorzystujemy border radius równy 10px.
+
+--standard-border jest to domyślnie wykorzystywane obramowanie.
+
+Markup: 
+<p style="color: var(--foreground-color);">Tekst napisany głównym kolorem czcionki</p> 
+<p style="color: var(--second-foreground-color);"> Tekst napisany pomocniczym kolorem czcionki</p>
+<!-- ten przycisk posiada standardowe obramowanie i zaokrąglenie obramowania -->
+<button style="border-radius: var(--radius); border: var(--standard-border);">Przycisk</button>
+
+Style guide: własne właściwości
+*/
+:root {
+    --foreground-color: #0000ff;
+    --second-foreground-color: #0000aa;
+    --radius: 10px;
+    --standard-border: 2px solid black;
+  }
+
+/*
+Klasa .przykladowa-klasa
+
+Ta klasa jest stosowana jako główny kontener pojedynczej karty.
+
+Markup: <div class="przykladowa-klasa">
+<h3>Nazwa</h3>
+<p>Jakis akapit. Jakiś akapit. Jakiś dłuższy tekst.</p>
+</div>
+
+Style guide: 1.0
+*/
+.przykladowa-klasa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--foreground-color);
+    border-radius: var(--radius);
+    border: var(--standard-border);
+}
+/*
+Zachowanie znacznika p wewnątrz klasy .przykladowa-klasa
+
+Tekst w karcie posiada ograniczoną maksymalną szerokość
+ustawioną na 200px.
+
+Markup: <div class="przykladowa-klasa">
+<h3>Nazwa</h3>
+<p>Jakis akapit. Jakiś akapit. Jakiś dłuższy tekst.</p>
+</div>
+<div class="przykladowa-klasa">
+<h3>Nazwa</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in auctor elit, non condimentum odio. Curabitur consectetur bibendum lacinia. Proin elementum cursus consequat. Maecenas posuere id nunc at semper. Sed pellentesque nibh in metus cursus rhoncus. Sed ac diam eu dui suscipit semper. Etiam ut molestie mi, non vulputate nunc. Sed lobortis erat sed ante interdum vehicula. Nullam tincidunt quam ac orci commodo, et posuere dui volutpat. Nam sit amet accumsan enim, eget tincidunt libero. Etiam semper tincidunt turpis, ultrices pretium leo cursus ut. Duis euismod sodales felis. Ut fringilla lectus eu ultricies auctor. Vestibulum ut sagittis diam. Donec id porttitor nulla, ut egestas odio.</p>
+</div>
+
+Style guide: 1.1
+*/
+.przykladowa-klasa p {
+    max-width: 200px;
+}
+
+/*
+Klasa .card-container
+
+Ta klasa to kontener, który zawiera karty. Na desktopie
+będzie stosowany układ 3 kolumny i ile będzie potrzeba wierszy.
+Mobilnie układ zostanie zmodyfikowany do postaci, w której jest
+jedna kolumna i ile potrzeba wierszy.
+
+Markup: 
+<div class="card-container">
+<div class="przykladowa-klasa">
+<h3>Nazwa</h3>
+<p>Jakis akapit. Jakiś akapit. Jakiś dłuższy tekst.</p>
+</div>
+<div class="przykladowa-klasa">
+<h3>Nazwa</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in auctor elit, non condimentum odio. Curabitur consectetur bibendum lacinia. Proin elementum cursus consequat. Maecenas posuere id nunc at semper. Sed pellentesque nibh in metus cursus rhoncus. Sed ac diam eu dui suscipit semper. Etiam ut molestie mi, non vulputate nunc. Sed lobortis erat sed ante interdum vehicula. Nullam tincidunt quam ac orci commodo, et posuere dui volutpat. Nam sit amet accumsan enim, eget tincidunt libero. Etiam semper tincidunt turpis, ultrices pretium leo cursus ut. Duis euismod sodales felis. Ut fringilla lectus eu ultricies auctor. Vestibulum ut sagittis diam. Donec id porttitor nulla, ut egestas odio.</p>
+</div>
+<div class="przykladowa-klasa">
+<h3>Nazwa</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in auctor elit, non condimentum odio. Curabitur consectetur bibendum lacinia. Proin elementum cursus consequat. Maecenas posuere id nunc at semper. Sed pellentesque nibh in metus cursus rhoncus. Sed ac diam eu dui suscipit semper. Etiam ut molestie mi, non vulputate nunc. Sed lobortis erat sed ante interdum vehicula. Nullam tincidunt quam ac orci commodo, et posuere dui volutpat. Nam sit amet accumsan enim, eget tincidunt libero. Etiam semper tincidunt turpis, ultrices pretium leo cursus ut. Duis euismod sodales felis. Ut fringilla lectus eu ultricies auctor. Vestibulum ut sagittis diam. Donec id porttitor nulla, ut egestas odio.</p>
+</div>
+<div class="przykladowa-klasa">
+<h3>Nazwa</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in auctor elit, non condimentum odio. Curabitur consectetur bibendum lacinia. Proin elementum cursus consequat. Maecenas posuere id nunc at semper. Sed pellentesque nibh in metus cursus rhoncus. Sed ac diam eu dui suscipit semper. Etiam ut molestie mi, non vulputate nunc. Sed lobortis erat sed ante interdum vehicula. Nullam tincidunt quam ac orci commodo, et posuere dui volutpat. Nam sit amet accumsan enim, eget tincidunt libero. Etiam semper tincidunt turpis, ultrices pretium leo cursus ut. Duis euismod sodales felis. Ut fringilla lectus eu ultricies auctor. Vestibulum ut sagittis diam. Donec id porttitor nulla, ut egestas odio.</p>
+</div>
+<div class="przykladowa-klasa">
+<h3>Nazwa</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in auctor elit, non condimentum odio. Curabitur consectetur bibendum lacinia. Proin elementum cursus consequat. Maecenas posuere id nunc at semper. Sed pellentesque nibh in metus cursus rhoncus. Sed ac diam eu dui suscipit semper. Etiam ut molestie mi, non vulputate nunc. Sed lobortis erat sed ante interdum vehicula. Nullam tincidunt quam ac orci commodo, et posuere dui volutpat. Nam sit amet accumsan enim, eget tincidunt libero. Etiam semper tincidunt turpis, ultrices pretium leo cursus ut. Duis euismod sodales felis. Ut fringilla lectus eu ultricies auctor. Vestibulum ut sagittis diam. Donec id porttitor nulla, ut egestas odio.</p>
+</div>
+</div>
+
+Style guide: 2.0
+*/
+.card-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+    gap: 10px;
+}
+
+@media screen and (max-width:500px) {
+    .card-container {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        gap: 10px;
+    }
+}

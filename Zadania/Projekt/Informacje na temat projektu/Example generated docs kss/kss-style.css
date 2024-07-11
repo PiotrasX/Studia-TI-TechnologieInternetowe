@@ -1,0 +1,43 @@
+:root {
+    --foreground-color: #0000ff;
+    --second-foreground-color: #0000aa;
+    --radius: 10px;
+    --standard-border: 2px solid black;
+  }
+  .przykladowa-klasa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--foreground-color);
+    border-radius: var(--radius);
+    border: var(--standard-border);
+}
+
+.przykladowa-klasa p {
+    max-width: 200px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+    gap: 10px;
+}
+
+@media screen and (max-width:500px) {
+    .card-container {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        gap: 10px;
+    }
+}
+
+.justified-text {
+    text-align: justify;
+}
+
+.klasa-z-zewnetrznym-przykladem-html {
+    color: var(--second-foreground-color);
+    background-color: azure;
+}

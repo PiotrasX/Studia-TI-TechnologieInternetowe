@@ -1,0 +1,3 @@
+# This is the generated styleguide
+
+Ten szablon HTML i CSS powstał ...
