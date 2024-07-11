@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: ciasteczka.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: ciasteczka.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Importuje funkcje niezbędne do wykonania i stworzenia animacji.
+ */
+import { wykonajAnimacje, stworzAnimacje } from './zlozonaAnimacja.js';
+
+/**
+ * Sprawdza, czy sesja użytkownika została już ustawiona, jeśli nie, inicjalizuje proces ustawiania ciasteczek.
+ */
+if (sessionStorage.getItem("nazwaUzytkownikaSesja") === null) 
+{ 
+    /**
+     * Ustawia ciasteczko w przeglądarce użytkownika.
+     * @param {string} nazwa - Nazwa ciasteczka.
+     * @param {string} wartosc - Wartość ciasteczka.
+     * @param {number} dni - Liczba dni, po której ciasteczko wygaśnie.
+     */
+    function ustawCiasteczko(nazwa, wartosc, dni) 
+    {
+        let wygasa = "";
+        if (dni) 
+        {
+            let data = new Date();
+            data.setTime(data.getTime() + (dni * 24 * 60 * 60 * 1000));
+            wygasa = "; expires=" + data.toUTCString();
+        }
+        document.cookie = nazwa + "=" + (wartosc || "") + wygasa + "; path=/";
+    }
+
+    /**
+     * Pobiera wartość ciasteczka na podstawie jego nazwy.
+     * @param {string} nazwa - Nazwa ciasteczka do pobrania.
+     * @returns {string|null} - Wartość ciasteczka lub null, jeśli ciasteczko o podanej nazwie nie istnieje.
+     */
+    function pobierzCiasteczko(nazwa) 
+    {
+        let nazwaRowna = nazwa + "=";
+        let wszystkieCiasteczka = document.cookie.split(';');
+        for(let i = 0; i &lt; wszystkieCiasteczka.length; i++) 
+        {
+            let ciasteczko = wszystkieCiasteczka[i];
+            while (ciasteczko.charAt(0) == ' ') ciasteczko = ciasteczko.substring(1, ciasteczko.length);
+            if (ciasteczko.indexOf(nazwaRowna) == 0) return ciasteczko.substring(nazwaRowna.length, ciasteczko.length);
+        }
+        return null;
+    }
+
+    /**
+     * Sprawdza, czy to pierwsza wizyta użytkownika na stronie, a jeśli tak, to prosi o podanie imienia.
+     * Następnie wywołuje animacje.
+     */
+    function sprawdzPierwszaWizyte() 
+    {
+        stworzAnimacje();
+        setTimeout(function()
+        {
+            let uzytkownik = pobierzCiasteczko("nazwaUzytkownika");
+            sessionStorage.setItem("nazwaUzytkownikaSesja", uzytkownik);
+            if (uzytkownik != null || uzytkownik == "") alert("Witaj ponownie, " + uzytkownik + "!"); 
+            else 
+            {
+                uzytkownik = prompt("Jak masz na imię?", "");
+                while (uzytkownik == null || uzytkownik == "") { uzytkownik = prompt("Musisz podać swoję imię! Jak masz na imię?", ""); }
+                ustawCiasteczko("nazwaUzytkownika", uzytkownik, 365);
+                alert("Witaj, " + uzytkownik + "!");
+            }
+            wykonajAnimacje();
+        }, 25);
+    }
+
+    /**
+     * Opóźnione sprawdzenie pierwszej wizyty po załadowaniu okna.
+     */
+    window.onload = function() { setTimeout(sprawdzPierwszaWizyte, 50); }; 
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#aktualizujDoty">aktualizujDoty</a></li><li><a href="global.html#aktualizujDotyOfertaWidocznoscRozmiar">aktualizujDotyOfertaWidocznoscRozmiar</a></li><li><a href="global.html#aktualizujStyl">aktualizujStyl</a></li><li><a href="global.html#aktualizujZegar">aktualizujZegar</a></li><li><a href="global.html#czekaj">czekaj</a></li><li><a href="global.html#divObrazWidth">divObrazWidth</a></li><li><a href="global.html#divSlidesHeight">divSlidesHeight</a></li><li><a href="global.html#formatujCzas">formatujCzas</a></li><li><a href="global.html#inicjalizujCzas">inicjalizujCzas</a></li><li><a href="global.html#paddingPoziomeImg">paddingPoziomeImg</a></li><li><a href="global.html#pobierzCiasteczko">pobierzCiasteczko</a></li><li><a href="global.html#pokazSlajd">pokazSlajd</a></li><li><a href="global.html#rowGapImg">rowGapImg</a></li><li><a href="global.html#slajdID">slajdID</a></li><li><a href="global.html#sprawdzPierwszaWizyte">sprawdzPierwszaWizyte</a></li><li><a href="global.html#stworzAnimacje">stworzAnimacje</a></li><li><a href="global.html#tempKlasaBackKolor">tempKlasaBackKolor</a></li><li><a href="global.html#tempKlasaKolor">tempKlasaKolor</a></li><li><a href="global.html#uruchomCoSekunde">uruchomCoSekunde</a></li><li><a href="global.html#ustawAktualnySlajd">ustawAktualnySlajd</a></li><li><a href="global.html#ustawCiasteczko">ustawCiasteczko</a></li><li><a href="global.html#ustawDzisiejszaDate">ustawDzisiejszaDate</a></li><li><a href="global.html#wykonajAnimacje">wykonajAnimacje</a></li><li><a href="global.html#zmienSlajd">zmienSlajd</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Feb 06 2024 11:51:00 GMT+0100 (czas środkowoeuropejski standardowy)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

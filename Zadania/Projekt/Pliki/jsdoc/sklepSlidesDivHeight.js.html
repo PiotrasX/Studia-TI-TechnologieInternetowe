@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: sklepSlidesDivHeight.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: sklepSlidesDivHeight.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Dostosowuje maksymalną wysokość slajdów na podstawie zawartości obrazów i tekstów.
+ * Funkcja jest wywoływana przy załadowaniu strony oraz przy każdej zmianie jej rozmiaru.
+ */
+function divSlidesHeight() 
+{ 
+    /**
+     * Wybiera wszystkie kontenery slajdów o klasie '.slides-div'.
+     * @type {NodeListOf&lt;HTMLDivElement>}
+     */
+    let slidesDivs = document.querySelectorAll('.slides-div');
+
+    /**
+     * Wartość jednostki 'em' wyrażona w pikselach, używana jako dodatkowy margines.
+     * @type {number}
+     */
+    let emWPixelach = 16;
+
+    /**
+     * Sprawdza, czy znaleziono kontenery slajdów.
+     */
+    if (slidesDivs) 
+    {
+        slidesDivs.forEach((slidesDiv) => 
+        {
+            /**
+             * Wybiera obraz i tekst z każdego slajdu.
+             */
+            let obraz = slidesDiv.querySelector('.obraz img');
+            let tekst = slidesDiv.querySelector('.tekst');
+
+            /**
+             * Sprawdza, czy znaleziono oba elementy: obraz i tekst.
+             */
+            if (obraz &amp;&amp; tekst) 
+            {
+                /**
+                 * Ustawia maksymalną wysokość obrazu równą jego szerokości.
+                 */
+                let obrazSzer = obraz.offsetWidth;
+                obraz.style.maxHeight = obrazSzer + 'px';
+
+                /**
+                 * Oblicza całkowitą wysokość tekstów wraz z marginesami i paddingami.
+                 */
+                let tekstWys = 0;
+                let tekstDzieci = tekst.children;
+                for (let i = 0; i &lt; tekstDzieci.length; i++) 
+                {
+                    let dziecko = tekstDzieci[i];
+                    let dzieckoStyle = window.getComputedStyle(dziecko);
+                    tekstWys += dziecko.offsetHeight;
+                    tekstWys += parseInt(dzieckoStyle.marginBottom);
+                    tekstWys += parseInt(dzieckoStyle.paddingBottom);
+                }
+                tekst.style.maxHeight = tekstWys + 'px';
+                
+                /**
+                 * Ustawia maksymalną wysokość całego slajdu w zależności od szerokości okna przeglądarki.
+                 */
+                if (window.innerWidth &lt;= 896)
+                    slidesDiv.style.maxHeight = tekstWys + obrazSzer + (emWPixelach * 2) + 'px';
+                else
+                    slidesDiv.style.maxHeight = Math.max(tekstWys, obrazSzer + emWPixelach) + 'px';
+            }
+        });
+    }
+}
+window.onload = divSlidesHeight;
+window.onresize = divSlidesHeight;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#aktualizujDoty">aktualizujDoty</a></li><li><a href="global.html#aktualizujDotyOfertaWidocznoscRozmiar">aktualizujDotyOfertaWidocznoscRozmiar</a></li><li><a href="global.html#aktualizujStyl">aktualizujStyl</a></li><li><a href="global.html#aktualizujZegar">aktualizujZegar</a></li><li><a href="global.html#czekaj">czekaj</a></li><li><a href="global.html#divObrazWidth">divObrazWidth</a></li><li><a href="global.html#divSlidesHeight">divSlidesHeight</a></li><li><a href="global.html#formatujCzas">formatujCzas</a></li><li><a href="global.html#inicjalizujCzas">inicjalizujCzas</a></li><li><a href="global.html#paddingPoziomeImg">paddingPoziomeImg</a></li><li><a href="global.html#pobierzCiasteczko">pobierzCiasteczko</a></li><li><a href="global.html#pokazSlajd">pokazSlajd</a></li><li><a href="global.html#rowGapImg">rowGapImg</a></li><li><a href="global.html#slajdID">slajdID</a></li><li><a href="global.html#sprawdzPierwszaWizyte">sprawdzPierwszaWizyte</a></li><li><a href="global.html#stworzAnimacje">stworzAnimacje</a></li><li><a href="global.html#tempKlasaBackKolor">tempKlasaBackKolor</a></li><li><a href="global.html#tempKlasaKolor">tempKlasaKolor</a></li><li><a href="global.html#uruchomCoSekunde">uruchomCoSekunde</a></li><li><a href="global.html#ustawAktualnySlajd">ustawAktualnySlajd</a></li><li><a href="global.html#ustawCiasteczko">ustawCiasteczko</a></li><li><a href="global.html#ustawDzisiejszaDate">ustawDzisiejszaDate</a></li><li><a href="global.html#wykonajAnimacje">wykonajAnimacje</a></li><li><a href="global.html#zmienSlajd">zmienSlajd</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Feb 06 2024 11:51:00 GMT+0100 (czas środkowoeuropejski standardowy)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
