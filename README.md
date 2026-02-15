@@ -40,7 +40,7 @@ Repozytorium zawiera rozwiązania zadań opracowane w ramach przedmiotu **Techno
   - Modułowość kodu.  
   - Praca z API.  
   - Zapisywanie stanu aplikacji (localStorage).  
-- Tworzenie komponentów UI.  
+- Tworzenie interaktywnych komponentów UI.  
 - Podstawy SEO i optymalizacji strony internetowej.  
 
 ---
