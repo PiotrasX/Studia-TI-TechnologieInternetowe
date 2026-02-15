@@ -8,9 +8,9 @@ Repozytorium zawiera rozwiązania zadań opracowane w ramach przedmiotu **Techno
 
 ## 📁 Struktura repozytorium
 
-- `LabX` – Zadania realizowane podczas zajęć laboratoryjnych. Obejmują tworzenie stron internetowych z wykorzystaniem HTML5, CSS3 oraz JavaScript. Materiał zawiera ćwiczenia z zakresu layoutu, pozycjonowania, animacji CSS, formularzy, SEO oraz zapisywania stanu aplikacji.  
-- `KolokwiumX` – Zadania realizowane samodzielnie, obejmujące przygotowania do kolokwium z przedmiotu.  
-- `Projekt` – Projekt końcowy przedmiotu, obejmujący wielostronicową stronę internetową z wykorzystaniem HTML, CSS i JavaScript. Projekt zawiera między innymi: obsługę zdarzeń, manipulację DOM, zapisywanie danych w localStorage, moduły JavaScript, animacje, interaktywne komponenty oraz integrację z API.  
+- `LabX` – Zadania realizowane podczas zajęć laboratoryjnych. Obejmują tworzenie stron internetowych z wykorzystaniem HTML5, CSS3 oraz JavaScript (ES6). Materiał zawiera ćwiczenia z zakresu układu i responsywności strony, pozycjonowania, animacji CSS, formularzy, SEO oraz zapisywania stanu aplikacji w przeglądarce.  
+- `KolokwiumX` – Zadania realizowane samodzielnie jako przygotowanie do kolokwium z przedmiotu.  
+- `Projekt` – Projekt końcowy obejmujący wielostronicową, responsywną stronę internetową z wykorzystaniem HTML, CSS i JavaScript. Projekt zawiera między innymi: obsługę zdarzeń, manipulację DOM, wykorzystanie JSON, zapisywanie danych w localStorage, modułowość kodu, animacje oraz interaktywne komponenty.  
 - `Projekt/Pliki/jsdoc` – Wygenerowana dokumentacja kodu JavaScript przy użyciu JSDoc.  
 - `Projekt/Pliki/styleguide` – Dokumentacja komponentów stylu wygenerowana przy użyciu KSS (Style Guide).  
 
@@ -27,19 +27,18 @@ Repozytorium zawiera rozwiązania zadań opracowane w ramach przedmiotu **Techno
 ## 🔍 Zakres tematyczny
 
 - Tworzenie struktury dokumentu HTML5.  
-- Stylowanie i layout z użyciem CSS3:  
-  - Flexbox.  
-  - Pozycjonowanie.  
+- Układ strony i stylowanie z użyciem CSS3:  
+  - Pozycjonowanie elementów.  
   - Animacje i keyframes.  
   - Media queries.  
-  - Pseudo-elementy i pseudo-klasy.  
+  - Pseudo-klasy i pseudo-elementy.  
 - Programowanie w JavaScript:  
+  - Deklaracje zmiennych.  
   - Obsługa zdarzeń.  
   - Manipulacja DOM.  
   - Funkcje asynchroniczne.  
-  - Modułowość kodu.  
-  - Praca z API.  
-  - Zapisywanie stanu aplikacji (localStorage).  
+  - Praca z JSON i API.  
+  - Zapisywanie stanu aplikacji.  
 - Tworzenie interaktywnych komponentów UI.  
 - Podstawy SEO i optymalizacji strony internetowej.  
 
