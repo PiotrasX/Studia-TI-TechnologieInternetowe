@@ -18,9 +18,9 @@ Repozytorium zawiera rozwiązania zadań opracowane w ramach przedmiotu **Techno
 
 ## ⚙️ Wykorzystane technologie
 
-- `Technologie:` HTML5, CSS3, JavaScript (ES6)  
-- `Narzędzia dokumentacyjne:` JSDoc, KSS (Style Guide)  
-- `Środowiska programistyczne (IDE):` Visual Studio Code
+- `Technologie:` HTML5, CSS3, JavaScript (ES6).  
+- `Narzędzia dokumentacyjne:` JSDoc, KSS (Style Guide).  
+- `Środowiska programistyczne (IDE):` Visual Studio Code.  
 
 ---
 
