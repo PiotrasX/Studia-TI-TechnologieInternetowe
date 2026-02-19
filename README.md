@@ -1,4 +1,4 @@
-# 📘 Studia – TI - Technologie Internetowe
+# 📘 Studia – TI – Technologie Internetowe
 
 Repozytorium zawiera rozwiązania zadań opracowane w ramach przedmiotu **Technologie Internetowe**, realizowanego na Uniwersytecie Rzeszowskim podczas trzeciego (3) semestru studiów inżynierskich na kierunku Informatyka.  
 
